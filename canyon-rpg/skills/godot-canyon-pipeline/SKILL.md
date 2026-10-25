@@ -18,3 +18,6 @@ Read project AGENTS.md, prompts/en/P*.md and relevant previous gate report. Use 
 - Stop at phase gate for review.
 
 The original uploaded godot-clay-render-options ZIP was incomplete and contained zero-byte .qkdownloading entries, so those shaders/templates are not installed.
+## Source-backed workflow retrieval
+
+Consult `reference/canitcode/AGENT_INDEX.md` **before** applying channel techniques. It maps P0–P5 to the timestamped transcript files; use the local `reference/canitcode/scripts/search_kb.py` for exact keyword retrieval and `visual_index/` for secondary visual descriptions. Do not treat transcription or visual-index summaries as verified source footage; include YouTube timecode and label inference. Source rights information: `reference/canitcode/PROVENANCE.md`.

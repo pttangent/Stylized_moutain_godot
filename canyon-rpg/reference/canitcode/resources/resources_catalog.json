@@ -1,0 +1,103 @@
+{
+  "channel_overview": {
+    "channel_name": "Can It Code?",
+    "handle": "@CanItCode",
+    "channel_id": "UC1nYVdCZZr7XgeKlXEXAIww",
+    "url": "https://www.youtube.com/@CanItCode",
+    "subscribers": "17.2K+",
+    "total_indexed_videos": 33,
+    "creator_background": "Polish AI game developer building a commercial stylized survival game set in the Polish Beskids mountains for Steam alongside his brother (who runs the companion channel 'AI Dev Challenge'), while running rigorous head-to-head AI coding & 3D game-building benchmarks."
+  },
+  "core_engines_and_3d_pipeline": [
+    {
+      "name": "Godot Engine 4.x (with Jolt Physics)",
+      "role": "Primary game engine across 95% of videos",
+      "workflow_notes": "Agents edit plain-text .tscn, .gd, and .gdshader files directly without an MCP server. Uses Godot Jolt physics for shatterable glass, destructible shelves, and 1,700-beam BeamNG vehicle destruction, plus MultiMesh for 1,600-unit armies and forest foliage.",
+      "url": "https://godotengine.org/"
+    },
+    {
+      "name": "Blender (Headless Python Scripting + Gauntlet Loop)",
+      "role": "Procedural 3D modeling, UV unwrapping, decimation, rigging & animation retargeting",
+      "workflow_notes": "Instead of interactive Blender MCP clicking, AI agents write standalone Python scripts executed via headless Blender CLI. Uses the 'Gauntlet Loop': a Builder Agent generates the mesh, renders multi-angle previews, an independent Critic Agent inspects the renders against the reference image + Color Bible, and a numeric validator checks exact bounding-box dimensions.",
+      "url": "https://www.blender.org/"
+    },
+    {
+      "name": "Unreal Engine 5",
+      "role": "Used in latest monster/Griffin animation showcase & early horror tests",
+      "workflow_notes": "Used to test the retargeted Griffin locomotion/takeoff/flight animations in 'I Tested 9 AI Video Models for Game Animation. Most Failed'.",
+      "url": "https://www.unrealengine.com/"
+    }
+  ],
+  "ai_3d_and_animation_tools": [
+    {
+      "name": "Tripo 3D (Smart Mesh 2.0 / P2.0 & Tripo CLI)",
+      "role": "AI 3D asset & character generation from multi-view orthographic drawings",
+      "workflow_notes": "Best results achieved by having GPT-6 Astra draw front + side + mirrored-side orthographic views on a dark background, generating quad-topology meshes in Tripo P2.0, unwrapping with Smart UV, and repacking into shared Texture Atlases. Automated via Tripo CLI with single-submission credit locks.",
+      "url": "https://www.tripo3d.ai/"
+    },
+    {
+      "name": "NVIDIA Kimodo (Open-Source Text-to-Motion)",
+      "role": "Free humanoid character animation generation from single-sentence prompts & path constraints",
+      "workflow_notes": "Trained on 700+ hours of real optical mocap. Exports BVH and NPZ bone rotations. Retargeted to custom Mixamo/Tripo rigs via a 5-step Blender Python script (<3° bone error).",
+      "url": "https://github.com/NVlabs/kimodo"
+    },
+    {
+      "name": "Custom 2-Camera AI Video Motion Capture Pipeline (UniRig + Meta DINO + Seedance/MiniMax/Wan/Kling)",
+      "role": "Animating arbitrary non-humanoid monsters (Griffin, Troll, Lizard, Wraith, Deer, Bear, Hare, Pheasant)",
+      "workflow_notes": "1) Auto-rig 3D model with UniRig + geometric symmetry validator; 2) Render 3,000 synthetic blurred poses from front+side cameras to fine-tune Meta DINO (30 mins on GPU); 3) Render front+side composite frame of monster and animate in Seedance 2.0/2.5 or MiniMax on Higgsfield; 4) Triangulate 2D DINO joint detections into 3D bone rotations.",
+      "url": "https://higgsfield.ai/"
+    },
+    {
+      "name": "Meshy AI",
+      "role": "Character & Uruk-hai 3D mesh generation with polycount control",
+      "workflow_notes": "Used in 'Stop Asking AI To Build The Whole Game At Once' (8k poly snow survivor) and 'I Asked Two AIs to Rebuild Helm's Deep' (<4k poly Uruk-hai).",
+      "url": "https://www.meshy.ai/"
+    },
+    {
+      "name": "CMU Motion Capture Database & Adobe Mixamo",
+      "role": "Free human motion capture libraries (BVH/FBX)",
+      "workflow_notes": "Used for log-carrying shoulder animations, archery retargeting, and harbor character locomotion.",
+      "url": "https://mocap.cs.cmu.edu/"
+    },
+    {
+      "name": "Tezana AI (Prompt-to-Godot Prototype Generator)",
+      "role": "Sponsored benchmark comparison against custom Opus 5 workflow",
+      "workflow_notes": "Generates playable Godot prototypes in 20–30 minutes and exports full Godot projects for local agent continuation.",
+      "url": "https://www.youtube.com/watch?v=upEVSdEb0lA"
+    }
+  ],
+  "ai_coding_models_benchmarked": [
+    {
+      "name": "Claude Opus 5.5 / Opus 5 / Sonnet 5.5 / Fable 5.1 / Fable 5 (via Claude Code in VS Code)",
+      "role": "Primary orchestrator, GDScript mechanics engineer, and headless Blender coder",
+      "workflow_notes": "Consistently top-ranked on complex physics (1,700-beam BeamNG car destruction, shallow-water river solver, snow physics, custom DINO animation tool) and atmospheric lighting."
+    },
+    {
+      "name": "OpenAI GPT-6 Astra / GPT-6.1 Sol / GPT-5.6 Sol (via Codex CLI / VS Code Extension)",
+      "role": "Concept art / orthographic reference generator, texture synthesis, and co-developer on the Steam survival game",
+      "workflow_notes": "GPT-6 Astra excels at generating front/side orthographic reference sheets, seamless concrete/tile textures, and long-session building mechanics (floor/wall/window axe-cutting)."
+    },
+    {
+      "name": "Kimi K3, Grok 4.5, GLM",
+      "role": "Benchmarked in multi-model elimination tournaments and classic game rebuilds",
+      "workflow_notes": "Kimi K3 noted for strong visual aesthetics at 5x lower API cost than Opus 5, though weaker on complex 3D physics."
+    }
+  ],
+  "external_datasets_and_sources": [
+    {
+      "name": "Poland Geoportal (DEM Elevation Data) & OpenStreetMap",
+      "role": "Real-world 8x8 km Beskids mountain heightmaps (2.5 MB grid) and road/river splines",
+      "url": "https://mapy.geoportal.gov.pl/"
+    },
+    {
+      "name": "PolyHaven, Sketchfab (CC Attribution), Pixabay Audio",
+      "role": "Free PBR textures, CC-licensed base meshes for decimation tests, and royalty-free sound effects",
+      "url": "https://polyhaven.com/"
+    },
+    {
+      "name": "Can It Code? Patreon & Companion Channel (AI Dev Challenge)",
+      "role": "Downloadable Godot/Blender source projects (Dungeon kit, Swamp Village kit, Cyberpunk City, BeamNG Accord crash project) and co-op Steam survival devlogs",
+      "url": "https://www.youtube.com/@CanItCode"
+    }
+  ]
+}
