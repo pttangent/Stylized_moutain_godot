@@ -1,0 +1,28 @@
+# P3-A — 模組資產盤點與精確正交三視圖
+
+你是 3D 遊戲資產規劃和技術參考圖設計師。
+
+## 必讀教學
+Modular Village（先畫明確零件、正側視圖、尺寸與不可缺少的孔洞）：
+https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/reference/canitcode/transcripts/57QEdTgUC3c_stop-asking-ai-for-whole-houses-opus-5-5-tripo.md
+
+Cyberpunk City（模組庫、程序化幾何與圖生 3D 的比較）：
+https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/reference/canitcode/transcripts/XqtnBlPJ6KE_is-this-really-ai-insane-opus-5-5-gamedev-workflow.md
+
+直接遠端閱讀完整時間戳逐字稿，不預設本地已 Clone。
+
+## 輸入
+峽谷原圖、已確認 P0 空間、P2 Style Bible、現有資產與參考圖；先查重再新增。
+
+## 工作
+1. 盤點地形、岩壁、橋面／支撐、階梯、欄杆、柵欄、河岸石頭、主要樹種、灌木、草地與擺件。
+2. 以「可重複使用的資產家族」合併相似物件，不為每棵樹、每個石頭獨立建模。先處理 P2 已確認的樣板資產。
+3. 為每個家族建立唯一 ID、尺寸（m）、Pivot、接合點、碰撞、視覺用途、製作方法與預估重複次數。
+4. 分類：地形／岩壁／橋階等結構以 Blender Python 為主；小型特殊擺件可採正交圖和圖生 3D；水體以幾何／Shader；草與葉以 Atlas 與實例化。
+5. 真正需要三視圖的獨特物件，製作嚴格正視、側視；必要時增加頂視或背視。角度之間形狀、比例、顏色和拓撲保持一致。
+6. 背景透明或純色，無透視傾斜、不截斷、沒有干擾陰影或懸空結構；被遮擋面需標示為推測。
+7. 加入負面幾何規範：不要多餘尖刺、突出物、孔洞、不合理封死的開口與任意裝飾。
+8. 先驗收每種零件的一組視圖，不急著生產多個變體。
+
+## 交付
+docs/asset_manifest.csv（ID、尺寸、重用優先度和製法）、各零件正交圖或完整生圖提示詞、品質驗收規範及 reports/P3A_references.md。不花費 3D 生成點數，也不直接建模。
