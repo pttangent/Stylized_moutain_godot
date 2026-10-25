@@ -60,7 +60,22 @@ Focus on **00:01:28–00:01:48** overhead planning → simple block grid → pla
 2. Parse SPZ metadata with the correct format version. Do not assume Gaussian centers are traversable surfaces, and do not include long-distance splat/background outliers in terrain bounds.
 3. Test whether SPZ and collider occupy matching **RAW coordinate spaces** through measured spatial nearest-neighbor statistics; do not blindly transpose axes. The GLB renderer's up-axis and actual terrain vertical are separate questions. Avoid assuming raw length units equal metric meters.
 4. Generate diagnostic top/front/side projections and **multiple axis hypotheses** with explicit masks and height units. Label all such rasters `UNAPPROVED_RAW_SURFACE_CANDIDATE`, not a Godot terrain heightmap.
-5. Record what the world model added: possible depth layers, relative geometry, occlusion candidates and candidate 3D anchors; also record violations of original reference and imagined geometry.
+5. Produce a reproducible **collider surface evidence bundle** for downstream P0-B/P1. Include a generator script and metadata manifest, not only a screenshot. At minimum provide top-down candidate minimum/maximum elevations and valid-sample coverage for each plausible vertical-axis hypothesis, plus top/front/side projections. Keep RAW_GLTF coordinates/units separate from any Godot transform or designer-selected metric scale. If a metric design transform is applied for comparison, label it `AUTHOR_SELECTED_GAME_SCALE`, retain the raw-unit version, and never describe it as measured meters.
+6. Derive candidate surface rasters using verified face orientation and explicit normal thresholds. Do not use `abs(normal·up)` and then call both upward and downward faces “up-facing”; report the exact filter. Preserve NoData, per-cell hit/sample counts or equivalent coverage, and separate min/max/selected hits. State clearly that these are candidate collider surfaces: even upward-facing faces may be canopy, water, bridge, background shell or props. Do not call them ground or walkable masks without semantic review.
+7. Overlay P0 landmark, water and navigation nodes on the candidate maps for comparison. Keep image annotations and P0 authored heightmap distinct from collider measurements. Record disagreements, missing coverage, clipping bounds and outliers.
+8. Record what the world model added: possible depth layers, relative geometry, occlusion candidates and candidate 3D anchors; also record violations of original reference and imagined geometry.
+
+### Collider surface evidence bundle contract
+
+Create this under the dated analysis run, for example `analysis/<run-id>/world_model_evidence/`:
+
+- `manifest.json`: source world ID and GLB SHA-256; raw coordinate bounds; each transform and unit status; axis hypotheses; raster bounds/resolution; normal/filter method; coverage counts; output filenames; and limitations.
+- `build_surface_evidence.py`: rerunnable generator that applies each transform exactly once and writes the evidence maps/data.
+- `surface_candidates_raw/`: raw-unit top/front/side maps and per-axis candidate minimum/maximum elevation rasters with NoData/coverage.
+- `surface_candidates_design/` (only if an authored metric design scale exists): separate transformed maps explicitly marked as design-scale comparisons.
+- A comparison image with stable P0 landmark IDs and authored route/water nodes. Do not draw the overlays as if they are measured collider geometry.
+
+If a supplied world model cannot produce these diagnostics, mark the evidence bundle `BLOCKED`, record the actual error and continue only with the image-only branch when `world_model.mode` permits it. Never invent candidate surfaces to satisfy the file list.
 
 ## P0-A-3 — Image ↔ world registration
 
@@ -85,6 +100,7 @@ Focus on **00:01:28–00:01:48** overhead planning → simple block grid → pla
 - In a new dated `analysis/` directory, a `blueprint/scene_blueprint_draft.json` with image points, optional measured raw world coordinates, ID continuity, coordinate definitions, provisional sizes and P0-A gates. The existing registered candidate is at `analysis/p0_marble_2026-10-26/blueprint/scene_blueprint_registered_candidate.json`.
 - In that analysis directory, `blueprint/water_graph_proposed.json` and `blueprint/navigation_graph_proposed.json` with statuses and uncertainty; do not overwrite the active `blueprint/water_graph.json` or `blueprint/navigation_graph.json` during analysis.
 - Image landmark overlay, raw axis projections and paired-geometry review if a model is supplied. The current source-camera reprojection image is `analysis/p0_marble_2026-10-26/registration/camera_reprojection_review.jpg`.
+- The reproducible collider surface evidence bundle described above, with raw-unit candidates separate from any author-scaled Godot comparison. Link its manifest, generator and preview images from the P0 report.
 - World evidence, source-camera candidate, P0-A spatial analysis and an explicit unknown/assumption register. The current evidence lives under `analysis/p0_marble_2026-10-26/`; `reports/P0_report.md` records the separate authored P0-B design.
 - A clear `APPROVED | DRAFT | BLOCKED` stage state. If optional world model is absent, execute the image-only branch with UNKNOWN XYZ and do not fabricate the extra data.
 

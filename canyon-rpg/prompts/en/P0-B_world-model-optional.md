@@ -35,12 +35,13 @@ Use overhead grid layout, player-scale blockout and connection tests as design p
 1. Active project root and original source images; inspect git status before file changes.
 2. The existing `analysis/p0_marble_2026-10-26/blueprint/scene_blueprint_registered_candidate.json`, reviewed landmark file, camera evidence and current `blueprint/scene_blueprint.json`; use a new dated analysis directory for any changed P0-A proposal.
 3. `world_model.mode: auto | none | required` (default `auto`) and optional actual GLB + SPZ + manifest.
-4. When using a model: approved `raw_to_godot_transform`, `meters_per_raw_unit`, `source_camera_fit`, paired 2D↔3D landmark observations, masks identifying true ground, rivers, bridges, stairs, cliffs and sky/vegetation exclusions.
+4. When using a model: the P0-A collider surface evidence bundle (raw candidates, optional design-scale comparison, metadata and generator), candidate `raw_to_godot_transform`, `meters_per_raw_unit` status, `source_camera_fit`, paired 2D↔3D landmark observations, and reviewed masks identifying ground, rivers, bridges, stairs, cliffs and sky/vegetation exclusions.
 5. When not using a model: explicitly approved image-only authored plan and its uncertainty, rather than raw-model assumptions.
 
 ## B-0 — Preflight gates
 
 - Validate current input hashes, file identity and provenance; reject stale world ID or untracked replacement sources.
+- When `world_model.mode` is `auto` or `required` and a GLB is supplied, locate and validate the P0-A `world_model_evidence/manifest.json`. Confirm that its GLB hash matches the input, its generator is present, raw-unit maps remain separate from any author-scaled map, and the raster metadata declares transform, units, NoData/coverage and candidate-surface limitations. If missing or stale, create a replacement diagnostic bundle in the current dated analysis run before promoting any P0-B geometry. Do not silently treat the P0 heightmap or design mask as a substitute.
 - Validate candidate camera registration (if world model used): at least 8 noncoplanar anchors, record per-landmark reprojection residual; target median error <= approximately 2.5% reference width or a stricter project threshold, plus human review of the projected geometry. The numeric threshold is a screening rule, not a guarantee of 3D correctness.
 - Explicitly select world vertical and forward directions, handedness, physical scale reference, origin and signed raw→engine transform. Never infer that `glTF Y-up` means every generated scene surface is valid terrain or that its coordinates are metrically correct.
 - Check all high-salience landmarks, waterfall levels, road crossings, bridge endpoints and occluded gaps for conflicting image/model evidence.
@@ -76,6 +77,7 @@ Use overhead grid layout, player-scale blockout and connection tests as design p
 - `blueprint/water_graph.json`
 - `blueprint/navigation_graph.json`
 - `blueprint/camera.json`
+- A linked, reproducible collider surface evidence bundle when a world model is present: manifest, generator, raw-axis candidate projections, min/max candidate elevation maps, NoData/coverage data, and optional separately labeled author-scaled comparison. These are evidence-only layers, not the active terrain heightmap or a walkability mask.
 - `reports/P0_report.md` (or a versioned successor) — every executed command, observed PASS/FAIL/BLOCKED outcomes, image/render comparisons, source hash and unresolved assumptions.
 - Source-generation scripts and JSON validators; mutation tests and local Blender/Godot import evidence when actually run. The current machine-readable numeric design check is `reports/P0_design_validation.json`. Do not relabel unrun runtime or mutation tests as PASS.
 
@@ -83,6 +85,7 @@ Use overhead grid layout, player-scale blockout and connection tests as design p
 
 - Verify every JSON schema and all cross-file references/IDs, bounds and transform matrix handedness.
 - Verify source image and optional model hashes, high-salience landmark coverage, camera reprojection and pixel↔3D correspondence status.
+- Verify the collider evidence manifest's GLB hash, transform-once rule, axis hypotheses, units, normal-filter semantics, NoData coverage and consistency between metadata and raster dimensions. Reject a map that labels unsigned-normal candidates or unclassified top surfaces as confirmed walkable ground.
 - Verify PNG single-channel uint16, exact dimensions and documented value→height conversion; missing coverage MUST remain NoData.
 - Verify waterfall positive height drop, no impossible water direction or unmarked hydrological cycles, connected main navigation graph, no bridge endpoint gaps, valid slopes and stair rise where geometry is available.
 - Create deliberate negative tests that fail upon changing axis sign, invalid graph IDs, reversed waterfall elevations, 8-bit image, out-of-bounds anchors, disconnected bridge route, camera misregistration and deleted approved landmarks.

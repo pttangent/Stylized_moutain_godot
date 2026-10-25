@@ -5,7 +5,7 @@ This folder contains the **complete** runnable prompt set, not brief summaries. 
 ## Read and execute
 - [Initial setup — English](en/00.md) | [初始化 — 中文](zh/00.md)
 - [P0 Spatial Blueprint — English](en/P0.md) | [P0 空間藍圖 — 中文](zh/P0.md). Split: [P0-A EN](en/P0-A.md), [P0-B EN](en/P0-B.md), [P0-A 中文](zh/P0-A.md), [P0-B 中文](zh/P0-B.md).
-- Optional world-model variants for the current Marble project: [P0-A evidence workflow](en/P0-A_world-model-optional.md) and [P0-B blueprint workflow](en/P0-B_world-model-optional.md). Their repository profile points to `assets/worlds/canyon-waterfall/`, the reviewed annotations under `analysis/p0_marble_2026-10-26/`, and the current `blueprint/` deliverables. The `auto | none | required` world-model modes remain available.
+- Optional world-model variants for the current Marble project: [P0-A evidence workflow](en/P0-A_world-model-optional.md) and [P0-B blueprint workflow](en/P0-B_world-model-optional.md). P0-A must deliver a reproducible, raw-unit collider surface evidence bundle; P0-B validates and links it, and P1 checks it or generates a clearly labeled supplemental diagnostic. This bundle is candidate geometry only, never a walkability mask. The repository profile points to `assets/worlds/canyon-waterfall/`, reviewed annotations under `analysis/p0_marble_2026-10-26/`, and current `blueprint/` deliverables. The `auto | none | required` world-model modes remain available.
 - [P1 Playable Blockout — English](en/P1.md) | [P1 白模 — 中文](zh/P1.md)
 - [P2 Visual Slice — English](en/P2.md) | [P2 美術樣板 — 中文](zh/P2.md). Split into P2-A art direction and P2-B engine implementation.
 - [P3 Modular Assets — English](en/P3.md) | [P3 模組化資產 — 中文](zh/P3.md). Split into P3-A references and P3-B modeling.
