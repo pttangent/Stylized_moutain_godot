@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "type": "water",
+  "image_derived_proposal_only": true,
+  "nodes": [
+    {
+      "id": "bridge_reach",
+      "pixel": [
+        1480,
+        1045
+      ],
+      "raw_xyz": [
+        0.137723,
+        0.919922,
+        1.567167
+      ],
+      "verified_3d": false
+    },
+    {
+      "id": "exit_lower_left",
+      "pixel": [
+        145,
+        1490
+      ],
+      "raw_xyz": null,
+      "verified_3d": false
+    },
+    {
+      "id": "pool_main",
+      "pixel": [
+        1405,
+        840
+      ],
+      "raw_xyz": [
+        0.030127,
+        0.90393,
+        2.007568
+      ],
+      "verified_3d": false
+    },
+    {
+      "id": "stream_lower",
+      "pixel": [
+        1125,
+        1255
+      ],
+      "raw_xyz": [
+        -0.211371,
+        0.952334,
+        1.227179
+      ],
+      "verified_3d": false
+    },
+    {
+      "id": "upper_run",
+      "pixel": [
+        1394,
+        526
+      ],
+      "raw_xyz": [
+        0.007404,
+        0.577872,
+        2.519096
+      ],
+      "verified_3d": false
+    },
+    {
+      "id": "wf_far",
+      "pixel": [
+        1154,
+        57
+      ],
+      "raw_xyz": [
+        -0.628106,
+        0.07524,
+        4.667743
+      ],
+      "verified_3d": false
+    },
+    {
+      "id": "wf_main",
+      "pixel": [
+        1360,
+        689
+      ],
+      "raw_xyz": [
+        -0.009172,
+        0.781917,
+        2.273651
+      ],
+      "verified_3d": false
+    },
+    {
+      "id": "wf_mid",
+      "pixel": [
+        1167,
+        179
+      ],
+      "raw_xyz": [
+        -0.441898,
+        0.276344,
+        3.575938
+      ],
+      "verified_3d": false
+    }
+  ],
+  "edges": [
+    {
+      "id": "wf_far__wf_mid",
+      "from": "wf_far",
+      "to": "wf_mid",
+      "status": "visible_or_occluded",
+      "metric_length_m": null,
+      "verified_world": false
+    },
+    {
+      "id": "wf_mid__upper_run",
+      "from": "wf_mid",
+      "to": "upper_run",
+      "status": "occluded",
+      "metric_length_m": null,
+      "verified_world": false
+    },
+    {
+      "id": "upper_run__wf_main",
+      "from": "upper_run",
+      "to": "wf_main",
+      "status": "visible",
+      "metric_length_m": null,
+      "verified_world": false
+    },
+    {
+      "id": "wf_main__pool_main",
+      "from": "wf_main",
+      "to": "pool_main",
+      "status": "observed",
+      "metric_length_m": null,
+      "verified_world": false
+    },
+    {
+      "id": "pool_main__bridge_reach",
+      "from": "pool_main",
+      "to": "bridge_reach",
+      "status": "observed",
+      "metric_length_m": null,
+      "verified_world": false
+    },
+    {
+      "id": "bridge_reach__stream_lower",
+      "from": "bridge_reach",
+      "to": "stream_lower",
+      "status": "observed",
+      "metric_length_m": null,
+      "verified_world": false
+    },
+    {
+      "id": "stream_lower__exit_lower_left",
+      "from": "stream_lower",
+      "to": "exit_lower_left",
+      "status": "observed",
+      "metric_length_m": null,
+      "verified_world": false
+    }
+  ]
+}

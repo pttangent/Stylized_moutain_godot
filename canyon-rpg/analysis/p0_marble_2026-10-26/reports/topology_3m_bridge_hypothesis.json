@@ -1,0 +1,175 @@
+{
+  "world_model_relation_review": "NOT_AUTOMATICALLY_APPROVED",
+  "water": [
+    {
+      "edge": "wf_far__wf_mid",
+      "from": "wf_far",
+      "to": "wf_mid",
+      "distance_m": 15.598186525444893,
+      "delta_height_m_start_minus_end": 2.7866347654987016,
+      "slope_deg_endpoint_only": 10.291205967809258,
+      "status": "WORLD_LANDMARKS_MEASURED_NOT_PHYSICALLY_VERIFIED"
+    },
+    {
+      "edge": "wf_mid__upper_run",
+      "from": "wf_mid",
+      "to": "upper_run",
+      "distance_m": 16.452188743075215,
+      "delta_height_m_start_minus_end": 4.178178492577437,
+      "slope_deg_endpoint_only": 14.711899302512343,
+      "status": "WORLD_LANDMARKS_MEASURED_NOT_PHYSICALLY_VERIFIED"
+    },
+    {
+      "edge": "upper_run__wf_main",
+      "from": "upper_run",
+      "to": "wf_main",
+      "distance_m": 4.428774559692412,
+      "delta_height_m_start_minus_end": 2.82738727586812,
+      "slope_deg_endpoint_only": 39.67358282772568,
+      "status": "WORLD_LANDMARKS_MEASURED_NOT_PHYSICALLY_VERIFIED"
+    },
+    {
+      "edge": "wf_main__pool_main",
+      "from": "wf_main",
+      "to": "pool_main",
+      "distance_m": 4.092574800938786,
+      "delta_height_m_start_minus_end": 1.6906956979612202,
+      "slope_deg_endpoint_only": 24.40053680004091,
+      "status": "WORLD_LANDMARKS_MEASURED_NOT_PHYSICALLY_VERIFIED"
+    },
+    {
+      "edge": "pool_main__bridge_reach",
+      "from": "pool_main",
+      "to": "bridge_reach",
+      "distance_m": 6.285892094535637,
+      "delta_height_m_start_minus_end": 0.22159610534775667,
+      "slope_deg_endpoint_only": 2.0202626263647505,
+      "status": "WORLD_LANDMARKS_MEASURED_NOT_PHYSICALLY_VERIFIED"
+    },
+    {
+      "edge": "bridge_reach__stream_lower",
+      "from": "bridge_reach",
+      "to": "stream_lower",
+      "distance_m": 6.767242301453665,
+      "delta_height_m_start_minus_end": 0.44912287184413996,
+      "slope_deg_endpoint_only": 3.805357032124471,
+      "status": "WORLD_LANDMARKS_MEASURED_NOT_PHYSICALLY_VERIFIED"
+    },
+    {
+      "edge": "stream_lower__exit_lower_left",
+      "from": "stream_lower",
+      "to": "exit_lower_left",
+      "status": "UNREGISTERED"
+    }
+  ],
+  "navigation": [
+    {
+      "edge": "start_lower_right__stair_low_right",
+      "from": "start_lower_right",
+      "to": "stair_low_right",
+      "distance_m": 2.768208703667992,
+      "delta_height_m_start_minus_end": -0.376929543376042,
+      "slope_deg_endpoint_only": 7.825916478928561,
+      "status": "WORLD_LANDMARKS_MEASURED_NOT_PHYSICALLY_VERIFIED"
+    },
+    {
+      "edge": "stair_low_right__bridge_right",
+      "from": "stair_low_right",
+      "to": "bridge_right",
+      "distance_m": 6.961184385868542,
+      "delta_height_m_start_minus_end": -0.27346167702838853,
+      "slope_deg_endpoint_only": 2.2513744482356883,
+      "status": "WORLD_LANDMARKS_MEASURED_NOT_PHYSICALLY_VERIFIED"
+    },
+    {
+      "edge": "bridge_right__bridge",
+      "from": "bridge_right",
+      "to": "bridge",
+      "distance_m": 1.6156655725672286,
+      "delta_height_m_start_minus_end": 0.14212801729314378,
+      "slope_deg_endpoint_only": 5.046759231958448,
+      "status": "WORLD_LANDMARKS_MEASURED_NOT_PHYSICALLY_VERIFIED"
+    },
+    {
+      "edge": "bridge__bridge_left",
+      "from": "bridge",
+      "to": "bridge_left",
+      "distance_m": 1.40375673211162,
+      "delta_height_m_start_minus_end": 0.189989007029957,
+      "slope_deg_endpoint_only": 7.7784691929247805,
+      "status": "WORLD_LANDMARKS_MEASURED_NOT_PHYSICALLY_VERIFIED"
+    },
+    {
+      "edge": "bridge_left__left_bank_entry",
+      "from": "bridge_left",
+      "to": "left_bank_entry",
+      "distance_m": 2.2345854582119156,
+      "delta_height_m_start_minus_end": -0.1386638460614681,
+      "slope_deg_endpoint_only": 3.5576893097176683,
+      "status": "WORLD_LANDMARKS_MEASURED_NOT_PHYSICALLY_VERIFIED"
+    },
+    {
+      "edge": "left_bank_entry__left_bank_upper",
+      "from": "left_bank_entry",
+      "to": "left_bank_upper",
+      "distance_m": 3.9062584655557666,
+      "delta_height_m_start_minus_end": -0.7955538516965193,
+      "slope_deg_endpoint_only": 11.751146656140834,
+      "status": "WORLD_LANDMARKS_MEASURED_NOT_PHYSICALLY_VERIFIED"
+    },
+    {
+      "edge": "left_bank_upper__left_glade",
+      "from": "left_bank_upper",
+      "to": "left_glade",
+      "distance_m": 5.024429637560921,
+      "delta_height_m_start_minus_end": -0.974235803826293,
+      "slope_deg_endpoint_only": 11.18045900098411,
+      "status": "WORLD_LANDMARKS_MEASURED_NOT_PHYSICALLY_VERIFIED"
+    },
+    {
+      "edge": "left_glade__stair_left_upper",
+      "from": "left_glade",
+      "to": "stair_left_upper",
+      "distance_m": 6.282529430236469,
+      "delta_height_m_start_minus_end": -1.4859077514295471,
+      "slope_deg_endpoint_only": 13.680899590686831,
+      "status": "WORLD_LANDMARKS_MEASURED_NOT_PHYSICALLY_VERIFIED"
+    },
+    {
+      "edge": "stair_left_upper__left_upper",
+      "from": "stair_left_upper",
+      "to": "left_upper",
+      "distance_m": 11.163955749756902,
+      "delta_height_m_start_minus_end": -2.1807373603938998,
+      "slope_deg_endpoint_only": 11.264430412854008,
+      "status": "WORLD_LANDMARKS_MEASURED_NOT_PHYSICALLY_VERIFIED"
+    },
+    {
+      "edge": "bridge_right__right_lower",
+      "from": "bridge_right",
+      "to": "right_lower",
+      "distance_m": 3.667155429356074,
+      "delta_height_m_start_minus_end": -0.15561057172681955,
+      "slope_deg_endpoint_only": 2.431995862805205,
+      "status": "WORLD_LANDMARKS_MEASURED_NOT_PHYSICALLY_VERIFIED"
+    },
+    {
+      "edge": "right_lower__stair_far_right",
+      "from": "right_lower",
+      "to": "stair_far_right",
+      "distance_m": 6.762170100240446,
+      "delta_height_m_start_minus_end": -1.3584262501039244,
+      "slope_deg_endpoint_only": 11.588782868808899,
+      "status": "WORLD_LANDMARKS_MEASURED_NOT_PHYSICALLY_VERIFIED"
+    },
+    {
+      "edge": "stair_far_right__right_upper",
+      "from": "stair_far_right",
+      "to": "right_upper",
+      "distance_m": 14.276892495117341,
+      "delta_height_m_start_minus_end": -5.6032553971787795,
+      "slope_deg_endpoint_only": 23.108292409519095,
+      "status": "WORLD_LANDMARKS_MEASURED_NOT_PHYSICALLY_VERIFIED"
+    }
+  ]
+}

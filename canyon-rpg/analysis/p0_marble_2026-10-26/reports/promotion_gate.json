@@ -1,0 +1,18 @@
+{
+  "stage": "P0-B_GATE",
+  "status": "BLOCKED",
+  "missing": [
+    "manual_decisions.ready_for_p0b not approved",
+    "metric scale unknown; require bridge/character or other real reference",
+    "Source camera not visually approved after reprojection",
+    "Semantic review missing: terrain_surface_mask",
+    "Semantic review missing: sky_dome_excluded",
+    "Semantic review missing: trees_excluded_from_terrain",
+    "Semantic review missing: water_bodies_annotated",
+    "Semantic review missing: bridge_and_stairs_annotated",
+    "Semantic review missing: cliffs_and_overhangs_annotated",
+    "Main route continuity not demonstrated"
+  ],
+  "notes": [],
+  "disclaimer": "Passing this gate alone does not create a heightmap, navmesh, or proof of physical traversability; finalizer must be separately verified."
+}

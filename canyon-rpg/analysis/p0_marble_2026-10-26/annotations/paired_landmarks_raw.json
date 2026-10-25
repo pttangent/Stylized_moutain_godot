@@ -1,0 +1,1134 @@
+{
+  "schema_version": 1,
+  "status": "CANDIDATE_NEEDS_OPERATOR_REVIEW",
+  "source_image": "canyon-waterfall-reference.jpeg",
+  "collider": "canyon-waterfall-collider.glb",
+  "gaussian_splat": "canyon-waterfall-full-res.spz",
+  "coordinate_system": "RAW_GLTF_XYZ_UNSCALED",
+  "renderer_transform": {
+    "flip_y": true,
+    "shared_for": [
+      "gaussian_splat",
+      "collider"
+    ],
+    "raw_to_display_matrix_4x4_column_major": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      1.2246467991473532e-16,
+      0,
+      0,
+      -1.2246467991473532e-16,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "scale": 1,
+    "ground_plane_offset_raw": 0,
+    "note": "Image-Blaster display default only; does not establish physical up-axis or metric scale."
+  },
+  "world_id": "44c246a5-3f15-4cb3-b835-830b04857da8",
+  "scale_m_per_raw_unit": null,
+  "up_axis": null,
+  "annotation_note": "Raw collider ray hits are not semantic labels. Pixel seeds are approximate until reviewed. Export does not approve camera, axes, scale, terrain, or topology.",
+  "pairs": [
+    {
+      "id": "wf_far",
+      "kind": "waterfall",
+      "pixel_xy": [
+        1154,
+        57
+      ],
+      "mesh_xyz_raw": [
+        -0.628106,
+        0.07524,
+        4.667743
+      ],
+      "camera_ray_depth_raw_units": 4.688852,
+      "camera_optical_depth_raw_units": 4.304623,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.263278,
+          0.185246,
+          0.065715
+        ],
+        "forward_raw_xyz": [
+          -0.049205,
+          0.353115,
+          0.934285
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 123279,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "uppermost distant waterfall; truncated by top image boundary"
+    },
+    {
+      "id": "wf_mid",
+      "kind": "waterfall",
+      "pixel_xy": [
+        1167,
+        179
+      ],
+      "mesh_xyz_raw": [
+        -0.441898,
+        0.276344,
+        3.575938
+      ],
+      "camera_ray_depth_raw_units": 3.581514,
+      "camera_optical_depth_raw_units": 3.346416,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.263278,
+          0.185246,
+          0.065715
+        ],
+        "forward_raw_xyz": [
+          -0.049205,
+          0.353115,
+          0.934285
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 70185,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "thin secondary distant waterfall"
+    },
+    {
+      "id": "upper_run",
+      "kind": "water_reach",
+      "pixel_xy": [
+        1394,
+        526
+      ],
+      "mesh_xyz_raw": [
+        0.007404,
+        0.577872,
+        2.519096
+      ],
+      "camera_ray_depth_raw_units": 2.499436,
+      "camera_optical_depth_raw_units": 2.447628,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.263282,
+          0.193284,
+          0.062716
+        ],
+        "forward_raw_xyz": [
+          -0.049209,
+          0.345077,
+          0.937284
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 77428,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "partly_occluded",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "upper stream above main waterfall; continuity behind vegetation uncertain"
+    },
+    {
+      "id": "wf_main",
+      "kind": "waterfall",
+      "pixel_xy": [
+        1360,
+        689
+      ],
+      "mesh_xyz_raw": [
+        -0.009172,
+        0.781917,
+        2.273651
+      ],
+      "camera_ray_depth_raw_units": 2.30367,
+      "camera_optical_depth_raw_units": 2.287776,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.26328,
+          0.188797,
+          0.064381
+        ],
+        "forward_raw_xyz": [
+          -0.049208,
+          0.349564,
+          0.935619
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 43001,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "prominent central fall"
+    },
+    {
+      "id": "pool_main",
+      "kind": "pool",
+      "pixel_xy": [
+        1405,
+        840
+      ],
+      "mesh_xyz_raw": [
+        0.030127,
+        0.90393,
+        2.007568
+      ],
+      "camera_ray_depth_raw_units": 2.083052,
+      "camera_optical_depth_raw_units": 2.078218,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.253385,
+          0.203548,
+          0.058536
+        ],
+        "forward_raw_xyz": [
+          -0.039313,
+          0.334813,
+          0.941464
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 54033,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "turquoise plunge pool"
+    },
+    {
+      "id": "bridge_reach",
+      "kind": "water_reach",
+      "pixel_xy": [
+        1480,
+        1045
+      ],
+      "mesh_xyz_raw": [
+        0.137723,
+        0.919922,
+        1.567167
+      ],
+      "camera_ray_depth_raw_units": 0.819058,
+      "camera_optical_depth_raw_units": 0.798587,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.219406,
+          0.494118,
+          0.872275
+        ],
+        "forward_raw_xyz": [
+          -0.039426,
+          0.327056,
+          0.944182
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 31218,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "stream water underneath bridge"
+    },
+    {
+      "id": "stream_lower",
+      "kind": "water_reach",
+      "pixel_xy": [
+        1125,
+        1255
+      ],
+      "mesh_xyz_raw": [
+        -0.211371,
+        0.952334,
+        1.227179
+      ],
+      "camera_ray_depth_raw_units": 0.863664,
+      "camera_optical_depth_raw_units": 0.690198,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.226828,
+          0.432547,
+          0.694525
+        ],
+        "forward_raw_xyz": [
+          -0.039426,
+          0.327056,
+          0.944182
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 13756,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "stream winding left across lower foreground"
+    },
+    {
+      "id": "exit_lower_left",
+      "kind": "water_exit",
+      "pixel_xy": [
+        145,
+        1490
+      ],
+      "mesh_xyz_raw": null,
+      "camera_ray_depth_raw_units": null,
+      "camera_optical_depth_raw_units": null,
+      "camera_raw_pose": null,
+      "face_index": null,
+      "mesh_name": null,
+      "mesh_uuid": null,
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "NO_3D_PICK",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "flow exits bottom-left frame"
+    },
+    {
+      "id": "bridge",
+      "kind": "wood_bridge",
+      "pixel_xy": [
+        1515,
+        958
+      ],
+      "mesh_xyz_raw": [
+        0.134183,
+        0.876082,
+        1.706814
+      ],
+      "camera_ray_depth_raw_units": 1.783803,
+      "camera_optical_depth_raw_units": 1.780964,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.253499,
+          0.211305,
+          0.055818
+        ],
+        "forward_raw_xyz": [
+          -0.039426,
+          0.327056,
+          0.944182
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 57451,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "arched narrow bridge crossing water"
+    },
+    {
+      "id": "bridge_left",
+      "kind": "bridge_endpoint",
+      "pixel_xy": [
+        1415,
+        970
+      ],
+      "mesh_xyz_raw": [
+        0.034534,
+        0.889793,
+        1.694778
+      ],
+      "camera_ray_depth_raw_units": 0.931261,
+      "camera_optical_depth_raw_units": 0.913289,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.219406,
+          0.494118,
+          0.872275
+        ],
+        "forward_raw_xyz": [
+          -0.039426,
+          0.327056,
+          0.944182
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 90467,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "west/left bridge approach"
+    },
+    {
+      "id": "bridge_right",
+      "kind": "bridge_endpoint",
+      "pixel_xy": [
+        1614,
+        956
+      ],
+      "mesh_xyz_raw": [
+        0.249093,
+        0.865825,
+        1.723715
+      ],
+      "camera_ray_depth_raw_units": 0.929515,
+      "camera_optical_depth_raw_units": 0.924314,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.219406,
+          0.494118,
+          0.872275
+        ],
+        "forward_raw_xyz": [
+          -0.039426,
+          0.327056,
+          0.944182
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 90466,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "east/right bridge approach"
+    },
+    {
+      "id": "left_bank_entry",
+      "kind": "path_waypoint",
+      "pixel_xy": [
+        1245,
+        968
+      ],
+      "mesh_xyz_raw": [
+        -0.108929,
+        0.879786,
+        1.62181
+      ],
+      "camera_ray_depth_raw_units": 0.904625,
+      "camera_optical_depth_raw_units": 0.846778,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.219406,
+          0.494118,
+          0.872275
+        ],
+        "forward_raw_xyz": [
+          -0.039426,
+          0.327056,
+          0.944182
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 4558,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "partly_occluded",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "provisional grassy landing west of bridge; source-space connector not surveyed"
+    },
+    {
+      "id": "left_bank_upper",
+      "kind": "path_waypoint",
+      "pixel_xy": [
+        1105,
+        835
+      ],
+      "mesh_xyz_raw": [
+        -0.300839,
+        0.822373,
+        1.820164
+      ],
+      "camera_ray_depth_raw_units": 1.603352,
+      "camera_optical_depth_raw_units": 1.413957,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.466328,
+          0.152286,
+          0.581949
+        ],
+        "forward_raw_xyz": [
+          -0.039523,
+          0.308917,
+          0.950267
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 14025,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "partly_occluded",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "provisional western approach avoiding visible pool; under foliage"
+    },
+    {
+      "id": "left_glade",
+      "kind": "path",
+      "pixel_xy": [
+        955,
+        680
+      ],
+      "mesh_xyz_raw": [
+        -0.50527,
+        0.752065,
+        2.111271
+      ],
+      "camera_ray_depth_raw_units": 1.90855,
+      "camera_optical_depth_raw_units": 1.676947,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.466328,
+          0.152286,
+          0.581949
+        ],
+        "forward_raw_xyz": [
+          -0.039523,
+          0.308917,
+          0.950267
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 53233,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "middle left grassy route near yellow shrubs"
+    },
+    {
+      "id": "stair_left_upper",
+      "kind": "stairs",
+      "pixel_xy": [
+        925,
+        520
+      ],
+      "mesh_xyz_raw": [
+        -0.580087,
+        0.644831,
+        2.545401
+      ],
+      "camera_ray_depth_raw_units": 2.278756,
+      "camera_optical_depth_raw_units": 2.059317,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.466328,
+          0.152286,
+          0.581949
+        ],
+        "forward_raw_xyz": [
+          -0.039523,
+          0.308917,
+          0.950267
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 1423,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "short left upper stone stair"
+    },
+    {
+      "id": "left_upper",
+      "kind": "terrace",
+      "pixel_xy": [
+        420,
+        355
+      ],
+      "mesh_xyz_raw": [
+        -1.370069,
+        0.487453,
+        2.528986
+      ],
+      "camera_ray_depth_raw_units": 2.69734,
+      "camera_optical_depth_raw_units": 2.026324,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.466328,
+          0.152286,
+          0.581949
+        ],
+        "forward_raw_xyz": [
+          -0.039523,
+          0.308917,
+          0.950267
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 78354,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "upper-left terrace with vegetation"
+    },
+    {
+      "id": "left_lower",
+      "kind": "terrace",
+      "pixel_xy": [
+        530,
+        1240
+      ],
+      "mesh_xyz_raw": [
+        -0.639527,
+        0.934248,
+        1.217008
+      ],
+      "camera_ray_depth_raw_units": 1.514886,
+      "camera_optical_depth_raw_units": 1.264749,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.127384,
+          0.148265,
+          0.173476
+        ],
+        "forward_raw_xyz": [
+          -0.039523,
+          0.308917,
+          0.950267
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 13752,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "foreground left vegetated shelf"
+    },
+    {
+      "id": "start_lower_right",
+      "kind": "path",
+      "pixel_xy": [
+        1555,
+        1422
+      ],
+      "mesh_xyz_raw": [
+        0.161209,
+        0.912762,
+        1.113877
+      ],
+      "camera_ray_depth_raw_units": 0.639336,
+      "camera_optical_depth_raw_units": 0.552472,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.22684,
+          0.435554,
+          0.693501
+        ],
+        "forward_raw_xyz": [
+          -0.039464,
+          0.317764,
+          0.947348
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 86652,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "OPERATOR_PICKED_NEEDS_CROSS_MODAL_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "possible main route start near bottom"
+    },
+    {
+      "id": "stair_low_right",
+      "kind": "stairs",
+      "pixel_xy": [
+        1760,
+        1287
+      ],
+      "mesh_xyz_raw": [
+        0.323421,
+        0.88556,
+        1.227266
+      ],
+      "camera_ray_depth_raw_units": 0.705949,
+      "camera_optical_depth_raw_units": 0.647356,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.226828,
+          0.432547,
+          0.694525
+        ],
+        "forward_raw_xyz": [
+          -0.039426,
+          0.327056,
+          0.944182
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 13162,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "bottom-center right stepped route"
+    },
+    {
+      "id": "right_lower",
+      "kind": "path",
+      "pixel_xy": [
+        1795,
+        1050
+      ],
+      "mesh_xyz_raw": [
+        0.375484,
+        0.854595,
+        1.491469
+      ],
+      "camera_ray_depth_raw_units": 0.733283,
+      "camera_optical_depth_raw_units": 0.696374,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.219406,
+          0.494118,
+          0.872275
+        ],
+        "forward_raw_xyz": [
+          -0.039426,
+          0.327056,
+          0.944182
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 44252,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "right-side bank footpath"
+    },
+    {
+      "id": "stair_far_right",
+      "kind": "stairs",
+      "pixel_xy": [
+        2395,
+        1140
+      ],
+      "mesh_xyz_raw": [
+        0.81094,
+        0.756561,
+        1.29419
+      ],
+      "camera_ray_depth_raw_units": 0.896844,
+      "camera_optical_depth_raw_units": 0.646908,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.226859,
+          0.438416,
+          0.692557
+        ],
+        "forward_raw_xyz": [
+          -0.039523,
+          0.308917,
+          0.950267
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 117802,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "rightmost exposed long stone staircase"
+    },
+    {
+      "id": "right_upper",
+      "kind": "terrace",
+      "pixel_xy": [
+        2420,
+        470
+      ],
+      "mesh_xyz_raw": [
+        1.186718,
+        0.352189,
+        2.164158
+      ],
+      "camera_ray_depth_raw_units": 1.509088,
+      "camera_optical_depth_raw_units": 1.333842,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.534325,
+          -0.053311,
+          0.865197
+        ],
+        "forward_raw_xyz": [
+          -0.039523,
+          0.308917,
+          0.950267
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 65212,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "high right terrace; exact access not visible"
+    },
+    {
+      "id": "right_landmark",
+      "kind": "structure",
+      "pixel_xy": [
+        2330,
+        574
+      ],
+      "mesh_xyz_raw": [
+        0.992053,
+        0.462158,
+        2.007414
+      ],
+      "camera_ray_depth_raw_units": 1.334123,
+      "camera_optical_depth_raw_units": 1.226558,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.534325,
+          -0.053311,
+          0.865197
+        ],
+        "forward_raw_xyz": [
+          -0.039523,
+          0.308917,
+          0.950267
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 66082,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "partly_occluded",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "small wooden/stone structures among right cliff"
+    },
+    {
+      "id": "left_pink_bush",
+      "kind": "vegetation_landmark",
+      "pixel_xy": [
+        562,
+        620
+      ],
+      "mesh_xyz_raw": [
+        -0.976818,
+        0.692755,
+        2.113135
+      ],
+      "camera_ray_depth_raw_units": 2.172397,
+      "camera_optical_depth_raw_units": 1.679034,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.466328,
+          0.152286,
+          0.581949
+        ],
+        "forward_raw_xyz": [
+          -0.039523,
+          0.308917,
+          0.950267
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 67093,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "pink blossom cluster near left-middle"
+    },
+    {
+      "id": "right_red_tree",
+      "kind": "vegetation_landmark",
+      "pixel_xy": [
+        2020,
+        826
+      ],
+      "mesh_xyz_raw": null,
+      "camera_ray_depth_raw_units": null,
+      "camera_optical_depth_raw_units": null,
+      "camera_raw_pose": null,
+      "face_index": null,
+      "mesh_name": null,
+      "mesh_uuid": null,
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "NO_3D_PICK",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "red-orange tree at right-middle"
+    },
+    {
+      "id": "main_fall_left_rim",
+      "kind": "cliff_edge",
+      "pixel_xy": [
+        1272,
+        636
+      ],
+      "mesh_xyz_raw": [
+        -0.111277,
+        0.702376,
+        2.267721
+      ],
+      "camera_ray_depth_raw_units": 2.293789,
+      "camera_optical_depth_raw_units": 2.2608,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.261761,
+          0.194521,
+          0.062184
+        ],
+        "forward_raw_xyz": [
+          -0.047689,
+          0.34384,
+          0.937816
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 102483,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "main fall left rim"
+    },
+    {
+      "id": "main_fall_right_rim",
+      "kind": "cliff_edge",
+      "pixel_xy": [
+        1450,
+        632
+      ],
+      "mesh_xyz_raw": [
+        0.10405,
+        0.714409,
+        2.280617
+      ],
+      "camera_ray_depth_raw_units": 2.283858,
+      "camera_optical_depth_raw_units": 2.266466,
+      "camera_raw_pose": {
+        "position_raw_xyz": [
+          0.263282,
+          0.193284,
+          0.062716
+        ],
+        "forward_raw_xyz": [
+          -0.049209,
+          0.345077,
+          0.937284
+        ],
+        "vertical_fov_degrees": 70,
+        "aspect_ratio": 1.780241935483871,
+        "viewport_px": [
+          1059,
+          595
+        ]
+      },
+      "face_index": 125243,
+      "mesh_name": "geometry_0",
+      "mesh_uuid": "19f36aa9-a5c9-4b4f-95dd-3237363bf5b2",
+      "source_status": "visible",
+      "pixel_status": "ESTIMATED_SEED_NEEDS_REVIEW",
+      "pick_approval_status": "RAW_RAY_HIT_NEEDS_CROSS_MODAL_REVIEW",
+      "human_approved": false,
+      "annotator": "agent_proposal",
+      "note": "main fall right rim"
+    }
+  ]
+}

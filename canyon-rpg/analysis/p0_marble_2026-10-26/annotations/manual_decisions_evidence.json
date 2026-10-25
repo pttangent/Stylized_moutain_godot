@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "ready_for_p0b": false,
+  "source_world_id": "44c246a5-3f15-4cb3-b835-830b04857da8",
+  "coordinate_transform": {
+    "godot_up": "Y",
+    "collider_up_axis": "Y",
+    "collider_up_positive": false,
+    "scale_m_per_raw_unit": null,
+    "origin_raw_xyz": [
+      0.134183,
+      0.876082,
+      1.706814
+    ],
+    "approval_evidence": "Relative axis: raw -Y makes 6/6 measured upstream/downstream edges descend; 21,641 mesh faces have -Y normal component >0.75 versus 2,326 for +Y; renderer flips X 180 degrees. Scale remains uncalibrated."
+  },
+  "model_camera_calibration": {
+    "pairs_file": "annotations/paired_landmarks.json",
+    "camera_hypothesis_reviewed": false,
+    "reprojection_median_error_px_max": 80
+  },
+  "semantic_review": {
+    "terrain_surface_mask": null,
+    "sky_dome_excluded": false,
+    "trees_excluded_from_terrain": false,
+    "water_bodies_annotated": false,
+    "bridge_and_stairs_annotated": false,
+    "cliffs_and_overhangs_annotated": false
+  },
+  "traversal_review": {
+    "player_height_m": 1.6,
+    "walkable_grade_deg_max": 40,
+    "main_route_tested": false
+  },
+  "hydrology_review": {
+    "drops_positive": true,
+    "occluded_connections_resolved_or_flagged": true
+  },
+  "review_note": "25 landmark picks explicitly confirmed by user. Source camera overlay reviewed as candidate; two large residuals require further review. Water exit lacks 3D point. Relative axis selected; absolute metric scale, semantics, continuous traversal unresolved."
+}

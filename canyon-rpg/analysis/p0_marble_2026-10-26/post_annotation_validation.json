@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "scope": "post_annotation_geometry_and_structural_validation",
+  "passed": 11,
+  "failed": 0,
+  "checks": [
+    {
+      "id": "raw_export_unchanged",
+      "status": "PASS",
+      "evidence": "SHA-256 of user-exported raw file"
+    },
+    {
+      "id": "all_raw_pairs_preserved",
+      "status": "PASS",
+      "evidence": "27 pixel records, no coordinate edits"
+    },
+    {
+      "id": "reviewed_complete_pairs",
+      "status": "PASS",
+      "evidence": "25 complete pairs confirmed by user; 2 remain without 3D"
+    },
+    {
+      "id": "source_camera_ransac",
+      "status": "PASS",
+      "evidence": "23/25 inliers; median 19.28 px, p90 35.57 px"
+    },
+    {
+      "id": "source_camera_rays_hit_mesh",
+      "status": "PASS",
+      "evidence": "27/27 source-image rays intersect GLB, not semantic proof"
+    },
+    {
+      "id": "water_endpoint_direction",
+      "status": "PASS",
+      "evidence": "6/6 measured water links descend under raw -Y up"
+    },
+    {
+      "id": "renderer_axis_consistency",
+      "status": "PASS",
+      "evidence": "GLB raw -Y maps to display +Y via shared 180 degree X flip"
+    },
+    {
+      "id": "navigation_endpoints_recorded",
+      "status": "PASS",
+      "evidence": "12/12 proposed navigation edge endpoints measured; continuous traversal unresolved"
+    },
+    {
+      "id": "semantic_flags_preserved",
+      "status": "PASS",
+      "evidence": "5 anchor face color/normal conflicts retained for semantic review"
+    },
+    {
+      "id": "no_unjustified_metric_scale",
+      "status": "PASS",
+      "evidence": "No bridge/player measurement establishes meters per raw unit"
+    },
+    {
+      "id": "no_false_formal_blueprint",
+      "status": "PASS",
+      "evidence": "Formal Godot P0-B artifact absent"
+    }
+  ],
+  "gate_status": {
+    "camera": "CANDIDATE",
+    "relative_up_axis": "EVIDENCE_SUPPORTED",
+    "metric_scale": "BLOCKED",
+    "semantic_surface_mask": "BLOCKED",
+    "continuous_navigation": "BLOCKED",
+    "formal_p0b": "BLOCKED"
+  },
+  "upstream_validator_note": "Bundled validate_p0.py reports 35 PASS / 1 FAIL on reviewed draft because no_fabricated_3d hardcodes an unregistered draft. Its stage text also hardcodes no approved pairs. This post-annotation validator does not replace semantic or traversal review."
+}

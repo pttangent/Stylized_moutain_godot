@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "type": "navigation",
+  "image_derived_proposal_only": true,
+  "nodes": [
+    {
+      "id": "bridge",
+      "pixel": [
+        1515,
+        958
+      ],
+      "raw_xyz": [
+        0.134183,
+        0.876082,
+        1.706814
+      ],
+      "verified_3d": false
+    },
+    {
+      "id": "bridge_left",
+      "pixel": [
+        1415,
+        970
+      ],
+      "raw_xyz": [
+        0.034534,
+        0.889793,
+        1.694778
+      ],
+      "verified_3d": false
+    },
+    {
+      "id": "bridge_right",
+      "pixel": [
+        1614,
+        956
+      ],
+      "raw_xyz": [
+        0.249093,
+        0.865825,
+        1.723715
+      ],
+      "verified_3d": false
+    },
+    {
+      "id": "left_bank_entry",
+      "pixel": [
+        1245,
+        968
+      ],
+      "raw_xyz": [
+        -0.108929,
+        0.879786,
+        1.62181
+      ],
+      "verified_3d": false
+    },
+    {
+      "id": "left_bank_upper",
+      "pixel": [
+        1105,
+        835
+      ],
+      "raw_xyz": [
+        -0.300839,
+        0.822373,
+        1.820164
+      ],
+      "verified_3d": false
+    },
+    {
+      "id": "left_glade",
+      "pixel": [
+        955,
+        680
+      ],
+      "raw_xyz": [
+        -0.50527,
+        0.752065,
+        2.111271
+      ],
+      "verified_3d": false
+    },
+    {
+      "id": "left_upper",
+      "pixel": [
+        420,
+        355
+      ],
+      "raw_xyz": [
+        -1.370069,
+        0.487453,
+        2.528986
+      ],
+      "verified_3d": false
+    },
+    {
+      "id": "right_lower",
+      "pixel": [
+        1795,
+        1050
+      ],
+      "raw_xyz": [
+        0.375484,
+        0.854595,
+        1.491469
+      ],
+      "verified_3d": false
+    },
+    {
+      "id": "right_upper",
+      "pixel": [
+        2420,
+        470
+      ],
+      "raw_xyz": [
+        1.186718,
+        0.352189,
+        2.164158
+      ],
+      "verified_3d": false
+    },
+    {
+      "id": "stair_far_right",
+      "pixel": [
+        2395,
+        1140
+      ],
+      "raw_xyz": [
+        0.81094,
+        0.756561,
+        1.29419
+      ],
+      "verified_3d": false
+    },
+    {
+      "id": "stair_left_upper",
+      "pixel": [
+        925,
+        520
+      ],
+      "raw_xyz": [
+        -0.580087,
+        0.644831,
+        2.545401
+      ],
+      "verified_3d": false
+    },
+    {
+      "id": "stair_low_right",
+      "pixel": [
+        1760,
+        1287
+      ],
+      "raw_xyz": [
+        0.323421,
+        0.88556,
+        1.227266
+      ],
+      "verified_3d": false
+    },
+    {
+      "id": "start_lower_right",
+      "pixel": [
+        1770,
+        1370
+      ],
+      "raw_xyz": [
+        0.161209,
+        0.912762,
+        1.113877
+      ],
+      "verified_3d": false
+    }
+  ],
+  "edges": [
+    {
+      "id": "start_lower_right__stair_low_right",
+      "from": "start_lower_right",
+      "to": "stair_low_right",
+      "status": "proposed_main",
+      "metric_length_m": null,
+      "verified_world": false
+    },
+    {
+      "id": "stair_low_right__bridge_right",
+      "from": "stair_low_right",
+      "to": "bridge_right",
+      "status": "proposed_main",
+      "metric_length_m": null,
+      "verified_world": false
+    },
+    {
+      "id": "bridge_right__bridge",
+      "from": "bridge_right",
+      "to": "bridge",
+      "status": "observed_crossing",
+      "metric_length_m": null,
+      "verified_world": false
+    },
+    {
+      "id": "bridge__bridge_left",
+      "from": "bridge",
+      "to": "bridge_left",
+      "status": "observed_crossing",
+      "metric_length_m": null,
+      "verified_world": false
+    },
+    {
+      "id": "bridge_left__left_bank_entry",
+      "from": "bridge_left",
+      "to": "left_bank_entry",
+      "status": "proposed_main",
+      "metric_length_m": null,
+      "verified_world": false
+    },
+    {
+      "id": "left_bank_entry__left_bank_upper",
+      "from": "left_bank_entry",
+      "to": "left_bank_upper",
+      "status": "proposed_main_occluded",
+      "metric_length_m": null,
+      "verified_world": false
+    },
+    {
+      "id": "left_bank_upper__left_glade",
+      "from": "left_bank_upper",
+      "to": "left_glade",
+      "status": "proposed_main_occluded",
+      "metric_length_m": null,
+      "verified_world": false
+    },
+    {
+      "id": "left_glade__stair_left_upper",
+      "from": "left_glade",
+      "to": "stair_left_upper",
+      "status": "proposed_main",
+      "metric_length_m": null,
+      "verified_world": false
+    },
+    {
+      "id": "stair_left_upper__left_upper",
+      "from": "stair_left_upper",
+      "to": "left_upper",
+      "status": "proposed_main",
+      "metric_length_m": null,
+      "verified_world": false
+    },
+    {
+      "id": "bridge_right__right_lower",
+      "from": "bridge_right",
+      "to": "right_lower",
+      "status": "proposed_optional",
+      "metric_length_m": null,
+      "verified_world": false
+    },
+    {
+      "id": "right_lower__stair_far_right",
+      "from": "right_lower",
+      "to": "stair_far_right",
+      "status": "not_verified",
+      "metric_length_m": null,
+      "verified_world": false
+    },
+    {
+      "id": "stair_far_right__right_upper",
+      "from": "stair_far_right",
+      "to": "right_upper",
+      "status": "proposed_optional",
+      "metric_length_m": null,
+      "verified_world": false
+    }
+  ]
+}

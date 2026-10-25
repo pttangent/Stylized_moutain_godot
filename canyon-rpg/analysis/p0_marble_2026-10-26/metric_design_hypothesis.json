@@ -1,0 +1,13 @@
+{
+  "status": "UNAPPROVED_DESIGN_HYPOTHESIS",
+  "assumed_bridge_horizontal_span_m": 3.0,
+  "measured_bridge_horizontal_span_raw_units": 0.216502,
+  "scale_m_per_raw_unit_hypothesis": 13.856684926698136,
+  "coordinate_transform_raw_to_Godot": "[x-x0, -(y-y0), -(z-z0)] * scale",
+  "origin_raw_xyz": [
+    0.134183,
+    0.876082,
+    1.706814
+  ],
+  "purpose": "Compare candidate gameplay distances only; never claim measured Marble meters"
+}

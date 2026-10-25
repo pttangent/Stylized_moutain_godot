@@ -1,0 +1,269 @@
+{
+  "schema_version": 1,
+  "world_id": "44c246a5-3f15-4cb3-b835-830b04857da8",
+  "source_model": "marble-1.1",
+  "geometry_is_reference_not_ground_truth": true,
+  "hashes": [
+    {
+      "file": "canyon-waterfall-collider.glb",
+      "status": "PASS",
+      "sha256": "9f1089b6209531b5ae5b92e146b22c16a8a7d7268dacdd125320f9e457df1907",
+      "bytes": 3897204
+    },
+    {
+      "file": "canyon-waterfall-100k.spz",
+      "status": "PASS",
+      "sha256": "7f6f9ad1b0c16807fabd1ad63fd254dbd699783bf7741e5a838dcd63682a32a3",
+      "bytes": 1474549
+    },
+    {
+      "file": "canyon-waterfall-150k.spz",
+      "status": "PASS",
+      "sha256": "e8ce119112bc75a988ec4713b24139e510eec5350cc83cdcdad9b374ec78e84a",
+      "bytes": 2383076
+    },
+    {
+      "file": "canyon-waterfall-500k.spz",
+      "status": "PASS",
+      "sha256": "15bee122091d14675e7d8f45521f75815709846c1eb8fd3f663950c1165f0687",
+      "bytes": 7965412
+    },
+    {
+      "file": "canyon-waterfall-full-res.spz",
+      "status": "PASS",
+      "sha256": "b9e80ceecd6c0c14a4e95845f9bd170868f34fa64b19c915742b44c66970933a",
+      "bytes": 30592182
+    }
+  ],
+  "coordinate_status": "UNREGISTERED",
+  "metric_status": "UNSCALED",
+  "reference": {
+    "file": "canyon-waterfall-reference.jpeg",
+    "width": 2752,
+    "height": 1536,
+    "sha256": "d3e1203cd596a5f749619513b6d3226dac1e68e5372923984dc6f02d0820f384"
+  },
+  "collider": {
+    "mesh_count": 1,
+    "vertices": 76454,
+    "faces": 146266,
+    "bounds_raw": [
+      [
+        -10.40639,
+        -12.47673,
+        -7.59037
+      ],
+      [
+        9.52515,
+        0.984,
+        12.32938
+      ]
+    ],
+    "extents_raw": [
+      19.93154,
+      13.46073,
+      19.91975
+    ],
+    "scene_declared_units": "meters",
+    "watertight": false,
+    "connected_components": 561,
+    "largest_component_face_fraction": 0.98823,
+    "top_components_face_counts": [
+      144544,
+      174,
+      49,
+      47,
+      40,
+      31,
+      30,
+      25,
+      21,
+      18
+    ],
+    "triangle_area_sum_raw2": 458.47677,
+    "axis_surface_evidence": {
+      "x": {
+        "abs_normal_gt_0_7_area_ratio": 0.3599519152809468,
+        "normal_positive_gt_0_7_area_ratio": 0.28502187098657,
+        "normal_negative_lt_minus_0_7_area_ratio": 0.07493004429437675
+      },
+      "y": {
+        "abs_normal_gt_0_7_area_ratio": 0.21960824032839368,
+        "normal_positive_gt_0_7_area_ratio": 0.019575507731080577,
+        "normal_negative_lt_minus_0_7_area_ratio": 0.20003273259731313
+      },
+      "z": {
+        "abs_normal_gt_0_7_area_ratio": 0.2732495264584381,
+        "normal_positive_gt_0_7_area_ratio": 0.18152888517689889,
+        "normal_negative_lt_minus_0_7_area_ratio": 0.09172064128153923
+      }
+    },
+    "cannot_infer_walkable_semantics": true
+  },
+  "spz": [
+    {
+      "version": 2,
+      "num_points": 98304,
+      "sh_degree": 0,
+      "fractional_bits": 12,
+      "flags": 0,
+      "encoding": "legacy_gzip_signed24",
+      "file": "canyon-waterfall-100k.spz",
+      "quantiles_raw": {
+        "p01": [
+          -10.739999771118164,
+          -47.91299819946289,
+          -9.35099983215332
+        ],
+        "p50": [
+          -0.0010000000474974513,
+          -0.0010000000474974513,
+          0.8539999723434448
+        ],
+        "p99": [
+          14.232999801635742,
+          0.9739999771118164,
+          17.253000259399414
+        ],
+        "min": [
+          -29.555999755859375,
+          -129.3350067138672,
+          -36.62699890136719
+        ],
+        "max": [
+          33.37699890136719,
+          1.0169999599456787,
+          39.20500183105469
+        ]
+      },
+      "point_fraction_inside_collider_aabb_plus_one_raw_unit": 0.89794,
+      "nearest_collider_vertex_distance_raw_units": {
+        "p10": 0.02612849029970735,
+        "p50": 0.05350984574753726,
+        "p90": 0.3526271253550576
+      }
+    },
+    {
+      "version": 2,
+      "num_points": 150000,
+      "sh_degree": 0,
+      "fractional_bits": 12,
+      "flags": 0,
+      "encoding": "legacy_gzip_signed24",
+      "file": "canyon-waterfall-150k.spz",
+      "quantiles_raw": {
+        "p01": [
+          -10.734999656677246,
+          -47.20000076293945,
+          -9.310999870300293
+        ],
+        "p50": [
+          0.003000000026077032,
+          -0.00800000037997961,
+          0.8450000286102295
+        ],
+        "p99": [
+          14.241000175476074,
+          0.972000002861023,
+          17.073999404907227
+        ],
+        "min": [
+          -30.53499984741211,
+          -129.95700073242188,
+          -37.0620002746582
+        ],
+        "max": [
+          34.33000183105469,
+          1.0379999876022339,
+          39.1870002746582
+        ]
+      },
+      "point_fraction_inside_collider_aabb_plus_one_raw_unit": 0.89705,
+      "nearest_collider_vertex_distance_raw_units": {
+        "p10": 0.02596839971779974,
+        "p50": 0.05354991382787307,
+        "p90": 0.37920288688881776
+      }
+    },
+    {
+      "version": 2,
+      "num_points": 500000,
+      "sh_degree": 0,
+      "fractional_bits": 12,
+      "flags": 0,
+      "encoding": "legacy_gzip_signed24",
+      "file": "canyon-waterfall-500k.spz",
+      "quantiles_raw": {
+        "p01": [
+          -10.802000045776367,
+          -49.14899826049805,
+          -9.395999908447266
+        ],
+        "p50": [
+          0.0,
+          -0.008999999612569809,
+          0.8529999852180481
+        ],
+        "p99": [
+          14.336000442504883,
+          0.9739999771118164,
+          17.347000122070312
+        ],
+        "min": [
+          -30.722999572753906,
+          -129.9510040283203,
+          -37.1349983215332
+        ],
+        "max": [
+          34.77000045776367,
+          1.0540000200271606,
+          39.53499984741211
+        ]
+      },
+      "point_fraction_inside_collider_aabb_plus_one_raw_unit": 0.89726
+    },
+    {
+      "version": 2,
+      "num_points": 1920000,
+      "sh_degree": 0,
+      "fractional_bits": 12,
+      "flags": 0,
+      "encoding": "legacy_gzip_signed24",
+      "file": "canyon-waterfall-full-res.spz",
+      "quantiles_raw": {
+        "p01": [
+          -10.770999908447266,
+          -48.24599838256836,
+          -9.390000343322754
+        ],
+        "p50": [
+          -0.0010000000474974513,
+          -0.006000000052154064,
+          0.8550000190734863
+        ],
+        "p99": [
+          14.317000389099121,
+          0.9750000238418579,
+          17.291000366210938
+        ],
+        "min": [
+          -31.05900001525879,
+          -130.17100524902344,
+          -37.13999938964844
+        ],
+        "max": [
+          34.67300033569336,
+          1.0959999561309814,
+          39.632999420166016
+        ]
+      },
+      "point_fraction_inside_collider_aabb_plus_one_raw_unit": 0.89794
+    }
+  ],
+  "interpretation": [
+    "Observed raw SPZ coordinates agree closely with GLB in the identity axis mapping near mesh, but semantic up/forward and absolute metric scale are not independently proven.",
+    "Outlier splats must not define world bounds or elevation; they can represent background/frustum support.",
+    "Collider mesh colors, slope, and ray intersections do not establish terrain versus canopy, sky, water, cliffs, or bridge.",
+    "All three candidate vertical axes must remain hypothetical until 2D/3D correspondence review."
+  ]
+}

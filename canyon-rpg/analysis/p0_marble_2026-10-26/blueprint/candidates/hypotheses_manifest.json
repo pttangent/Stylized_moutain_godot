@@ -1,0 +1,112 @@
+{
+  "kind": "raw_axis_geometry_hypotheses",
+  "axes_are_hypotheses_not_confirmed": true,
+  "resolution": [
+    512,
+    512
+  ],
+  "maps": {
+    "X_up": {
+      "plane_axes": [
+        "Y",
+        "Z"
+      ],
+      "candidate_height_axis": "X",
+      "raw_xy_bounds": [
+        [
+          -12.476729393005371,
+          -7.590366363525391
+        ],
+        [
+          0.9840033650398254,
+          12.32938003540039
+        ]
+      ],
+      "raw_height_bounds": [
+        -10.406391143798828,
+        9.525145530700684
+      ],
+      "positive_slope_face_count": 33697,
+      "negative_slope_face_count": 8575,
+      "warning": "Surface direction, canopy/rock/water status and height datum are unknown. Not a game terrain.",
+      "pos": {
+        "coverage_ratio": 0.120895,
+        "num_valid_cells": 31692,
+        "face_count": 33697
+      },
+      "neg": {
+        "coverage_ratio": 0.030506,
+        "num_valid_cells": 7997,
+        "face_count": 8575
+      }
+    },
+    "Y_up": {
+      "plane_axes": [
+        "X",
+        "Z"
+      ],
+      "candidate_height_axis": "Y",
+      "raw_xy_bounds": [
+        [
+          -10.406391143798828,
+          -7.590366363525391
+        ],
+        [
+          9.525145530700684,
+          12.32938003540039
+        ]
+      ],
+      "raw_height_bounds": [
+        -12.476729393005371,
+        0.9840033650398254
+      ],
+      "positive_slope_face_count": 2326,
+      "negative_slope_face_count": 21641,
+      "warning": "Surface direction, canopy/rock/water status and height datum are unknown. Not a game terrain.",
+      "pos": {
+        "coverage_ratio": 0.008221,
+        "num_valid_cells": 2155,
+        "face_count": 2326
+      },
+      "neg": {
+        "coverage_ratio": 0.076904,
+        "num_valid_cells": 20160,
+        "face_count": 21641
+      }
+    },
+    "Z_up": {
+      "plane_axes": [
+        "X",
+        "Y"
+      ],
+      "candidate_height_axis": "Z",
+      "raw_xy_bounds": [
+        [
+          -10.406391143798828,
+          -12.476729393005371
+        ],
+        [
+          9.525145530700684,
+          0.9840033650398254
+        ]
+      ],
+      "raw_height_bounds": [
+        -7.590366363525391,
+        12.32938003540039
+      ],
+      "positive_slope_face_count": 20507,
+      "negative_slope_face_count": 9524,
+      "warning": "Surface direction, canopy/rock/water status and height datum are unknown. Not a game terrain.",
+      "pos": {
+        "coverage_ratio": 0.075333,
+        "num_valid_cells": 19748,
+        "face_count": 20507
+      },
+      "neg": {
+        "coverage_ratio": 0.034946,
+        "num_valid_cells": 9161,
+        "face_count": 9524
+      }
+    }
+  }
+}

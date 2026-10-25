@@ -1,0 +1,362 @@
+{
+  "schema_version": 1,
+  "status": "CANDIDATE_NEEDS_OPERATOR_APPROVAL",
+  "source_camera_not_game_camera": true,
+  "pixel_dimensions": [
+    2752,
+    1536
+  ],
+  "nominal_horizontal_fov_degrees": 76.0,
+  "K": [
+    [
+      1761.199685897676,
+      0.0,
+      1376.0
+    ],
+    [
+      0.0,
+      1761.199685897676,
+      768.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "rotation_world_to_cv_camera_3x3": [
+    [
+      0.9968887885107368,
+      -0.07688962088114897,
+      0.017341555361289066
+    ],
+    [
+      0.07788223991824882,
+      0.9270265779608857,
+      -0.36681886600806973
+    ],
+    [
+      0.012128480816318416,
+      0.3670282141128704,
+      0.9301307381213703
+    ]
+  ],
+  "translation_world_to_cv_camera": [
+    0.02802070541197511,
+    0.0036941329335854088,
+    -0.10363574736678138
+  ],
+  "raw_camera_center_xyz": [
+    -0.02696429024496069,
+    0.036767185278277215,
+    0.09726394923344095
+  ],
+  "reprojection_median_px": 19.28490871385253,
+  "reprojection_p90_px": 35.56681456064582,
+  "inlier_count": 23,
+  "total_anchor_count": 25,
+  "assumed_no_lens_distortion": true,
+  "confidence_caveat": "PnP only measures internal consistency of selected pairs; manual review must compare actual 3D render and source image.",
+  "pairs": [
+    {
+      "id": "wf_far",
+      "original_pixel": [
+        1154,
+        57
+      ],
+      "projected_pixel": [
+        1159.69,
+        69.93
+      ],
+      "error_px": 14.13
+    },
+    {
+      "id": "wf_mid",
+      "original_pixel": [
+        1167,
+        179
+      ],
+      "projected_pixel": [
+        1178.71,
+        191.5
+      ],
+      "error_px": 17.13
+    },
+    {
+      "id": "upper_run",
+      "original_pixel": [
+        1394,
+        526
+      ],
+      "projected_pixel": [
+        1400.89,
+        492.09
+      ],
+      "error_px": 34.61
+    },
+    {
+      "id": "wf_main",
+      "original_pixel": [
+        1360,
+        689
+      ],
+      "projected_pixel": [
+        1374.61,
+        686.62
+      ],
+      "error_px": 14.8
+    },
+    {
+      "id": "pool_main",
+      "original_pixel": [
+        1405,
+        840
+      ],
+      "projected_pixel": [
+        1395.64,
+        858.42
+      ],
+      "error_px": 20.66
+    },
+    {
+      "id": "bridge_reach",
+      "original_pixel": [
+        1480,
+        1045
+      ],
+      "projected_pixel": [
+        1502.64,
+        1072.06
+      ],
+      "error_px": 35.28
+    },
+    {
+      "id": "stream_lower",
+      "original_pixel": [
+        1125,
+        1255
+      ],
+      "projected_pixel": [
+        1077.58,
+        1302.07
+      ],
+      "error_px": 66.81
+    },
+    {
+      "id": "bridge",
+      "original_pixel": [
+        1515,
+        958
+      ],
+      "projected_pixel": [
+        1496.87,
+        963.12
+      ],
+      "error_px": 18.84
+    },
+    {
+      "id": "bridge_left",
+      "original_pixel": [
+        1415,
+        970
+      ],
+      "projected_pixel": [
+        1398.92,
+        973.08
+      ],
+      "error_px": 16.37
+    },
+    {
+      "id": "bridge_right",
+      "original_pixel": [
+        1614,
+        956
+      ],
+      "projected_pixel": [
+        1607.86,
+        955.15
+      ],
+      "error_px": 6.2
+    },
+    {
+      "id": "left_bank_entry",
+      "original_pixel": [
+        1245,
+        968
+      ],
+      "projected_pixel": [
+        1253.49,
+        988.23
+      ],
+      "error_px": 21.94
+    },
+    {
+      "id": "left_bank_upper",
+      "original_pixel": [
+        1105,
+        835
+      ],
+      "projected_pixel": [
+        1092.77,
+        837.94
+      ],
+      "error_px": 12.58
+    },
+    {
+      "id": "left_glade",
+      "original_pixel": [
+        955,
+        680
+      ],
+      "projected_pixel": [
+        965.15,
+        674.63
+      ],
+      "error_px": 11.48
+    },
+    {
+      "id": "stair_left_upper",
+      "original_pixel": [
+        925,
+        520
+      ],
+      "projected_pixel": [
+        983.51,
+        501.44
+      ],
+      "error_px": 61.38
+    },
+    {
+      "id": "left_upper",
+      "original_pixel": [
+        420,
+        355
+      ],
+      "projected_pixel": [
+        403.4,
+        345.18
+      ],
+      "error_px": 19.28
+    },
+    {
+      "id": "left_lower",
+      "original_pixel": [
+        530,
+        1240
+      ],
+      "projected_pixel": [
+        523.16,
+        1250.5
+      ],
+      "error_px": 12.53
+    },
+    {
+      "id": "start_lower_right",
+      "original_pixel": [
+        1555,
+        1422
+      ],
+      "projected_pixel": [
+        1567.28,
+        1397.64
+      ],
+      "error_px": 27.28
+    },
+    {
+      "id": "stair_low_right",
+      "original_pixel": [
+        1760,
+        1287
+      ],
+      "projected_pixel": [
+        1767.23,
+        1282.94
+      ],
+      "error_px": 8.29
+    },
+    {
+      "id": "right_lower",
+      "original_pixel": [
+        1795,
+        1050
+      ],
+      "projected_pixel": [
+        1774.55,
+        1073.73
+      ],
+      "error_px": 31.33
+    },
+    {
+      "id": "stair_far_right",
+      "original_pixel": [
+        2395,
+        1140
+      ],
+      "projected_pixel": [
+        2392.26,
+        1140.47
+      ],
+      "error_px": 2.78
+    },
+    {
+      "id": "right_upper",
+      "original_pixel": [
+        2420,
+        470
+      ],
+      "projected_pixel": [
+        2423.9,
+        449.52
+      ],
+      "error_px": 20.85
+    },
+    {
+      "id": "right_landmark",
+      "original_pixel": [
+        2330,
+        574
+      ],
+      "projected_pixel": [
+        2296.14,
+        562.5
+      ],
+      "error_px": 35.76
+    },
+    {
+      "id": "left_pink_bush",
+      "original_pixel": [
+        562,
+        620
+      ],
+      "projected_pixel": [
+        570.52,
+        596.16
+      ],
+      "error_px": 25.32
+    },
+    {
+      "id": "main_fall_left_rim",
+      "original_pixel": [
+        1272,
+        636
+      ],
+      "projected_pixel": [
+        1300.02,
+        623.42
+      ],
+      "error_px": 30.71
+    },
+    {
+      "id": "main_fall_right_rim",
+      "original_pixel": [
+        1450,
+        632
+      ],
+      "projected_pixel": [
+        1465.84,
+        642.54
+      ],
+      "error_px": 19.03
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "validation_schema": 1,
+  "passed": 35,
+  "failed": 1,
+  "checks": [
+    {
+      "status": "PASS",
+      "id": "mesh_nonempty",
+      "description": "Valid collider vertex/triangle counts"
+    },
+    {
+      "status": "PASS",
+      "id": "manifest_hash",
+      "description": "All present bundled source files match supplied SHA-256 and byte counts; higher-res SPZ variants optional"
+    },
+    {
+      "status": "PASS",
+      "id": "image_dimensions",
+      "description": "Source image dimensions are consistent"
+    },
+    {
+      "status": "PASS",
+      "id": "spz_header",
+      "description": "Bundled SPZ decoded as legacy v2 with real Gaussian counts"
+    },
+    {
+      "status": "PASS",
+      "id": "landmark_id",
+      "description": "Landmark IDs unique and nontrivial"
+    },
+    {
+      "status": "PASS",
+      "id": "landmark_pixels",
+      "description": "All landmark pixels within original image"
+    },
+    {
+      "status": "PASS",
+      "id": "draft_landmarks",
+      "description": "P0 draft preserves reference IDs"
+    },
+    {
+      "status": "FAIL",
+      "id": "no_fabricated_3d",
+      "description": "Draft does not fabricate 3D coordinates from 2D landmarks"
+    },
+    {
+      "status": "PASS",
+      "id": "graph_water_nodes",
+      "description": "Graph has unique node IDs"
+    },
+    {
+      "status": "PASS",
+      "id": "graph_water_refs",
+      "description": "All graph edges resolve node references"
+    },
+    {
+      "status": "PASS",
+      "id": "graph_water_edges",
+      "description": "Graph edge IDs unique"
+    },
+    {
+      "status": "PASS",
+      "id": "graph_water_unverified",
+      "description": "Graph does not incorrectly claim 3D validation"
+    },
+    {
+      "status": "PASS",
+      "id": "water_acyclic",
+      "description": "Proposed water directions are DAG (not physical drop proof)"
+    },
+    {
+      "status": "PASS",
+      "id": "graph_navigation_nodes",
+      "description": "Graph has unique node IDs"
+    },
+    {
+      "status": "PASS",
+      "id": "graph_navigation_refs",
+      "description": "All graph edges resolve node references"
+    },
+    {
+      "status": "PASS",
+      "id": "graph_navigation_edges",
+      "description": "Graph edge IDs unique"
+    },
+    {
+      "status": "PASS",
+      "id": "graph_navigation_unverified",
+      "description": "Graph does not incorrectly claim 3D validation"
+    },
+    {
+      "status": "PASS",
+      "id": "X_up_pos_16bit",
+      "description": "Actual 512x512 uint16 single-channel raw height candidate"
+    },
+    {
+      "status": "PASS",
+      "id": "X_up_pos_mask",
+      "description": "A separate, binary 512x512 validity mask is present"
+    },
+    {
+      "status": "PASS",
+      "id": "X_up_pos_nodata",
+      "description": "Unknown raster cells are masked and zero"
+    },
+    {
+      "status": "PASS",
+      "id": "X_up_neg_16bit",
+      "description": "Actual 512x512 uint16 single-channel raw height candidate"
+    },
+    {
+      "status": "PASS",
+      "id": "X_up_neg_mask",
+      "description": "A separate, binary 512x512 validity mask is present"
+    },
+    {
+      "status": "PASS",
+      "id": "X_up_neg_nodata",
+      "description": "Unknown raster cells are masked and zero"
+    },
+    {
+      "status": "PASS",
+      "id": "Y_up_pos_16bit",
+      "description": "Actual 512x512 uint16 single-channel raw height candidate"
+    },
+    {
+      "status": "PASS",
+      "id": "Y_up_pos_mask",
+      "description": "A separate, binary 512x512 validity mask is present"
+    },
+    {
+      "status": "PASS",
+      "id": "Y_up_pos_nodata",
+      "description": "Unknown raster cells are masked and zero"
+    },
+    {
+      "status": "PASS",
+      "id": "Y_up_neg_16bit",
+      "description": "Actual 512x512 uint16 single-channel raw height candidate"
+    },
+    {
+      "status": "PASS",
+      "id": "Y_up_neg_mask",
+      "description": "A separate, binary 512x512 validity mask is present"
+    },
+    {
+      "status": "PASS",
+      "id": "Y_up_neg_nodata",
+      "description": "Unknown raster cells are masked and zero"
+    },
+    {
+      "status": "PASS",
+      "id": "Z_up_pos_16bit",
+      "description": "Actual 512x512 uint16 single-channel raw height candidate"
+    },
+    {
+      "status": "PASS",
+      "id": "Z_up_pos_mask",
+      "description": "A separate, binary 512x512 validity mask is present"
+    },
+    {
+      "status": "PASS",
+      "id": "Z_up_pos_nodata",
+      "description": "Unknown raster cells are masked and zero"
+    },
+    {
+      "status": "PASS",
+      "id": "Z_up_neg_16bit",
+      "description": "Actual 512x512 uint16 single-channel raw height candidate"
+    },
+    {
+      "status": "PASS",
+      "id": "Z_up_neg_mask",
+      "description": "A separate, binary 512x512 validity mask is present"
+    },
+    {
+      "status": "PASS",
+      "id": "Z_up_neg_nodata",
+      "description": "Unknown raster cells are masked and zero"
+    },
+    {
+      "status": "PASS",
+      "id": "no_faux_final",
+      "description": "No final approved P0-B is emitted without manual gates"
+    }
+  ],
+  "phases": {
+    "MODEL_INPUT_AUDIT": {
+      "status": "PASS",
+      "reason": "GLB structure, SPZ v2 count, local hash integrity independently measured"
+    },
+    "2D_LANDMARK_DISCOVERY": {
+      "status": "DRAFT",
+      "reason": "Image points manually annotated, approximate centers requiring review"
+    },
+    "WORLD_AXIS_AND_SCALE": {
+      "status": "BLOCKED",
+      "reason": "GLTF axes and absolute raw-unit-to-meter scale not independently established"
+    },
+    "IMAGE_3D_REGISTRATION": {
+      "status": "BLOCKED",
+      "reason": "No operator-approved 2D pixel \u2194 3D surface pairs in this archive"
+    },
+    "SEMANTIC_TERRAIN": {
+      "status": "BLOCKED",
+      "reason": "No ground/foliage/sky/water segmentation for collider surfaces"
+    },
+    "WATER_HEIGHT_DIRECTION": {
+      "status": "BLOCKED",
+      "reason": "Cannot prove waterfall drops before registration, axis and scale"
+    },
+    "TRAVERSAL_PHYSICS": {
+      "status": "BLOCKED",
+      "reason": "No approved navmesh, steps or player collision simulation"
+    },
+    "P0_B_FINAL": {
+      "status": "BLOCKED",
+      "reason": "Accurate heightmap/world/topology cannot be certified from one unreviewed generated world"
+    }
+  }
+}

@@ -1,0 +1,574 @@
+{
+  "schema_version": 1,
+  "source_camera_status": "CANDIDATE_NEEDS_OPERATOR_APPROVAL",
+  "points": [
+    {
+      "id": "wf_far",
+      "pixel_xy": [
+        1154,
+        57
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 123279,
+          "point_raw_xyz": [
+            -0.645302,
+            0.047335,
+            4.686804
+          ],
+          "distance_from_camera_raw_units": 4.63101859545825,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "wf_mid",
+      "pixel_xy": [
+        1167,
+        179
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 81249,
+          "point_raw_xyz": [
+            -0.484529,
+            0.265609,
+            3.733579
+          ],
+          "distance_from_camera_raw_units": 3.672127552627509,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "upper_run",
+      "pixel_xy": [
+        1394,
+        526
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 116207,
+          "point_raw_xyz": [
+            0.001056,
+            0.612977,
+            2.463036
+          ],
+          "distance_from_camera_raw_units": 2.4350935820319783,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "wf_main",
+      "pixel_xy": [
+        1360,
+        689
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 50264,
+          "point_raw_xyz": [
+            -0.02793,
+            0.784109,
+            2.265951
+          ],
+          "distance_from_camera_raw_units": 2.293844542883642,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "pool_main",
+      "pixel_xy": [
+        1405,
+        840
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 84495,
+          "point_raw_xyz": [
+            0.041057,
+            0.902191,
+            2.059872
+          ],
+          "distance_from_camera_raw_units": 2.146023183381199,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "bridge_reach",
+      "pixel_xy": [
+        1480,
+        1045
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 47827,
+          "point_raw_xyz": [
+            0.116045,
+            0.909979,
+            1.597819
+          ],
+          "distance_from_camera_raw_units": 1.7420148964097955,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "stream_lower",
+      "pixel_xy": [
+        1125,
+        1255
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 86426,
+          "point_raw_xyz": [
+            -0.182745,
+            0.948271,
+            1.284528
+          ],
+          "distance_from_camera_raw_units": 1.5048926408202417,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "exit_lower_left",
+      "pixel_xy": [
+        145,
+        1490
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 12543,
+          "point_raw_xyz": [
+            -0.794937,
+            0.978964,
+            1.000434
+          ],
+          "distance_from_camera_raw_units": 1.51434205973757,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "bridge",
+      "pixel_xy": [
+        1515,
+        958
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 57451,
+          "point_raw_xyz": [
+            0.153188,
+            0.873839,
+            1.716911
+          ],
+          "distance_from_camera_raw_units": 1.8320484138291886,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "bridge_left",
+      "pixel_xy": [
+        1415,
+        970
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 90467,
+          "point_raw_xyz": [
+            0.050801,
+            0.887049,
+            1.698929
+          ],
+          "distance_from_camera_raw_units": 1.81503659019974,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "bridge_right",
+      "pixel_xy": [
+        1614,
+        956
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 90466,
+          "point_raw_xyz": [
+            0.255373,
+            0.865805,
+            1.722824
+          ],
+          "distance_from_camera_raw_units": 1.846473595445244,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "left_bank_entry",
+      "pixel_xy": [
+        1245,
+        968
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 4558,
+          "point_raw_xyz": [
+            -0.120515,
+            0.877716,
+            1.658031
+          ],
+          "distance_from_camera_raw_units": 1.775370227763017,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "left_bank_upper",
+      "pixel_xy": [
+        1105,
+        835
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 14026,
+          "point_raw_xyz": [
+            -0.293384,
+            0.83452,
+            1.857004
+          ],
+          "distance_from_camera_raw_units": 1.9504040057988523,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "left_glade",
+      "pixel_xy": [
+        955,
+        680
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 53233,
+          "point_raw_xyz": [
+            -0.513452,
+            0.753805,
+            2.094116
+          ],
+          "distance_from_camera_raw_units": 2.176748080818785,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "stair_left_upper",
+      "pixel_xy": [
+        925,
+        520
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 1426,
+          "point_raw_xyz": [
+            -0.672412,
+            0.687455,
+            2.579677
+          ],
+          "distance_from_camera_raw_units": 2.646199821901309,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "left_upper",
+      "pixel_xy": [
+        420,
+        355
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 78361,
+          "point_raw_xyz": [
+            -1.350765,
+            0.499704,
+            2.53253
+          ],
+          "distance_from_camera_raw_units": 2.8102096443697353,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "left_lower",
+      "pixel_xy": [
+        530,
+        1240
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 40058,
+          "point_raw_xyz": [
+            -0.637046,
+            0.929472,
+            1.224074
+          ],
+          "distance_from_camera_raw_units": 1.56167317024649,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "start_lower_right",
+      "pixel_xy": [
+        1770,
+        1370
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 86653,
+          "point_raw_xyz": [
+            0.307639,
+            0.888978,
+            1.130899
+          ],
+          "distance_from_camera_raw_units": 1.380805128739635,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "stair_low_right",
+      "pixel_xy": [
+        1760,
+        1287
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 13162,
+          "point_raw_xyz": [
+            0.317531,
+            0.887578,
+            1.224249
+          ],
+          "distance_from_camera_raw_units": 1.4534964441290361,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "right_lower",
+      "pixel_xy": [
+        1795,
+        1050
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 70625,
+          "point_raw_xyz": [
+            0.400872,
+            0.849356,
+            1.528243
+          ],
+          "distance_from_camera_raw_units": 1.7003074567640233,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "stair_far_right",
+      "pixel_xy": [
+        2395,
+        1140
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 117802,
+          "point_raw_xyz": [
+            0.81262,
+            0.75567,
+            1.293733
+          ],
+          "distance_from_camera_raw_units": 1.6288835244742734,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "right_upper",
+      "pixel_xy": [
+        2420,
+        470
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 127356,
+          "point_raw_xyz": [
+            1.153598,
+            0.366177,
+            2.103567
+          ],
+          "distance_from_camera_raw_units": 2.35106148205679,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "right_landmark",
+      "pixel_xy": [
+        2330,
+        574
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 66082,
+          "point_raw_xyz": [
+            1.018758,
+            0.466309,
+            1.982561
+          ],
+          "distance_from_camera_raw_units": 2.1982687272509183,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "left_pink_bush",
+      "pixel_xy": [
+        562,
+        620
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 67093,
+          "point_raw_xyz": [
+            -0.970166,
+            0.709545,
+            2.071973
+          ],
+          "distance_from_camera_raw_units": 2.2894833533733054,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "right_red_tree",
+      "pixel_xy": [
+        2020,
+        826
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 125803,
+          "point_raw_xyz": [
+            0.628793,
+            0.675624,
+            1.695767
+          ],
+          "distance_from_camera_raw_units": 1.8421094135770852,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "main_fall_left_rim",
+      "pixel_xy": [
+        1272,
+        636
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 85146,
+          "point_raw_xyz": [
+            -0.146395,
+            0.722992,
+            2.270273
+          ],
+          "distance_from_camera_raw_units": 2.281915453698913,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    },
+    {
+      "id": "main_fall_right_rim",
+      "pixel_xy": [
+        1450,
+        632
+      ],
+      "candidate_hits": [
+        {
+          "face_index": 114476,
+          "point_raw_xyz": [
+            0.082382,
+            0.702437,
+            2.28232
+          ],
+          "distance_from_camera_raw_units": 2.2868195988103714,
+          "surface_status": "RAW_HIT_SEMANTICS_UNKNOWN"
+        }
+      ],
+      "confirmed_world_xyz": null,
+      "approved": false
+    }
+  ],
+  "warning": "Rays hit any collider surface, not specifically terrain; manual semantic classification mandatory"
+}

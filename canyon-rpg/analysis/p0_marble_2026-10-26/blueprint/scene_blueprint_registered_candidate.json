@@ -1,0 +1,568 @@
+{
+  "schema_version": 2,
+  "stage": "P0_A_REGISTERED_CANDIDATE_NOT_ENGINE_READY",
+  "source_image": "canyon-waterfall-reference.jpeg",
+  "world_model_source": "assets/manifest.json",
+  "coordinate_space": {
+    "image": "original integer pixels, top-left origin",
+    "collider": "RAW_GLTF_XYZ",
+    "relative_up_axis": "raw -Y, evidence supported",
+    "approved_engine": "Godot +Y via shared X180 rotation, only after scale/semantics gate",
+    "metric_scale_m_per_raw_unit": null,
+    "origin_raw_xyz": [
+      0.134183,
+      0.876082,
+      1.706814
+    ],
+    "source_camera_file": "registration/camera_registration_candidate.json",
+    "source_camera_is_game_camera": false
+  },
+  "acceptance": {
+    "input_integrity": "PASS",
+    "pixel_to_3d_correspondence": "25 USER REVIEWED; 2 UNPAIRED",
+    "source_camera": "CANDIDATE; 23/25 RANSAC, median 19.3 px",
+    "relative_up_axis": "EVIDENCE_SUPPORTED_RAW_MINUS_Y",
+    "terrain_segmentation": "BLOCKED",
+    "metric_scale": "BLOCKED",
+    "water_endpoint_direction": "PASS_6_OF_6_MEASURED; EXIT_MISSING",
+    "walkability": "BLOCKED_CONTINUOUS_SURFACE_UNTESTED",
+    "formal_p0b": "BLOCKED"
+  },
+  "landmarks": [
+    {
+      "id": "wf_far",
+      "kind": "waterfall",
+      "pixel_xy": [
+        1154,
+        57
+      ],
+      "source_status": "visible",
+      "note": "uppermost distant waterfall; truncated by top image boundary",
+      "world_xyz_raw": [
+        -0.628106,
+        0.07524,
+        4.667743
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.07524
+    },
+    {
+      "id": "wf_mid",
+      "kind": "waterfall",
+      "pixel_xy": [
+        1167,
+        179
+      ],
+      "source_status": "visible",
+      "note": "thin secondary distant waterfall",
+      "world_xyz_raw": [
+        -0.441898,
+        0.276344,
+        3.575938
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.276344
+    },
+    {
+      "id": "upper_run",
+      "kind": "water_reach",
+      "pixel_xy": [
+        1394,
+        526
+      ],
+      "source_status": "partly_occluded",
+      "note": "upper stream above main waterfall; continuity behind vegetation uncertain",
+      "world_xyz_raw": [
+        0.007404,
+        0.577872,
+        2.519096
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": "WATER_HINT_ON_GREENISH_COLLIDER_FACE",
+      "raw_minus_y_height_units": -0.577872
+    },
+    {
+      "id": "wf_main",
+      "kind": "waterfall",
+      "pixel_xy": [
+        1360,
+        689
+      ],
+      "source_status": "visible",
+      "note": "prominent central fall",
+      "world_xyz_raw": [
+        -0.009172,
+        0.781917,
+        2.273651
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.781917
+    },
+    {
+      "id": "pool_main",
+      "kind": "pool",
+      "pixel_xy": [
+        1405,
+        840
+      ],
+      "source_status": "visible",
+      "note": "turquoise plunge pool",
+      "world_xyz_raw": [
+        0.030127,
+        0.90393,
+        2.007568
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.90393
+    },
+    {
+      "id": "bridge_reach",
+      "kind": "water_reach",
+      "pixel_xy": [
+        1480,
+        1045
+      ],
+      "source_status": "visible",
+      "note": "stream water underneath bridge",
+      "world_xyz_raw": [
+        0.137723,
+        0.919922,
+        1.567167
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.919922
+    },
+    {
+      "id": "stream_lower",
+      "kind": "water_reach",
+      "pixel_xy": [
+        1125,
+        1255
+      ],
+      "source_status": "visible",
+      "note": "stream winding left across lower foreground",
+      "world_xyz_raw": [
+        -0.211371,
+        0.952334,
+        1.227179
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": "WATER_HINT_ON_GREENISH_COLLIDER_FACE",
+      "raw_minus_y_height_units": -0.952334
+    },
+    {
+      "id": "exit_lower_left",
+      "kind": "water_exit",
+      "pixel_xy": [
+        145,
+        1490
+      ],
+      "source_status": "visible",
+      "note": "flow exits bottom-left frame",
+      "world_xyz_raw": null,
+      "world_position_status": "UNPAIRED",
+      "semantic_status": "NOT_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": null
+    },
+    {
+      "id": "bridge",
+      "kind": "wood_bridge",
+      "pixel_xy": [
+        1515,
+        958
+      ],
+      "source_status": "visible",
+      "note": "arched narrow bridge crossing water",
+      "world_xyz_raw": [
+        0.134183,
+        0.876082,
+        1.706814
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.876082
+    },
+    {
+      "id": "bridge_left",
+      "kind": "bridge_endpoint",
+      "pixel_xy": [
+        1415,
+        970
+      ],
+      "source_status": "visible",
+      "note": "west/left bridge approach",
+      "world_xyz_raw": [
+        0.034534,
+        0.889793,
+        1.694778
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.889793
+    },
+    {
+      "id": "bridge_right",
+      "kind": "bridge_endpoint",
+      "pixel_xy": [
+        1614,
+        956
+      ],
+      "source_status": "visible",
+      "note": "east/right bridge approach",
+      "world_xyz_raw": [
+        0.249093,
+        0.865825,
+        1.723715
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.865825
+    },
+    {
+      "id": "left_bank_entry",
+      "kind": "path_waypoint",
+      "pixel_xy": [
+        1245,
+        968
+      ],
+      "source_status": "partly_occluded",
+      "note": "provisional grassy landing west of bridge; source-space connector not surveyed",
+      "world_xyz_raw": [
+        -0.108929,
+        0.879786,
+        1.62181
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.879786
+    },
+    {
+      "id": "left_bank_upper",
+      "kind": "path_waypoint",
+      "pixel_xy": [
+        1105,
+        835
+      ],
+      "source_status": "partly_occluded",
+      "note": "provisional western approach avoiding visible pool; under foliage",
+      "world_xyz_raw": [
+        -0.300839,
+        0.822373,
+        1.820164
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": "PATH_HINT_ON_SLOPED_OR_VERTICAL_FACE",
+      "raw_minus_y_height_units": -0.822373
+    },
+    {
+      "id": "left_glade",
+      "kind": "path",
+      "pixel_xy": [
+        955,
+        680
+      ],
+      "source_status": "visible",
+      "note": "middle left grassy route near yellow shrubs",
+      "world_xyz_raw": [
+        -0.50527,
+        0.752065,
+        2.111271
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.752065
+    },
+    {
+      "id": "stair_left_upper",
+      "kind": "stairs",
+      "pixel_xy": [
+        925,
+        520
+      ],
+      "source_status": "visible",
+      "note": "short left upper stone stair",
+      "world_xyz_raw": [
+        -0.580087,
+        0.644831,
+        2.545401
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": "STAIR_HINT_ON_STEEP_FACE",
+      "raw_minus_y_height_units": -0.644831
+    },
+    {
+      "id": "left_upper",
+      "kind": "terrace",
+      "pixel_xy": [
+        420,
+        355
+      ],
+      "source_status": "visible",
+      "note": "upper-left terrace with vegetation",
+      "world_xyz_raw": [
+        -1.370069,
+        0.487453,
+        2.528986
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.487453
+    },
+    {
+      "id": "left_lower",
+      "kind": "terrace",
+      "pixel_xy": [
+        530,
+        1240
+      ],
+      "source_status": "visible",
+      "note": "foreground left vegetated shelf",
+      "world_xyz_raw": [
+        -0.639527,
+        0.934248,
+        1.217008
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.934248
+    },
+    {
+      "id": "start_lower_right",
+      "kind": "path",
+      "pixel_xy": [
+        1770,
+        1370
+      ],
+      "source_status": "visible",
+      "note": "possible main route start near bottom",
+      "world_xyz_raw": [
+        0.161209,
+        0.912762,
+        1.113877
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.912762
+    },
+    {
+      "id": "stair_low_right",
+      "kind": "stairs",
+      "pixel_xy": [
+        1760,
+        1287
+      ],
+      "source_status": "visible",
+      "note": "bottom-center right stepped route",
+      "world_xyz_raw": [
+        0.323421,
+        0.88556,
+        1.227266
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.88556
+    },
+    {
+      "id": "right_lower",
+      "kind": "path",
+      "pixel_xy": [
+        1795,
+        1050
+      ],
+      "source_status": "visible",
+      "note": "right-side bank footpath",
+      "world_xyz_raw": [
+        0.375484,
+        0.854595,
+        1.491469
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.854595
+    },
+    {
+      "id": "stair_far_right",
+      "kind": "stairs",
+      "pixel_xy": [
+        2395,
+        1140
+      ],
+      "source_status": "visible",
+      "note": "rightmost exposed long stone staircase",
+      "world_xyz_raw": [
+        0.81094,
+        0.756561,
+        1.29419
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": "STAIR_HINT_ON_STEEP_FACE",
+      "raw_minus_y_height_units": -0.756561
+    },
+    {
+      "id": "right_upper",
+      "kind": "terrace",
+      "pixel_xy": [
+        2420,
+        470
+      ],
+      "source_status": "visible",
+      "note": "high right terrace; exact access not visible",
+      "world_xyz_raw": [
+        1.186718,
+        0.352189,
+        2.164158
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.352189
+    },
+    {
+      "id": "right_landmark",
+      "kind": "structure",
+      "pixel_xy": [
+        2330,
+        574
+      ],
+      "source_status": "partly_occluded",
+      "note": "small wooden/stone structures among right cliff",
+      "world_xyz_raw": [
+        0.992053,
+        0.462158,
+        2.007414
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.462158
+    },
+    {
+      "id": "left_pink_bush",
+      "kind": "vegetation_landmark",
+      "pixel_xy": [
+        562,
+        620
+      ],
+      "source_status": "visible",
+      "note": "pink blossom cluster near left-middle",
+      "world_xyz_raw": [
+        -0.976818,
+        0.692755,
+        2.113135
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.692755
+    },
+    {
+      "id": "right_red_tree",
+      "kind": "vegetation_landmark",
+      "pixel_xy": [
+        2020,
+        826
+      ],
+      "source_status": "visible",
+      "note": "red-orange tree at right-middle",
+      "world_xyz_raw": null,
+      "world_position_status": "UNPAIRED",
+      "semantic_status": "NOT_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": null
+    },
+    {
+      "id": "main_fall_left_rim",
+      "kind": "cliff_edge",
+      "pixel_xy": [
+        1272,
+        636
+      ],
+      "source_status": "visible",
+      "note": "main fall left rim",
+      "world_xyz_raw": [
+        -0.111277,
+        0.702376,
+        2.267721
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.702376
+    },
+    {
+      "id": "main_fall_right_rim",
+      "kind": "cliff_edge",
+      "pixel_xy": [
+        1450,
+        632
+      ],
+      "source_status": "visible",
+      "note": "main fall right rim",
+      "world_xyz_raw": [
+        0.10405,
+        0.714409,
+        2.280617
+      ],
+      "world_position_status": "USER_REVIEWED_PICK_GEOMETRY_PENDING",
+      "semantic_status": "ANCHOR_HINT_ONLY_NOT_SURFACE_CLASSIFIED",
+      "semantic_review_flag": null,
+      "raw_minus_y_height_units": -0.714409
+    }
+  ],
+  "unresolved_regions": [
+    {
+      "id": "U01",
+      "kind": "occluded_hydrology",
+      "detail": "Far and middle falls to upper main run may be topologically connected but cannot be physically proven from one image"
+    },
+    {
+      "id": "U02",
+      "kind": "occluded_navigation",
+      "detail": "East-side high steps and right upper terrace linkage masked by vegetation"
+    },
+    {
+      "id": "U03",
+      "kind": "occluded_navigation",
+      "detail": "Left upper terrace stairs to left bank continuity not fully visible"
+    },
+    {
+      "id": "U04",
+      "kind": "missing_ground_truth",
+      "detail": "All absolute metric scales, vertical axis, source 3D camera and hidden rear terrain remain unvalidated"
+    }
+  ],
+  "do_not_author_final_heightmap_from_raw_unfiltered_collider": true,
+  "candidate_evidence_files": [
+    "registered_spatial_measurements.json",
+    "visual_evidence_reference_vs_collider.png",
+    "visual_evidence_water_profile.png",
+    "registration/camera_reprojection_review.jpg",
+    "post_annotation_validation.json"
+  ]
+}
