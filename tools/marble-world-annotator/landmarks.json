@@ -1,0 +1,304 @@
+{
+  "schema_version": 1,
+  "source_image": "canyon-waterfall-reference.jpeg",
+  "image_dimensions_px": [
+    2752,
+    1536
+  ],
+  "annotation_method": "manual approximate visual reading of supplied reference, not an automated segmentation, no 3D ray hits claimed",
+  "pixel_error_note": "Landmark centers are approximate click targets; operator must refine in image/GLB viewer before geometric calibration.",
+  "landmarks": [
+    {
+      "id": "wf_far",
+      "kind": "waterfall",
+      "pixel_xy": [
+        1154,
+        57
+      ],
+      "source_status": "visible",
+      "note": "uppermost distant waterfall; truncated by top image boundary"
+    },
+    {
+      "id": "wf_mid",
+      "kind": "waterfall",
+      "pixel_xy": [
+        1167,
+        179
+      ],
+      "source_status": "visible",
+      "note": "thin secondary distant waterfall"
+    },
+    {
+      "id": "upper_run",
+      "kind": "water_reach",
+      "pixel_xy": [
+        1394,
+        526
+      ],
+      "source_status": "partly_occluded",
+      "note": "upper stream above main waterfall; continuity behind vegetation uncertain"
+    },
+    {
+      "id": "wf_main",
+      "kind": "waterfall",
+      "pixel_xy": [
+        1360,
+        689
+      ],
+      "source_status": "visible",
+      "note": "prominent central fall"
+    },
+    {
+      "id": "pool_main",
+      "kind": "pool",
+      "pixel_xy": [
+        1405,
+        840
+      ],
+      "source_status": "visible",
+      "note": "turquoise plunge pool"
+    },
+    {
+      "id": "bridge_reach",
+      "kind": "water_reach",
+      "pixel_xy": [
+        1480,
+        1045
+      ],
+      "source_status": "visible",
+      "note": "stream water underneath bridge"
+    },
+    {
+      "id": "stream_lower",
+      "kind": "water_reach",
+      "pixel_xy": [
+        1125,
+        1255
+      ],
+      "source_status": "visible",
+      "note": "stream winding left across lower foreground"
+    },
+    {
+      "id": "exit_lower_left",
+      "kind": "water_exit",
+      "pixel_xy": [
+        145,
+        1490
+      ],
+      "source_status": "visible",
+      "note": "flow exits bottom-left frame"
+    },
+    {
+      "id": "bridge",
+      "kind": "wood_bridge",
+      "pixel_xy": [
+        1515,
+        958
+      ],
+      "source_status": "visible",
+      "note": "arched narrow bridge crossing water"
+    },
+    {
+      "id": "bridge_left",
+      "kind": "bridge_endpoint",
+      "pixel_xy": [
+        1415,
+        970
+      ],
+      "source_status": "visible",
+      "note": "west/left bridge approach"
+    },
+    {
+      "id": "bridge_right",
+      "kind": "bridge_endpoint",
+      "pixel_xy": [
+        1614,
+        956
+      ],
+      "source_status": "visible",
+      "note": "east/right bridge approach"
+    },
+    {
+      "id": "left_bank_entry",
+      "kind": "path_waypoint",
+      "pixel_xy": [
+        1245,
+        968
+      ],
+      "source_status": "partly_occluded",
+      "note": "provisional grassy landing west of bridge; source-space connector not surveyed"
+    },
+    {
+      "id": "left_bank_upper",
+      "kind": "path_waypoint",
+      "pixel_xy": [
+        1105,
+        835
+      ],
+      "source_status": "partly_occluded",
+      "note": "provisional western approach avoiding visible pool; under foliage"
+    },
+    {
+      "id": "left_glade",
+      "kind": "path",
+      "pixel_xy": [
+        955,
+        680
+      ],
+      "source_status": "visible",
+      "note": "middle left grassy route near yellow shrubs"
+    },
+    {
+      "id": "stair_left_upper",
+      "kind": "stairs",
+      "pixel_xy": [
+        925,
+        520
+      ],
+      "source_status": "visible",
+      "note": "short left upper stone stair"
+    },
+    {
+      "id": "left_upper",
+      "kind": "terrace",
+      "pixel_xy": [
+        420,
+        355
+      ],
+      "source_status": "visible",
+      "note": "upper-left terrace with vegetation"
+    },
+    {
+      "id": "left_lower",
+      "kind": "terrace",
+      "pixel_xy": [
+        530,
+        1240
+      ],
+      "source_status": "visible",
+      "note": "foreground left vegetated shelf"
+    },
+    {
+      "id": "start_lower_right",
+      "kind": "path",
+      "pixel_xy": [
+        1770,
+        1370
+      ],
+      "source_status": "visible",
+      "note": "possible main route start near bottom"
+    },
+    {
+      "id": "stair_low_right",
+      "kind": "stairs",
+      "pixel_xy": [
+        1760,
+        1287
+      ],
+      "source_status": "visible",
+      "note": "bottom-center right stepped route"
+    },
+    {
+      "id": "right_lower",
+      "kind": "path",
+      "pixel_xy": [
+        1795,
+        1050
+      ],
+      "source_status": "visible",
+      "note": "right-side bank footpath"
+    },
+    {
+      "id": "stair_far_right",
+      "kind": "stairs",
+      "pixel_xy": [
+        2395,
+        1140
+      ],
+      "source_status": "visible",
+      "note": "rightmost exposed long stone staircase"
+    },
+    {
+      "id": "right_upper",
+      "kind": "terrace",
+      "pixel_xy": [
+        2420,
+        470
+      ],
+      "source_status": "visible",
+      "note": "high right terrace; exact access not visible"
+    },
+    {
+      "id": "right_landmark",
+      "kind": "structure",
+      "pixel_xy": [
+        2330,
+        574
+      ],
+      "source_status": "partly_occluded",
+      "note": "small wooden/stone structures among right cliff"
+    },
+    {
+      "id": "left_pink_bush",
+      "kind": "vegetation_landmark",
+      "pixel_xy": [
+        562,
+        620
+      ],
+      "source_status": "visible",
+      "note": "pink blossom cluster near left-middle"
+    },
+    {
+      "id": "right_red_tree",
+      "kind": "vegetation_landmark",
+      "pixel_xy": [
+        2020,
+        826
+      ],
+      "source_status": "visible",
+      "note": "red-orange tree at right-middle"
+    },
+    {
+      "id": "main_fall_left_rim",
+      "kind": "cliff_edge",
+      "pixel_xy": [
+        1272,
+        636
+      ],
+      "source_status": "visible",
+      "note": "main fall left rim"
+    },
+    {
+      "id": "main_fall_right_rim",
+      "kind": "cliff_edge",
+      "pixel_xy": [
+        1450,
+        632
+      ],
+      "source_status": "visible",
+      "note": "main fall right rim"
+    }
+  ],
+  "unresolved_regions": [
+    {
+      "id": "U01",
+      "kind": "occluded_hydrology",
+      "detail": "Far and middle falls to upper main run may be topologically connected but cannot be physically proven from one image"
+    },
+    {
+      "id": "U02",
+      "kind": "occluded_navigation",
+      "detail": "East-side high steps and right upper terrace linkage masked by vegetation"
+    },
+    {
+      "id": "U03",
+      "kind": "occluded_navigation",
+      "detail": "Left upper terrace stairs to left bank continuity not fully visible"
+    },
+    {
+      "id": "U04",
+      "kind": "missing_ground_truth",
+      "detail": "All absolute metric scales, vertical axis, source 3D camera and hidden rear terrain remain unvalidated"
+    }
+  ]
+}

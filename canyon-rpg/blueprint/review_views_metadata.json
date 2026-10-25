@@ -1,0 +1,321 @@
+{
+  "schema_version": 1,
+  "source_camera_status": "CANDIDATE_NEEDS_OPERATOR_APPROVAL",
+  "reprojection_reviewed_pair_count": 25,
+  "reprojection_median_px": 19.28,
+  "reprojection_p90_px": 35.568,
+  "reprojection_errors": [
+    {
+      "id": "wf_far",
+      "error_px": 14.13,
+      "pixel_xy": [
+        1154,
+        57
+      ],
+      "projected_xy": [
+        1159.6875528624178,
+        69.93026020292531
+      ]
+    },
+    {
+      "id": "wf_mid",
+      "error_px": 17.13,
+      "pixel_xy": [
+        1167,
+        179
+      ],
+      "projected_xy": [
+        1178.7113096938467,
+        191.49912140580696
+      ]
+    },
+    {
+      "id": "upper_run",
+      "error_px": 34.61,
+      "pixel_xy": [
+        1394,
+        526
+      ],
+      "projected_xy": [
+        1400.8943384902086,
+        492.08760151149994
+      ]
+    },
+    {
+      "id": "wf_main",
+      "error_px": 14.8,
+      "pixel_xy": [
+        1360,
+        689
+      ],
+      "projected_xy": [
+        1374.6074624671835,
+        686.6246403011797
+      ]
+    },
+    {
+      "id": "pool_main",
+      "error_px": 20.66,
+      "pixel_xy": [
+        1405,
+        840
+      ],
+      "projected_xy": [
+        1395.636516661638,
+        858.4176641082319
+      ]
+    },
+    {
+      "id": "bridge_reach",
+      "error_px": 35.28,
+      "pixel_xy": [
+        1480,
+        1045
+      ],
+      "projected_xy": [
+        1502.6388103777963,
+        1072.0626936569406
+      ]
+    },
+    {
+      "id": "stream_lower",
+      "error_px": 66.81,
+      "pixel_xy": [
+        1125,
+        1255
+      ],
+      "projected_xy": [
+        1077.5813354953868,
+        1302.0658899363193
+      ]
+    },
+    {
+      "id": "bridge",
+      "error_px": 18.84,
+      "pixel_xy": [
+        1515,
+        958
+      ],
+      "projected_xy": [
+        1496.8733262202313,
+        963.1192850012999
+      ]
+    },
+    {
+      "id": "bridge_left",
+      "error_px": 16.37,
+      "pixel_xy": [
+        1415,
+        970
+      ],
+      "projected_xy": [
+        1398.9205850692003,
+        973.0839810151668
+      ]
+    },
+    {
+      "id": "bridge_right",
+      "error_px": 6.2,
+      "pixel_xy": [
+        1614,
+        956
+      ],
+      "projected_xy": [
+        1607.8596467932296,
+        955.148327381153
+      ]
+    },
+    {
+      "id": "left_bank_entry",
+      "error_px": 21.94,
+      "pixel_xy": [
+        1245,
+        968
+      ],
+      "projected_xy": [
+        1253.489915567017,
+        988.2333261609585
+      ]
+    },
+    {
+      "id": "left_bank_upper",
+      "error_px": 12.58,
+      "pixel_xy": [
+        1105,
+        835
+      ],
+      "projected_xy": [
+        1092.7662738582012,
+        837.9371006976156
+      ]
+    },
+    {
+      "id": "left_glade",
+      "error_px": 11.48,
+      "pixel_xy": [
+        955,
+        680
+      ],
+      "projected_xy": [
+        965.149512151193,
+        674.6276824857795
+      ]
+    },
+    {
+      "id": "stair_left_upper",
+      "error_px": 61.38,
+      "pixel_xy": [
+        925,
+        520
+      ],
+      "projected_xy": [
+        983.5071265469537,
+        501.4341449794521
+      ]
+    },
+    {
+      "id": "left_upper",
+      "error_px": 19.28,
+      "pixel_xy": [
+        420,
+        355
+      ],
+      "projected_xy": [
+        403.4023147373635,
+        345.1807983771543
+      ]
+    },
+    {
+      "id": "left_lower",
+      "error_px": 12.53,
+      "pixel_xy": [
+        530,
+        1240
+      ],
+      "projected_xy": [
+        523.1621592961893,
+        1250.4970860414364
+      ]
+    },
+    {
+      "id": "start_lower_right",
+      "error_px": 27.28,
+      "pixel_xy": [
+        1555,
+        1422
+      ],
+      "projected_xy": [
+        1567.278186832099,
+        1397.640502948574
+      ]
+    },
+    {
+      "id": "stair_low_right",
+      "error_px": 8.29,
+      "pixel_xy": [
+        1760,
+        1287
+      ],
+      "projected_xy": [
+        1767.2311039677516,
+        1282.9431880984534
+      ]
+    },
+    {
+      "id": "right_lower",
+      "error_px": 31.33,
+      "pixel_xy": [
+        1795,
+        1050
+      ],
+      "projected_xy": [
+        1774.5546406765304,
+        1073.7333034019332
+      ]
+    },
+    {
+      "id": "stair_far_right",
+      "error_px": 2.78,
+      "pixel_xy": [
+        2395,
+        1140
+      ],
+      "projected_xy": [
+        2392.2615236962492,
+        1140.4742248797638
+      ]
+    },
+    {
+      "id": "right_upper",
+      "error_px": 20.85,
+      "pixel_xy": [
+        2420,
+        470
+      ],
+      "projected_xy": [
+        2423.8972262055586,
+        449.514140194327
+      ]
+    },
+    {
+      "id": "right_landmark",
+      "error_px": 35.76,
+      "pixel_xy": [
+        2330,
+        574
+      ],
+      "projected_xy": [
+        2296.142468490098,
+        562.4980132439484
+      ]
+    },
+    {
+      "id": "left_pink_bush",
+      "error_px": 25.32,
+      "pixel_xy": [
+        562,
+        620
+      ],
+      "projected_xy": [
+        570.5235219264994,
+        596.1570215805405
+      ]
+    },
+    {
+      "id": "main_fall_left_rim",
+      "error_px": 30.71,
+      "pixel_xy": [
+        1272,
+        636
+      ],
+      "projected_xy": [
+        1300.0203449022067,
+        623.4228908068685
+      ]
+    },
+    {
+      "id": "main_fall_right_rim",
+      "error_px": 19.03,
+      "pixel_xy": [
+        1450,
+        632
+      ],
+      "projected_xy": [
+        1465.843548964841,
+        642.5379622165523
+      ]
+    }
+  ],
+  "front_section_z_m": -15.5625,
+  "side_section_x_m": -2.0625,
+  "images": [
+    "layout_reference_overlay.png",
+    "terrain_three_views.png",
+    "terrain_orthographic_views.png"
+  ],
+  "limitations": [
+    "graph lines are projected from endpoint interpolation, not image segmentation",
+    "source PnP camera is a candidate",
+    "bulk heightmap excludes bridge, stairs and separate cliff faces"
+  ]
+}

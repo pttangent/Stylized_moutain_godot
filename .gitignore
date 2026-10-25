@@ -3,6 +3,11 @@
 /android/
 **/.godot/
 **/android/
+*.import
+
+# Local duplicate delivery archives; extracted source assets are tracked below.
+canyon-rpg/assets/worlds.zip
+tools/marble-world-annotator.zip
 
 # Blender backups and Python caches
 *.blend1

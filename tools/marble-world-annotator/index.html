@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marble World Annotator</title>
+    <style>
+      :root { color-scheme: dark; font: 14px/1.45 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      * { box-sizing: border-box; }
+      body { margin: 0; min-width: 320px; min-height: 100vh; color: #e8eee8; background: #111718; }
+      button, input, select { font: inherit; color: inherit; background: #202a2b; border: 1px solid #475657; border-radius: 7px; padding: 7px 10px; }
+      button { cursor: pointer; white-space: nowrap; }
+      button:hover { background: #2c3a39; border-color: #7a9690; }
+      button:disabled { cursor: wait; opacity: .6; }
+      header { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 10px 16px; border-bottom: 1px solid #354142; background: #192122; }
+      .brand { margin-right: auto; font-size: 17px; font-weight: 700; letter-spacing: .01em; }
+      .brand small { margin-left: 8px; color: #92aaa1; font-size: 12px; font-weight: 500; }
+      .toolbar, .toolbar-group { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+      .toolbar-group { padding-right: 9px; border-right: 1px solid #3c4b4b; }
+      .toolbar-group:last-child { border: 0; }
+      .subbar { min-height: 46px; color: #b7c7c0; font-size: 12px; }
+      .subbar strong { color: #eef7ef; }
+      .subbar .status { margin-left: auto; color: #8fe0ba; }
+      main { display: grid; grid-template-columns: minmax(280px, 1fr) minmax(360px, 1fr); gap: 10px; height: calc(100vh - 202px); min-height: 390px; padding: 10px; }
+      .panel { display: flex; min-width: 0; min-height: 0; flex-direction: column; overflow: hidden; border: 1px solid #364344; border-radius: 10px; background: #182021; }
+      .panel-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 39px; padding: 7px 11px; border-bottom: 1px solid #344041; background: #20292a; }
+      .panel-head strong { font-size: 13px; }
+      .panel-head span { color: #9db0a8; font-size: 11px; }
+      .stage { position: relative; display: flex; flex: 1; min-height: 0; align-items: center; justify-content: center; overflow: auto; background: #101718; }
+      #referenceCanvas { display: block; max-width: 100%; max-height: 100%; cursor: crosshair; }
+      #viewport { position: relative; flex: 1; min-height: 0; background: #12191a; }
+      #viewport canvas { display: block; width: 100%; height: 100%; }
+      .drop-hint { position: absolute; z-index: 2; inset: 12px; display: grid; place-content: center; padding: 14px; border: 1px dashed #6f8d82; border-radius: 10px; color: #cde5d6; background: #182423e8; text-align: center; pointer-events: none; }
+      .drop-hint[hidden] { display: none; }
+      .drop-active { outline: 3px solid #67d9a3; outline-offset: -5px; }
+      .axes { position: absolute; left: 10px; bottom: 10px; padding: 4px 7px; border-radius: 5px; color: #c2d1cb; background: #111718bb; font-size: 11px; pointer-events: none; }
+      .controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 9px 12px; border-top: 1px solid #354142; background: #192122; }
+      .controls label { display: flex; align-items: center; gap: 6px; color: #aec0b7; font-size: 12px; }
+      .controls input[type="text"] { width: 126px; }
+      .controls input[type="checkbox"] { accent-color: #52c993; }
+      .controls .spacer { flex: 1; }
+      .controls button.primary { color: #071b12; background: #77e2ae; border-color: #77e2ae; font-weight: 700; }
+      .controls button.primary:hover { background: #9aefc3; }
+      .lower { min-height: 76px; align-items: flex-start; }
+      #selected { max-width: 42vw; overflow: hidden; color: #d9e9de; text-overflow: ellipsis; white-space: nowrap; }
+      #summary { width: 100%; color: #9fb1a9; font-size: 12px; }
+      #summary b { color: #e1f3e6; }
+      .warning { color: #e7c894 !important; }
+      .hidden { display: none !important; }
+      @media (max-width: 820px) {
+        main { grid-template-columns: 1fr; grid-template-rows: minmax(280px, 1fr) minmax(320px, 1fr); height: calc(100vh - 250px); min-height: 680px; }
+        .subbar .status { margin-left: 0; }
+        #selected { max-width: 100%; }
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/",
+          "@sparkjsdev/spark": "https://sparkjs.dev/releases/spark/2.4.0/spark.module.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="brand">Marble World Annotator <small>本機 2D ↔ 3D 審閱器</small></div>
+      <div class="toolbar">
+        <div class="toolbar-group"><span>圖片</span><input id="imageInput" type="file" accept="image/*" hidden /><button data-open="imageInput">載入圖片</button></div>
+        <div class="toolbar-group"><label for="splatPreset">SPZ 品質</label><select id="splatPreset"><option value="100k">原始 100k · 快速</option><option value="150k">原始 150k</option><option value="500k">原始 500k</option><option value="full-res">原始 Full-res · 1.92M</option><option value="core-100k">Core 100k · 近 collider 診斷</option><option value="core-150k">Core 150k · 近 collider 診斷</option></select></div>
+        <div class="toolbar-group"><span>SPZ</span><input id="spzInput" type="file" accept=".spz,application/octet-stream" hidden /><button data-open="spzInput">載入 Gaussian Splat</button></div>
+        <div class="toolbar-group"><span>GLB</span><input id="glbInput" type="file" accept=".glb,model/gltf-binary" hidden /><button data-open="glbInput">載入 Collider</button></div>
+        <input id="jsonInput" type="file" accept="application/json,.json" hidden />
+        <button id="importJson">匯入標註</button>
+      </div>
+    </header>
+    <header class="subbar">
+      <strong>拖放也可以：</strong> 圖片放左窗格；.spz、.glb 或 paired_landmarks.json 放右窗格。
+      <span id="status" class="status">初始化中…</span>
+    </header>
+
+    <main>
+      <section class="panel" id="imagePane">
+        <div class="panel-head"><strong>01　Reference Image</strong><span id="imageName">參考圖像素座標</span></div>
+        <div class="stage" id="imageStage">
+          <canvas id="referenceCanvas" aria-label="參考圖片；點擊標註點選取，按住 Shift 點擊或拖曳移動"></canvas>
+          <div class="axes image-help">點擊標註點選取 · Shift+點擊／拖曳移動</div>
+          <div class="drop-hint" id="imageDropHint" hidden>放開以載入參考圖片</div>
+        </div>
+      </section>
+      <section class="panel" id="modelPane">
+        <div class="panel-head"><strong>02　World Model</strong><span id="modelName">SPZ 視覺 + GLB 碰撞面</span></div>
+        <div id="viewport">
+          <div class="drop-hint" id="modelDropHint" hidden>放開 .spz、.glb 或標註 JSON</div>
+      <div class="axes">座標顯示 raw GLB XYZ；SPZ 與 collider 共用 flipY，這是顯示預設，不等於尺度或 up-axis 已核實。</div>
+        </div>
+      </section>
+    </main>
+
+    <div class="controls">
+      <label>地標 <select id="landmarkPicker"></select></label>
+      <input id="newLandmarkId" type="text" placeholder="新地標 ID" aria-label="新地標 ID" />
+      <input id="newLandmarkKind" type="text" placeholder="類型" aria-label="新地標類型" />
+      <button id="addLandmark">新增地標</button>
+      <span class="spacer"></span>
+      <button id="viewHome" title="未配準的舊候選相機，不代表原圖視角">未配準候選視角</button><button id="viewWorldLabsStart" title="World Labs Splat Explorer 預設：相機原點、朝 -Z、垂直 FOV 70°">World Labs 起始視角</button><button id="viewTop">俯視 (raw −Y)</button><button id="viewX">看 raw +X</button><button id="viewY">看 raw +Y</button><button id="viewZ">看 raw +Z</button>
+      <button id="flipY" title="SPZ 與 GLB 共用 Image-Blaster flip_y 預設變換">flipY: ON</button>
+      <button id="toggleSplat">隱藏 SPZ</button><button id="toggleCollider">隱藏 GLB</button><button id="toggleMaterial">Collider 原始材質</button>
+    </div>
+    <div class="controls lower">
+      <label><input id="humanReviewed" type="checkbox" /> 我已人工核對目前配對</label>
+      <label>標註者
+        <select id="annotator"><option value="agent_proposal">Agent 提案</option><option value="human_operator">人工操作</option></select>
+      </label>
+      <label>備註 <input id="anchorNote" type="text" placeholder="地標或模型不一致的說明" /></label>
+      <button id="clearAnchor">清除目前 3D 點</button>
+      <button id="clearAllAnnotations" title="清除手動 2D／3D 點、備註與核對狀態；保留地標及原始像素種子">清空全部標註</button>
+      <button id="copyReview">複製 Agent 審閱摘要</button>
+      <button id="exportJson" class="primary">匯出 paired_landmarks.json</button>
+      <span id="selected">載入完成後，選地標、點原圖，再點 collider 表面。</span>
+      <div id="summary"></div>
+    </div>
+
+    <script type="module" src="./world-annotator.js"></script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "world_slug": "canyon-waterfall",
+  "provider": "World Labs Marble API",
+  "model": "marble-1.1",
+  "world_id": "44c246a5-3f15-4cb3-b835-830b04857da8",
+  "operation_id": "d13e96c6-7976-43fc-a351-d4b62bff5b9b",
+  "generated_at": "2026-10-25T18:22:57.245Z",
+  "source_image": "canyon-waterfall-reference.jpeg",
+  "source_provenance": "User-provided reference image",
+  "prompt": "Wide elevated three-quarter view of a serene, stylized fantasy canyon landscape matching the reference image. A clear turquoise river winds from a distant upper waterfall over several stepped cascades into a shallow foreground stream, bordered by layered pale-gray rock cliffs, bright green grassy terraces, natural stone steps, and winding footpaths. Dense varied leafy trees and pines, ferns, flowering shrubs and small wildflowers frame the valley. Include the small arched wooden footbridge crossing the river near the foreground center. Soft clear daylight, lush painterly cel-shaded game art, harmonious green and aqua palette, coherent readable spatial layout. This is one static environment: no people, characters, creatures, vehicles, animated objects, text, or UI.",
+  "gaussian_splats": [
+    {
+      "quality": "100k",
+      "file": "canyon-waterfall-100k.spz",
+      "bytes": 1474549,
+      "sha256": "7f6f9ad1b0c16807fabd1ad63fd254dbd699783bf7741e5a838dcd63682a32a3"
+    },
+    {
+      "quality": "150k",
+      "file": "canyon-waterfall-150k.spz",
+      "bytes": 2383076,
+      "sha256": "e8ce119112bc75a988ec4713b24139e510eec5350cc83cdcdad9b374ec78e84a"
+    },
+    {
+      "quality": "500k",
+      "file": "canyon-waterfall-500k.spz",
+      "bytes": 7965412,
+      "sha256": "15bee122091d14675e7d8f45521f75815709846c1eb8fd3f663950c1165f0687"
+    },
+    {
+      "quality": "full_res",
+      "file": "canyon-waterfall-full-res.spz",
+      "bytes": 30592182,
+      "sha256": "b9e80ceecd6c0c14a4e95845f9bd170868f34fa64b19c915742b44c66970933a"
+    }
+  ],
+  "collision_mesh": {
+    "file": "canyon-waterfall-collider.glb",
+    "format": "glb",
+    "source": "World Labs Marble collider mesh",
+    "bytes": 3897204,
+    "sha256": "9f1089b6209531b5ae5b92e146b22c16a8a7d7268dacdd125320f9e457df1907"
+  },
+  "license_note": "Generated with the user-provided World Labs API key; usage is subject to the World Labs account/API terms.",
+  "pipeline_repository": "https://github.com/neilsonnn/image-blaster",
+  "pipeline_revision": "4acb43b",
+  "marble_world_url": "https://marble.worldlabs.ai/world/44c246a5-3f15-4cb3-b835-830b04857da8"
+}

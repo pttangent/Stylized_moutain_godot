@@ -8,11 +8,22 @@
 |---|---|---|
 | 註冊、尺度、範圍與地標 | [`blueprint/scene_blueprint.json`](../blueprint/scene_blueprint.json) | Godot Y-up，1 unit = 1 m，保留每個原始 GLB 點和設計座標 |
 | 俯視布局 | [`blueprint/layout_topdown.png`](../blueprint/layout_topdown.png) | 水流藍線、主路橙線、階地與分離懸崖 |
+| 原圖疊加核對 | [`blueprint/layout_reference_overlay.png`](../blueprint/layout_reference_overlay.png) | 以候選來源相機把設計水流與路線投回原圖；白圈為標註像素、紅點為重投影 |
+| 高度三視圖 | [`blueprint/terrain_three_views.png`](../blueprint/terrain_three_views.png)、[`blueprint/terrain_orthographic_views.png`](../blueprint/terrain_orthographic_views.png) | 高度圖俯視、Z=-15.56 m 正面剖面、X=-2.06 m 側面剖面，及正交外觀 |
 | 16-bit 高度資料 | [`blueprint/heightmap_16bit.png`](../blueprint/heightmap_16bit.png) | 768×960，0.125 m/pixel，bulk terrain；數值解碼範圍 -8 至 30 m |
 | 設計語義遮罩 | [`blueprint/semantic_mask_design.png`](../blueprint/semantic_mask_design.png) | 地形、水床、路、橋、階梯、懸崖、植被保留區；**設計分區，非 GLB 語義真值** |
 | 水流與路線 | [`blueprint/water_graph.json`](../blueprint/water_graph.json)、[`blueprint/navigation_graph.json`](../blueprint/navigation_graph.json) | 定向高差、路徑尺寸、階梯段數 |
 | 懸崖與遊戲相機 | [`blueprint/cliff_edges.json`](../blueprint/cliff_edges.json)、[`blueprint/camera.json`](../blueprint/camera.json) | 懸崖需獨立碰撞；遊戲相機與原圖 PnP 相機分開 |
 | 重建與驗證腳本 | [`blueprint/build_p0_design.py`](../blueprint/build_p0_design.py)、[`blueprint/validate_p0_design.py`](../blueprint/validate_p0_design.py) | 從保留的標註及 Marble 證據再生數值藍圖 |
+| 視圖生成腳本 | [`blueprint/render_p0_review_views.py`](../blueprint/render_p0_review_views.py) | 從現有藍圖、已核對標註、候選 PnP 相機與 16-bit 高度圖再生三張核對圖；逐點偏差見 [`review_views_metadata.json`](../blueprint/review_views_metadata.json) |
+
+## 原圖疊加與高度視圖審核
+
+原圖疊加中，橋、主瀑布和河道主幹的投影落在可辨識的相應區域。25 個已核對點的重投影誤差中位數 **19.28 px**、90 百分位 **35.57 px**；`stream_lower` **66.81 px**、`stair_left_upper` **61.38 px** 偏差顯著。這些偏差保留在圖和 JSON 中，沒有為了讓圖看起來吻合而移動標註。線段是藍圖節點之間的三維直線插值，**不是原圖像素分割**；穿過樹冠或遮擋物的位置不能當成可見路線。
+
+高度三視圖使用設計的 **bulk terrain** 高度圖；俯視圖的紅虛線對應正面剖面 Z=-15.56 m，藍虛線對應側面剖面 X=-2.06 m。正面剖面呈兩岸較高、中央河谷較低；側面剖面從上游約 25 m 下降至下游約 -4 m，主瀑布附近有約 5 m 的設計落差。圖上的地標與水節點作為高度參考投影到剖面，並不表示每個點都位於剖切平面。另附的正交三視角顯示高度場的整體輪廓，但橋面、樓梯、樹冠與垂直崖壁為獨立幾何，不能靠此高度場驗證其碰撞。
+
+本輪視覺核對支持主要構圖和上游至下游的高度方向，但**不能證明**隱藏地表、瀑布立面、橋下淨空或角色通行正確；這些仍屬後續白模實機 Gate。視圖生成指令：`python blueprint/render_p0_review_views.py`，需有 `numpy`、`opencv-python`、`Pillow` 和 `matplotlib`。
 
 ## 採用尺寸
 
