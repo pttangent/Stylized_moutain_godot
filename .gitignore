@@ -1,0 +1,14 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+**/.godot/
+**/android/
+
+# Blender backups and Python caches
+*.blend1
+*.blend2
+__pycache__/
+*.py[cod]
+
+# macOS
+.DS_Store
