@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "stage": "P0_B_DESIGN",
+  "nodes": [
+    {
+      "id": "wf_far",
+      "position_m": [
+        -21.1256,
+        22.1941,
+        -82.0575
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface_role": "water_surface_or_fall_centerline",
+      "walkable": false
+    },
+    {
+      "id": "wf_mid",
+      "position_m": [
+        -15.9652,
+        16.6208,
+        -51.7998
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface_role": "water_surface_or_fall_centerline",
+      "walkable": false
+    },
+    {
+      "id": "upper_run",
+      "position_m": [
+        -3.5135,
+        8.2644,
+        -22.5111
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface_role": "water_surface_or_fall_centerline",
+      "walkable": false
+    },
+    {
+      "id": "main_fall_lip",
+      "position_m": [
+        -3.8188,
+        4.6472,
+        -15.7233
+      ],
+      "source": "mean_of_reviewed_rim_anchors",
+      "surface_role": "water_surface_or_fall_centerline",
+      "walkable": false
+    },
+    {
+      "id": "wf_main",
+      "position_m": [
+        -3.9729,
+        2.6096,
+        -15.709
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface_role": "water_surface_or_fall_centerline",
+      "walkable": false
+    },
+    {
+      "id": "pool_main",
+      "position_m": [
+        -2.8837,
+        -0.7718,
+        -8.3349
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface_role": "water_surface_or_fall_centerline",
+      "walkable": false
+    },
+    {
+      "id": "bridge_reach",
+      "position_m": [
+        0.0981,
+        -1.215,
+        3.8701
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface_role": "water_surface_or_fall_centerline",
+      "walkable": false
+    },
+    {
+      "id": "stream_lower",
+      "position_m": [
+        -9.5765,
+        -2.1132,
+        13.2923
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface_role": "water_surface_or_fall_centerline",
+      "walkable": false
+    },
+    {
+      "id": "exit_lower_left",
+      "position_m": [
+        -25.7491,
+        -3.0512,
+        19.5762
+      ],
+      "source": "unreviewed_source_camera_ray_design_hypothesis",
+      "surface_role": "water_surface_or_fall_centerline",
+      "walkable": false
+    }
+  ],
+  "edges": [
+    {
+      "id": "wf_far__wf_mid",
+      "from": "wf_far",
+      "to": "wf_mid",
+      "kind": "distant_cascade",
+      "designed_drop_m": 5.5733,
+      "direction_check": "POSITIVE",
+      "continuous_collider_surface_proven": false,
+      "water_width_m": 2.2,
+      "confidence": "medium"
+    },
+    {
+      "id": "wf_mid__upper_run",
+      "from": "wf_mid",
+      "to": "upper_run",
+      "kind": "distant_cascade",
+      "designed_drop_m": 8.3564,
+      "direction_check": "POSITIVE",
+      "continuous_collider_surface_proven": false,
+      "water_width_m": 2.2,
+      "confidence": "medium"
+    },
+    {
+      "id": "upper_run__main_fall_lip",
+      "from": "upper_run",
+      "to": "main_fall_lip",
+      "kind": "upper_reach_to_lip",
+      "designed_drop_m": 3.6172,
+      "direction_check": "POSITIVE",
+      "continuous_collider_surface_proven": false,
+      "water_width_m": 2.2,
+      "confidence": "medium"
+    },
+    {
+      "id": "main_fall_lip__wf_main",
+      "from": "main_fall_lip",
+      "to": "wf_main",
+      "kind": "waterfall",
+      "designed_drop_m": 2.0376,
+      "direction_check": "POSITIVE",
+      "continuous_collider_surface_proven": false,
+      "water_width_m": 2.6,
+      "confidence": "medium"
+    },
+    {
+      "id": "wf_main__pool_main",
+      "from": "wf_main",
+      "to": "pool_main",
+      "kind": "waterfall",
+      "designed_drop_m": 3.3814,
+      "direction_check": "POSITIVE",
+      "continuous_collider_surface_proven": false,
+      "water_width_m": 2.6,
+      "confidence": "medium"
+    },
+    {
+      "id": "pool_main__bridge_reach",
+      "from": "pool_main",
+      "to": "bridge_reach",
+      "kind": "pool_to_stream",
+      "designed_drop_m": 0.4432,
+      "direction_check": "POSITIVE",
+      "continuous_collider_surface_proven": false,
+      "water_width_m": 4.5,
+      "confidence": "medium"
+    },
+    {
+      "id": "bridge_reach__stream_lower",
+      "from": "bridge_reach",
+      "to": "stream_lower",
+      "kind": "stream",
+      "designed_drop_m": 0.8982,
+      "direction_check": "POSITIVE",
+      "continuous_collider_surface_proven": false,
+      "water_width_m": 2.2,
+      "confidence": "medium"
+    },
+    {
+      "id": "stream_lower__exit_lower_left",
+      "from": "stream_lower",
+      "to": "exit_lower_left",
+      "kind": "stream_to_exit",
+      "designed_drop_m": 0.938,
+      "direction_check": "POSITIVE",
+      "continuous_collider_surface_proven": false,
+      "water_width_m": 2.2,
+      "confidence": "low"
+    }
+  ],
+  "hydrology_status": "DESIGN_DIRECTION_VERIFIED_PHYSICAL_FLOW_NOT_SIMULATED",
+  "source_camera_not_game_camera": true
+}

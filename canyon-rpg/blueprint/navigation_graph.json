@@ -1,0 +1,365 @@
+{
+  "schema_version": 1,
+  "stage": "P0_B_DESIGN",
+  "agent": {
+    "height_m": 1.75,
+    "radius_m": 0.35,
+    "maximum_regular_path_slope_deg": 18,
+    "maximum_stair_riser_m": 0.175,
+    "minimum_overhead_clearance_m": 2.1,
+    "godot_navmesh_agent_radius_m": 0.35,
+    "godot_navmesh_agent_height_m": 1.8,
+    "godot_navmesh_agent_max_climb_m": 0.18,
+    "godot_navmesh_agent_max_slope_deg": 35
+  },
+  "nodes": [
+    {
+      "id": "start_lower_right",
+      "position_m": [
+        0.749,
+        -1.0165,
+        16.4323
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface": "terrain_path"
+    },
+    {
+      "id": "stair_low_right",
+      "position_m": [
+        5.2444,
+        -0.2627,
+        13.2899
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface": "stairs"
+    },
+    {
+      "id": "bridge_right",
+      "position_m": [
+        3.1846,
+        0.2843,
+        -0.4684
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface": "bridge"
+    },
+    {
+      "id": "bridge",
+      "position_m": [
+        0.0,
+        -0.0,
+        -0.0
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface": "bridge"
+    },
+    {
+      "id": "bridge_left",
+      "position_m": [
+        -2.7616,
+        -0.38,
+        0.3336
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface": "bridge"
+    },
+    {
+      "id": "left_bank_entry",
+      "position_m": [
+        -6.7375,
+        -0.1027,
+        2.3558
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface": "terrain_path"
+    },
+    {
+      "id": "left_bank_upper",
+      "position_m": [
+        -12.056,
+        1.4885,
+        -3.1413
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface": "terrain_path"
+    },
+    {
+      "id": "left_glade",
+      "position_m": [
+        -17.7214,
+        3.4369,
+        -11.2089
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface": "terrain_path"
+    },
+    {
+      "id": "stair_left_upper",
+      "position_m": [
+        -19.7949,
+        6.4088,
+        -23.2401
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface": "stairs"
+    },
+    {
+      "id": "left_upper",
+      "position_m": [
+        -41.688,
+        10.7702,
+        -22.7852
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface": "terrain_path"
+    },
+    {
+      "id": "right_lower",
+      "position_m": [
+        6.6873,
+        0.5955,
+        5.9679
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface": "terrain_path"
+    },
+    {
+      "id": "stair_far_right",
+      "position_m": [
+        18.7553,
+        3.3123,
+        11.4352
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface": "stairs"
+    },
+    {
+      "id": "right_upper",
+      "position_m": [
+        29.1694,
+        14.5189,
+        -12.6746
+      ],
+      "source": "reviewed_GLB_anchor",
+      "surface": "terrain_path"
+    }
+  ],
+  "edges": [
+    {
+      "id": "start_lower_right__stair_low_right",
+      "from": "start_lower_right",
+      "to": "stair_low_right",
+      "route": "main",
+      "kind": "path",
+      "horizontal_length_m": 5.485,
+      "endpoint_height_delta_m": 0.754,
+      "endpoint_slope_deg": 7.83,
+      "clear_width_m": 1.8,
+      "construction": "graded_path_strip",
+      "collider_reuse": "DO_NOT_USE_RAW_MARBLE_AS_FINAL_COLLISION"
+    },
+    {
+      "id": "stair_low_right__bridge_right",
+      "from": "stair_low_right",
+      "to": "bridge_right",
+      "route": "main",
+      "kind": "path",
+      "horizontal_length_m": 13.912,
+      "endpoint_height_delta_m": 0.547,
+      "endpoint_slope_deg": 2.25,
+      "clear_width_m": 1.8,
+      "construction": "graded_path_strip",
+      "collider_reuse": "DO_NOT_USE_RAW_MARBLE_AS_FINAL_COLLISION"
+    },
+    {
+      "id": "bridge_right__bridge",
+      "from": "bridge_right",
+      "to": "bridge",
+      "route": "main",
+      "kind": "bridge",
+      "horizontal_length_m": 3.219,
+      "endpoint_height_delta_m": -0.284,
+      "endpoint_slope_deg": 5.05,
+      "clear_width_m": 1.6,
+      "construction": "separate_deck",
+      "collider_reuse": "DO_NOT_USE_RAW_MARBLE_AS_FINAL_COLLISION"
+    },
+    {
+      "id": "bridge__bridge_left",
+      "from": "bridge",
+      "to": "bridge_left",
+      "route": "main",
+      "kind": "bridge",
+      "horizontal_length_m": 2.782,
+      "endpoint_height_delta_m": -0.38,
+      "endpoint_slope_deg": 7.78,
+      "clear_width_m": 1.6,
+      "construction": "separate_deck",
+      "collider_reuse": "DO_NOT_USE_RAW_MARBLE_AS_FINAL_COLLISION"
+    },
+    {
+      "id": "bridge_left__left_bank_entry",
+      "from": "bridge_left",
+      "to": "left_bank_entry",
+      "route": "main",
+      "kind": "path",
+      "horizontal_length_m": 4.461,
+      "endpoint_height_delta_m": 0.277,
+      "endpoint_slope_deg": 3.56,
+      "clear_width_m": 1.8,
+      "construction": "graded_path_strip",
+      "collider_reuse": "DO_NOT_USE_RAW_MARBLE_AS_FINAL_COLLISION"
+    },
+    {
+      "id": "left_bank_entry__left_bank_upper",
+      "from": "left_bank_entry",
+      "to": "left_bank_upper",
+      "route": "main",
+      "kind": "path",
+      "horizontal_length_m": 7.649,
+      "endpoint_height_delta_m": 1.591,
+      "endpoint_slope_deg": 11.75,
+      "clear_width_m": 1.8,
+      "construction": "graded_path_strip",
+      "collider_reuse": "DO_NOT_USE_RAW_MARBLE_AS_FINAL_COLLISION"
+    },
+    {
+      "id": "left_bank_upper__left_glade",
+      "from": "left_bank_upper",
+      "to": "left_glade",
+      "route": "main",
+      "kind": "path",
+      "horizontal_length_m": 9.858,
+      "endpoint_height_delta_m": 1.948,
+      "endpoint_slope_deg": 11.18,
+      "clear_width_m": 1.8,
+      "construction": "graded_path_strip",
+      "collider_reuse": "DO_NOT_USE_RAW_MARBLE_AS_FINAL_COLLISION"
+    },
+    {
+      "id": "left_glade__stair_left_upper",
+      "from": "left_glade",
+      "to": "stair_left_upper",
+      "route": "main",
+      "kind": "stair",
+      "horizontal_length_m": 12.209,
+      "endpoint_height_delta_m": 2.972,
+      "endpoint_slope_deg": 13.68,
+      "clear_width_m": 1.6,
+      "construction": "designed_stair_flights",
+      "collider_reuse": "DO_NOT_USE_RAW_MARBLE_AS_FINAL_COLLISION",
+      "stairs": {
+        "steps": 17,
+        "flights": [
+          17
+        ],
+        "riser_m": 0.1748,
+        "tread_m": 0.32,
+        "landing_count": 0,
+        "landing_length_m": 1.5,
+        "minimum_run_m": 5.44,
+        "fits_endpoint_horizontal_run": true
+      }
+    },
+    {
+      "id": "stair_left_upper__left_upper",
+      "from": "stair_left_upper",
+      "to": "left_upper",
+      "route": "main",
+      "kind": "path",
+      "horizontal_length_m": 21.898,
+      "endpoint_height_delta_m": 4.361,
+      "endpoint_slope_deg": 11.26,
+      "clear_width_m": 1.8,
+      "construction": "graded_path_strip",
+      "collider_reuse": "DO_NOT_USE_RAW_MARBLE_AS_FINAL_COLLISION"
+    },
+    {
+      "id": "bridge_right__right_lower",
+      "from": "bridge_right",
+      "to": "right_lower",
+      "route": "right_branch",
+      "kind": "path",
+      "horizontal_length_m": 7.328,
+      "endpoint_height_delta_m": 0.311,
+      "endpoint_slope_deg": 2.43,
+      "clear_width_m": 1.8,
+      "construction": "graded_path_strip",
+      "collider_reuse": "DO_NOT_USE_RAW_MARBLE_AS_FINAL_COLLISION"
+    },
+    {
+      "id": "right_lower__stair_far_right",
+      "from": "right_lower",
+      "to": "stair_far_right",
+      "route": "right_branch",
+      "kind": "stair",
+      "horizontal_length_m": 13.249,
+      "endpoint_height_delta_m": 2.717,
+      "endpoint_slope_deg": 11.59,
+      "clear_width_m": 1.6,
+      "construction": "designed_stair_flights",
+      "collider_reuse": "DO_NOT_USE_RAW_MARBLE_AS_FINAL_COLLISION",
+      "stairs": {
+        "steps": 16,
+        "flights": [
+          16
+        ],
+        "riser_m": 0.1698,
+        "tread_m": 0.32,
+        "landing_count": 0,
+        "landing_length_m": 1.5,
+        "minimum_run_m": 5.12,
+        "fits_endpoint_horizontal_run": true
+      }
+    },
+    {
+      "id": "stair_far_right__right_upper",
+      "from": "stair_far_right",
+      "to": "right_upper",
+      "route": "right_branch",
+      "kind": "stair",
+      "horizontal_length_m": 26.263,
+      "endpoint_height_delta_m": 11.207,
+      "endpoint_slope_deg": 23.11,
+      "clear_width_m": 1.6,
+      "construction": "designed_stair_flights",
+      "collider_reuse": "DO_NOT_USE_RAW_MARBLE_AS_FINAL_COLLISION",
+      "stairs": {
+        "steps": 65,
+        "flights": [
+          22,
+          22,
+          21
+        ],
+        "riser_m": 0.1724,
+        "tread_m": 0.32,
+        "landing_count": 2,
+        "landing_length_m": 1.5,
+        "minimum_run_m": 23.8,
+        "fits_endpoint_horizontal_run": true
+      }
+    }
+  ],
+  "routes": {
+    "main": [
+      "start_lower_right",
+      "stair_low_right",
+      "bridge_right",
+      "bridge",
+      "bridge_left",
+      "left_bank_entry",
+      "left_bank_upper",
+      "left_glade",
+      "stair_left_upper",
+      "left_upper"
+    ],
+    "right_branch": [
+      "bridge_right",
+      "right_lower",
+      "stair_far_right",
+      "right_upper"
+    ]
+  },
+  "physical_characterbody_test": "P1_REQUIRED_NOT_RUN",
+  "designed_continuity": "GRAPH_AND_DIMENSIONS_VALIDATED_ONLY"
+}

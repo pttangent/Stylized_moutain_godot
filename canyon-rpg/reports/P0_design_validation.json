@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "stage": "P0_B_DESIGN_NUMERIC_CHECK",
+  "passed": 17,
+  "failed": 0,
+  "checks": [
+    {
+      "id": "heightmap_16bit",
+      "status": "PASS",
+      "detail": "(dtype('uint16'), (960, 768))"
+    },
+    {
+      "id": "semantic_design_mask",
+      "status": "PASS",
+      "detail": "[0, 1, 2, 3, 4, 5, 6, 7]"
+    },
+    {
+      "id": "scale_and_bounds",
+      "status": "PASS",
+      "detail": "96 x 120 m; scale from designed 6 m bridge"
+    },
+    {
+      "id": "water_graph_refs",
+      "status": "PASS",
+      "detail": "all water references resolve"
+    },
+    {
+      "id": "water_downhill",
+      "status": "PASS",
+      "detail": "all 8 designed water links descend"
+    },
+    {
+      "id": "water_single_flow",
+      "status": "PASS",
+      "detail": "one directed source-to-outlet chain"
+    },
+    {
+      "id": "navigation_graph_refs",
+      "status": "PASS",
+      "detail": "all route references resolve"
+    },
+    {
+      "id": "main_route_graph_connected",
+      "status": "PASS",
+      "detail": "start to upper left graph path"
+    },
+    {
+      "id": "right_branch_graph_connected",
+      "status": "PASS",
+      "detail": "bridge to upper right graph path"
+    },
+    {
+      "id": "ordinary_path_grades",
+      "status": "PASS",
+      "detail": [
+        [
+          "start_lower_right__stair_low_right",
+          7.83
+        ],
+        [
+          "stair_low_right__bridge_right",
+          2.25
+        ],
+        [
+          "bridge_left__left_bank_entry",
+          3.56
+        ],
+        [
+          "left_bank_entry__left_bank_upper",
+          11.75
+        ],
+        [
+          "left_bank_upper__left_glade",
+          11.18
+        ],
+        [
+          "stair_left_upper__left_upper",
+          11.26
+        ],
+        [
+          "bridge_right__right_lower",
+          2.43
+        ]
+      ]
+    },
+    {
+      "id": "stairs_dimensional",
+      "status": "PASS",
+      "detail": [
+        [
+          "left_glade__stair_left_upper",
+          {
+            "steps": 17,
+            "flights": [
+              17
+            ],
+            "riser_m": 0.1748,
+            "tread_m": 0.32,
+            "landing_count": 0,
+            "landing_length_m": 1.5,
+            "minimum_run_m": 5.44,
+            "fits_endpoint_horizontal_run": true
+          }
+        ],
+        [
+          "right_lower__stair_far_right",
+          {
+            "steps": 16,
+            "flights": [
+              16
+            ],
+            "riser_m": 0.1698,
+            "tread_m": 0.32,
+            "landing_count": 0,
+            "landing_length_m": 1.5,
+            "minimum_run_m": 5.12,
+            "fits_endpoint_horizontal_run": true
+          }
+        ],
+        [
+          "stair_far_right__right_upper",
+          {
+            "steps": 65,
+            "flights": [
+              22,
+              22,
+              21
+            ],
+            "riser_m": 0.1724,
+            "tread_m": 0.32,
+            "landing_count": 2,
+            "landing_length_m": 1.5,
+            "minimum_run_m": 23.8,
+            "fits_endpoint_horizontal_run": true
+          }
+        ]
+      ]
+    },
+    {
+      "id": "clear_widths",
+      "status": "PASS",
+      "detail": "1.6 m min versus agent diameter .7 m"
+    },
+    {
+      "id": "bridge_water_vertical_separation",
+      "status": "PASS",
+      "detail": "1.215 m deck center to water surface before structural thickness"
+    },
+    {
+      "id": "anchors_inside_bounds",
+      "status": "PASS",
+      "detail": "25/25 reviewed 3D anchors in bounds"
+    },
+    {
+      "id": "game_camera_anchor_frame",
+      "status": "PASS",
+      "detail": {
+        "horizontal_half_m": 113.77777777777777,
+        "vertical_half_m": 64.0,
+        "extents_uv": [
+          -41.533029635304224,
+          26.928264194305978,
+          -31.713296085849528,
+          55.56277360662297
+        ]
+      }
+    },
+    {
+      "id": "cliffs_separate",
+      "status": "PASS",
+      "detail": "cliff/overhangs reserved as separate geometry"
+    },
+    {
+      "id": "source_camera_separate",
+      "status": "PASS",
+      "detail": "source camera not reused as game camera; scale is a decision"
+    }
+  ],
+  "not_tested": [
+    "actual CharacterBody3D traversal",
+    "Godot NavigationMesh bake",
+    "SPZ/GLB synchronized game transform render",
+    "GPU screenshot",
+    "water physical simulation",
+    "terrain vs overhang visual occlusion"
+  ],
+  "design_gate": "PASS",
+  "engine_runtime_gate": "PENDING_P1"
+}

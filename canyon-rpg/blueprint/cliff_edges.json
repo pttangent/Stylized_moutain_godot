@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "stage": "P0_B_DESIGN",
+  "note": "Approximate visible terrain lips; extruded cliff collision and overhangs must be authored separately. Do not convert heightmap slopes into vertical walls.",
+  "edges": [
+    {
+      "id": "main_fall_lip",
+      "polyline_xz_m": [
+        [
+          -6.8025,
+          -15.5447
+        ],
+        [
+          -0.8351,
+          -15.902
+        ]
+      ],
+      "role": "waterfall_lip",
+      "confidence": "medium",
+      "source_ids": [
+        "main_fall_left_rim",
+        "main_fall_right_rim"
+      ]
+    },
+    {
+      "id": "left_pool_cliff",
+      "polyline_xz_m": [
+        [
+          -25,
+          -9
+        ],
+        [
+          -19,
+          -13
+        ],
+        [
+          -12,
+          -14
+        ],
+        [
+          -7,
+          -11
+        ]
+      ],
+      "role": "terrace_cliff",
+      "confidence": "low",
+      "source_ids": [
+        "left_glade",
+        "left_bank_upper",
+        "main_fall_left_rim"
+      ]
+    },
+    {
+      "id": "right_pool_cliff",
+      "polyline_xz_m": [
+        [
+          5,
+          -14
+        ],
+        [
+          12,
+          -12
+        ],
+        [
+          18,
+          -7
+        ],
+        [
+          20,
+          3
+        ]
+      ],
+      "role": "terrace_cliff",
+      "confidence": "low",
+      "source_ids": [
+        "right_upper",
+        "right_lower",
+        "main_fall_right_rim"
+      ]
+    },
+    {
+      "id": "left_lower_bank",
+      "polyline_xz_m": [
+        [
+          -30,
+          12
+        ],
+        [
+          -23,
+          8
+        ],
+        [
+          -15,
+          5
+        ],
+        [
+          -7,
+          3
+        ]
+      ],
+      "role": "river_bank_rock",
+      "confidence": "low",
+      "source_ids": [
+        "left_lower",
+        "stream_lower",
+        "bridge_left"
+      ]
+    }
+  ]
+}

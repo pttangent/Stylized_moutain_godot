@@ -2,7 +2,11 @@
 
 **Audit date:** 2026-10-26
 **Task:** 00 — initialize and audit
-**Current state:** Audit and minimum scaffold complete. P0 content generation has not started.
+**Current state (updated 2026-10-26):** P0-B design blueprint generated and numerically validated; pending user P0 approval and P1 runtime physics. The remainder of this document records the earlier Task 00 audit unless superseded below.
+
+## P0 update — 2026-10-26
+
+Marble 1.1 user-reviewed anchors were converted into a 96 × 120 m Godot Y-up design blueprint under `blueprint/`. See [`P0_report.md`](P0_report.md), the actual 16-bit heightmap, water/navigation graphs, camera and cliff edges. P0 numerical design validation: 17 PASS / 0 FAIL. Godot 4.7.2 project import and empty-scene startup passed; no P0 rendered screenshot, NavMesh bake or CharacterBody3D traversal was performed. P1 has not started and awaits user approval. The old audit inventory and gate table below describe the state before this P0 work.
 
 ## Repository audit
 
