@@ -1,23 +1,18 @@
-# P0-B — Generate and Validate Art-First Spatial Blueprint
+# P0-B — Materialize a scene-agnostic spatial and visual blueprint
 
-Role: Blender-compatible procedural landscape-layout engineer. Use approved P0-A analysis and original images. Prior numerical checks are historical structure validation, NOT proof of art quality or physical traversability.
+Role: procedural scene-layout and data validation engineer. Consume the P0-A source inventory, scene profile and approved feature design rather than inventing additional content.
 
-## Required outputs and operations
-1. Create versioned scene_blueprint.json: ID, original image coordinates, authored X/Z/Y positions, world bounds/scale assumption, confidence and evidence type; never silently change prior reviewed anchors.
-2. Make **true top-down** layout_topdown.png with legend, axes, scale, waterfall lips, ponds, cliff lines and optional visual paths.
-3. Create a real single-channel **uint16** heightmap_16bit.png with elevation min/max, transform, sampling and resolution. This is **authored bulk terrain only**: separate vertical cliff faces, overhangs, bridge and falling water into independent authored 3D shape contracts.
-4. Create landform_zones.json, cliff_edges.json and bank/waterfall elevation sections. Design regions distinguish gentle land, rolling slope, steep slope, cliff/overhang, bank, riverbed, pool and optional path. Include meaningful irregularity and transition cues.
-5. Create directed water_graph.json. Check descending water surface and waterfall elevation jumps, each lip's receiving basin, plausible downstream outlet and pool geometry, without claiming fluid physics.
-6. Compute terrain slope theta = atan(sqrt((dY/dX)^2 + (dY/dZ)^2)) in degrees, at approximately 0.5 / 2 / 5 meter smoothing scales. Run blueprint/landform_slope_audit.py if available and save JSON + angle previews. Diagnose implausibly uniform inclines and excessive geometric regularity. A **global 18-degree limit is prohibited**. The 18-degree figure, if used, is advisory for explicitly marked future *ordinary walking paths* only.
-7. Record hero 45-degree orthographic 16:9 camera, source-comparison camera and two alternate shots, camera position/target/ortho size/landmark normalized projection. Keep existing camera.json backward-compatible; source-pixel reconstruction and game camera must not be conflated.
-8. If an actual new small **Tripo** mesh is supplied, use it as inspectable low-confidence evidence after axes and model provenance checks; **never** automatically reuse old models or overwrite reviewed data. If not supplied, image-only blueprint remains valid.
-9. Optional navigation_graph.json can be kept as ART_ROUTE_INTENT_ONLY. No collision, path connectivity, navmesh, physical stair design or CharacterBody3D acceptance in art mode.
+## Model the **actual** scene specification
+1. Save a versioned `scene_profile.json` and a `blueprint/scene_blueprint.json` or equivalent manifest linking features, source IDs, authored geometry representations, transforms, scale basis, relationships and review requirements.
+2. Produce a **reference geometry contract v2** at `blueprint/reference_geometry_contract.json` using `docs/REFERENCE_GEOMETRY_CONTRACT.md`. Source images are optional; preserve non-image references and null image-space coordinates when no image exists.
+3. Create only appropriate spatial descriptions: a plan, volumetric diagram, top/front/side construction views, source-aligned overlay, feature/connection graph, authored spatial fields or segmentation layers. None is universally mandatory.
+4. Choose any raster representation only where the object is validly represented that way; preserve dimensionality, units, numeric mapping and unknown cells. Do not coerce multi-layer/overhanging geometry into a single-valued field.
+5. For each relevant system, validate actual topology and relationship constraints (physical, visual, mathematical, structural or semantic) in its correct domain. Constraints may be irrelevant to other scene types; do not apply them globally.
+6. Define only the cameras/review views required for the selected goal. Separate reference-source camera estimates from production cameras when relevant. Include capture format/shot IDs and distinguish measured versus designer-chosen values.
+7. Mark optional generated models as candidate references only. Store raw units, origin, transforms, quality concerns and disagreement with original evidence; no provider or generation call is assumed.
+8. Save scripts and data that rebuild the **authored** blueprint and its diagnostics. Preserve immutable source data and report proposed changes with reasons and affected IDs.
 
-## Machine-readable image-to-mesh contract
-Materialize the approved P0-A feature records into **`blueprint/reference_geometry_contract.json`**, based on but not simply copied from `blueprint/reference_geometry_contract.example.json`. Preserve source pixels/IDs, link independent rock/water/landform assets and camera anchors, assign L1/L2/L3 build responsibilities and review statuses. The example file has proposed/unknown camera positions and is NOT a production-approved blueprint. Source images, generated small models and authored surfaces must remain distinguishable.
+## Validation and gate
+Run `python blueprint/validate_reference_geometry_contract.py blueprint/reference_geometry_contract.json --report reports/P0B_geometry_contract_validation.json` if the v2 contract was generated. This checks schema/IDs/dependencies only, not image quality or modeling. Validate any additional representations according to their own schema, not hard-coded legacy tests. Report PASS / FAIL / ASSUMED / NOT_RUN / NOT_APPLICABLE without claims about unbuilt geometry.
 
-Run `python blueprint/validate_reference_geometry_contract.py blueprint/reference_geometry_contract.json --report reports/P0B_geometry_contract_validation.json` and retain actual STDOUT, errors and warning state. Its `STRUCTURE_PASS` only verifies contract schema/references/acyclic dependencies; any `SCREEN_POSITION_UNSPECIFIED` warnings, unknown 3D positions or missing renders remain open. This offline validator does not check geology, geometry, silhouette, model accuracy or walkability. The later P1 Blender script is responsible for camera projections.
-
-
-## Checks and exit
-Verify referenced IDs, units, real raster bit depth, water direction, separate cliffs, original-image silhouettes, terrain sections, authoring cameras, multiscale slopes, source conflicts and report evidence. Report ART_TOPOLOGY, ART_GEOMORPHOLOGY_REVIEW, CAMERA_UNVERIFIED, OPTIONAL_ROUTE_NOT_TESTED separately. Produce reproducible scripts, preview graphics and reports/P0B_art_validation.md with real PASS/FAIL/ASSUMED/NOT RUN. Do not claim measured terrain or playable world. Exit to P1-concept, **not** forced P1-playable.
+Deliver blueprint manifest, applicable maps/graphs/sections, chosen review-view specification, versioned source-to-design links, reproducible generator(s) where used and an actual validation report. Exit to Blender P1-concept without mandatory playability.

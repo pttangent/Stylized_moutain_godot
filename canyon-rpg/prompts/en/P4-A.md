@@ -1,25 +1,12 @@
-# P4-A — Offline River Depth/Flow Simulation and Stylized Waterfalls
+# P4-A — Optional procedural systems or derived scene data
 
-You are a numerical environment simulation and Godot real-time water rendering engineer.
+Role: scene systems/technical art engineer. **Do not run this task merely because phase P4 exists.** First inspect the scene profile, assets and rendering/interaction targets for a genuine algorithmic or simulation need.
 
-## Required reference
-Mountain — offline dry-riverbed grid filling, per-cell water depth and flow direction, cached results, Godot shaders and separate waterfall behavior:
-https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/reference/canitcode/transcripts/78diFcn3Qas_i-stole-a-mountain-for-my-game.md
+1. Identify the required system, its observed/user-approved behavior, domain, boundary conditions, source data, deterministic parameters and target consumer. Examples from other scenes are not requirements.
+2. If no relevant system exists, write a concise `NOT_APPLICABLE` report; do not invent a physical simulation, texture field, route graph or environmental effect.
+3. If required, choose the least complex reliable solution: authored data, precomputed fields, node-based procedural generation, keyframed art, simulation or runtime behavior. Justify the representation.
+4. Validate units, reference transforms, adjacency/continuity, edge cases, caching/versioning, data ownership and deterministic reruns where relevant. Unknown inputs must remain unknown.
+5. Separate artistic approximation from actual physical or interactive simulation; do not use a convincing preview as proof of scientific or runtime correctness.
+6. Test with real execution and representative view(s) from the scene profile, reporting costs and failures. Respect external service permissions and preserve previous source data.
 
-Read the complete relevant source section directly via remote URL. Do not assume a local file or cloned repository.
-
-## Inputs
-Approved Water Flow Graph, riverbed geometry, world elevations, channel widths, waterfall drops, current Godot scenes and the supplied visual target. Preserve earlier approved geometry and navigation.
-
-## Procedure
-1. Represent rivers, pool areas and obstacles on a reproducible grid or documented equivalent. Store bottom elevation, water surface/depth, flow vector, relative speed, boundary/obstacle and cell validity.
-2. Implement a stable, appropriately simplified *offline* solver or flow-propagation method. Feed from known upstream sources; respect plausible downhill trajectories, pool storage, confluences and explicit outlets.
-3. Test a dry initial condition or an equivalent repeatability test. Prove graph continuity, no upstream flow without physical explanation, consistency around obstacles, and deterministic output. Explain limitations; do not claim validated CFD accuracy without evidence.
-4. Serialize compact data to a file/texture cache that Godot can load once, rather than recomputing the river every frame.
-5. Write a Godot water shader that uses cached flow vectors and depth to animate UVs, small waves, water color/transparency, boundary foam and relative speed coherently.
-6. Implement vertical waterfalls as **separate** mesh/sheet animation, falling-water trajectories, impact foam and optional particles; match top and bottom water transitions.
-7. Verify actual engine screenshots and flow directions at upstream, steep, deep pool and downstream positions. Keep the stylized look aligned with the visual target.
-8. Profile runtime memory and shader cost under stated hardware and renderer settings.
-
-## Deliverables
-Deterministic Python offline-flow generator, documented format and cached output, Godot shader(s), waterfall scenes, test harness/fixtures, actual engine captures and reports/P4A_water_system.md with measured results, limitations and PASS / FAIL / ASSUMED / NOT RUN statuses. Do not generate unrelated environment assets.
+Deliver needed generator/cache/parameters, a reproducible contract, actual tests and reports/P4A_systems.md. The P4-B assembly can proceed without this artifact if the task was not applicable.

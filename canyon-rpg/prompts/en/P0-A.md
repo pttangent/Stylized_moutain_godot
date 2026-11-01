@@ -1,30 +1,22 @@
-# P0-A — Reference-led Landscape Analysis and Art Layout (DEFAULT)
+# P0-A — Source evidence, scene understanding and art-layout analysis
 
-Role: stylized 3D environment art director and terrain designer. Reconstruct an **artistic spatial hypothesis**, not a survey and not a playable level. Stop before generating geometry.
+You are a scene-agnostic 3D art director and spatial designer. The task applies whether the source is a text brief, still image, layout document, existing 3D geometry, animation, or multiple inputs. **Never import a scene category from examples or previous projects.**
 
-## Inputs
-- Inspect the original reference image(s); for the current project the source is assets/worlds/canyon-waterfall/canyon-waterfall-reference.jpeg.
-- Read available prior P0 JSON/reports/overlay as **previous design**, not guaranteed accuracy. Preserve stable IDs and reviewed annotations; record exact source commit.
-- Detect whether a **new user-supplied Tripo GLB/OBJ/FBX** actually exists. If absent, proceed image-only; never substitute an unrelated older reconstruction. If present, log hash, source, axes, raw units, normalization, gaps and low-confidence depth clues. Never infer measured meters from a small generative model. Never call a paid generation endpoint.
-- When using methods attributed to Can It Code, check reference/canitcode/AGENT_INDEX.md and original timestamped transcripts first.
+## Discover inputs and scope
+- Read the actual user request and inspect accessible reference materials. Log each source's path/URI, type, provenance, reliability and rights. Do not fabricate inputs, observations, scale or missing perspectives.
+- Determine what is being produced: an artistic shot, reusable environment, multi-view scene, interactive level or other output. Stage P1-concept uses Blender by default but no runtime engine is assumed.
+- Create a proposed scene profile (docs/SCENE_PROFILE_TEMPLATE.md). Record scene type only if observed or approved, else `UNSPECIFIED`. Preserve established style and constraints rather than imposing a new one.
 
-## Steps
-1. Annotate source-image pixels for each waterfall step and lip, stream, pool, cliff crest/toe, terraces, hills, bridge, paths and distinctive landmark. Classify OBSERVED / DESIGNED / INFERRED / UNKNOWN; note source confidence and all occlusions.
-2. Define focal hierarchy (main waterfall/pool; secondary bridge/upper falls; foreground and background framing), visible silhouettes, overlap, negative space and color/texture zones to be addressed later.
-3. Draft a **true top-down plan**, not a warped perspective image. Use Y-up and horizontal X/Z with 1 authored unit = 1 meter as a design convention. Existing world dimensions and bridge scale are author choices, not measured truth; propose changes with reasons.
-4. Split **macro** terrain (ridge, valley, wide terraces, large lake/pool), **meso** terrain (cut banks, ledges, rock outcrops and meanders), and **micro** surface details (DEFER). Make cliffs and overhangs independent three-dimensional forms, not just steep heightmap noise.
-5. Explain morphology: water-cut valley, upstream-to-downstream grading, asymmetric erosion, variable river width, distinct waterfall lips and receiving basins, exposed horizontal/diagonal rock strata where appropriate. Reject artificially identical rock slices, perfectly straight parallel banks and uniformly slanted hillside.
-6. Label each zone as GENTLE_GROUND, ROLLING_SLOPE, STEEP_SLOPE, CLIFF_FACE, BANK, RIVERBED, POOL, WATERFALL_LIP, or OPTIONAL_PATH. Do not limit all terrain slopes to 18 degrees. Record slope shape **intent** at 0.5, 2 and 5 m scales.
-7. Trace optional paths as **aesthetic curves** with inferred segments marked. Future walking is not a P0-concept acceptance condition. Do not force river cliffs to become ramps to satisfy old navigation chords.
-8. Define water graph: source -> individual reaches/lips -> vertical falls -> receiving pools -> outflow. Maintain consistent elevations, underwater basins and an intelligible channel in both plan and elevation section.
-9. Propose a **hero fixed elevated 45-degree near-orthographic 16:9 shot**, two side/angle QA cameras, and separate **source-matching review camera**. Record exact targets, clipping, intended landmark normalized screen positions and unknown calibration. The old full-map camera is not necessarily a hero shot.
-10. If an optional generated mesh disagrees with source image, keep the visual source authoritative and document the override. Topmost GLB hit can be canopy, water, cliff or background rather than ground.
-
-## Required reference-to-geometry translation (NEW)
-Before emitting the P0-A design hypothesis, prepare **per-landmark Reference-to-Geometry Contracts** based on `docs/ENVIRONMENT_ART_MODELING_GUIDE.md` and `blueprint/reference_geometry_contract.example.json`. Each stable feature must list: primary source `image_id` and observed pixel(s), evidence class, L1 macro/L2 structural/L3 dressing ownership, source scale anchor or `AUTHOR_DESIGN_NOT_SURVEYED`, intended `asset_id` and Blender `anchor_art_id`, and three explicit rules: `must_preserve`, `may_redesign`, `do_not_copy`. An occluded backside or an unverified model ray is NOT observed geometry. The river/pool and visible waterfall lips receive first priority; scenic optional paths do not create a playable constraint.
-
-Build a no-cycle `dependency_ids` relationship between features (e.g. waterfall lip before receiving pool adjustment). Identify CAM_HERO_45, CAM_ALT_LEFT and CAM_ALT_RIGHT as shot IDs; record intended image-screen target positions only if actually established and reviewed. Otherwise use `expected_uv_top_left: null` and explain the open check. The user-supplied small Tripo model, if any, contributes only `MODEL_CANDIDATE` evidence and may never override source-image observations. Do not run Blender merely to fill template fields.
-
+## Reasoning and spatial analysis
+1. Identify **only the scene's actual features**. Give each a stable `feature_id`; describe spatial role, visual importance, scale relationship, topology, ownership, dependencies, source evidence and occlusions/unknowns.
+2. Separate `OBSERVED`, `APPROVED_DESIGN`, `INFERRED`, `GENERATED_CANDIDATE` and `UNKNOWN`. A generated object or interpolated region is not physical evidence.
+3. Define composition and focus hierarchy: which features must read, which need only approximate background volume, and what should remain obscured or omitted. Do not assume an orthographic view, a shot count or a fixed aspect ratio; derive relevant review views from input.
+4. Choose prospective representations per feature: editable mesh, parametric geometry, curve, volumetric form, instance, simulation or other method. Do not universally require a particular modeling technique or dimension.
+5. Establish a provisional coordinate/scale convention only after source inspection and target constraints. Document whether dimensions are measured, approved choices or arbitrary scale references.
+6. Build a **reference-to-geometry contract** per feature: `must_preserve` (source-grounded shape/relationships), `may_redesign` (permitted uncertainty) and `do_not_copy` (unreliable observations/artifacts). Assign `S1_COMPOSITION` / `S2_STRUCTURE` / `S3_DETAIL` execution priority as applicable.
+7. Register feature dependency IDs and any required topological, physical or stylistic rules. Constraints such as mobility, flow, slope, overlap, structural plausibility or simulation are **conditional** on what the scene actually contains.
+8. Specify review views with stable IDs, intended subject and capture mode; unknown camera positions/targets remain `UNSPECIFIED`. Optional screen targets are null until evidence and approval exist.
+9. List contradictions and unresolved assumptions; describe what decisions are needed to progress. Do not treat old repository-specific assets as current scene inputs without explicit selection.
 
 ## Deliverables
-A versioned analysis/p0_art_<date>/P0A_art_analysis.md, image_landmarks.json, annotated source overlay, true top-down sketch, elevation/terrace cross-sections, landform slope-zone plan, water graph draft, stable IDs + confidence, shot plan and proposed scene_blueprint_draft.json. Label missing deliverables truthfully. **Do not begin Blender mesh, Godot playability or asset-detail production.**
+Versioned scene profile; feature/relationship inventory; annotated references or structured source notes; provisional spatial layout if appropriate; reference-to-geometry contract proposal; review-view plan; analysis report including evidence, open questions and observed/assumed status. Stop before Blender modeling or runtime integration. Use docs/REFERENCE_GEOMETRY_CONTRACT.md for the generic schema.

@@ -1,21 +1,10 @@
 ---
 name: godot-canyon-pipeline
-description: Build and QA art-first stylized natural canyon environments with Blender editable P1-concept blockout, optional Tripo small-model references, optional P1-playable Godot adaptation, and P2-P5 lookdev/assets/assembly/QA. Use for implementing, reviewing and handing off this canyon RPG project.
+description: Historical scenario-specific workflow retained only for explicitly selected legacy projects. For new general scene work use universal-scene-art-pipeline.
 ---
 
-# Art-first Blender and Godot Canyon Pipeline
+# Legacy specialist entrypoint
 
-Read canyon-rpg/AGENTS.md and the selected phase prompt; never assume P1 means playable. Default to prompts/en/P1-concept.md (or zh). P1-playable.md is **opt-in** and not required for P2/P3/P4/P5 art work.
+This directory name reflects a historical project. It is **not** the default skill for scene-art creation on this branch. Use `../universal-scene-art-pipeline/SKILL.md` and `../../docs/UNIVERSAL_WORKFLOW.md` for generic P0–P5 prompts.
 
-P0 uses original image + authored terrain/water/landform design. If an actual new Tripo small model is supplied, inspect it as nonmetric low-confidence reference; do not silently import earlier generated models. Provider-specific legacy P0 is isolated in prompts/en/P0-A-marble.md. Keep originals, source landmarks, camera calibration and revisions separate.
-
-Art first: macro landform -> waterfall/river/pool geometry -> cliff/shore transitions -> fixed 45-degree hero composition and two alternate-camera clay renders -> visual acceptance. The heightmap is bulk terrain only; cliffs, overhangs, falls and bridges are separate editable meshes. No global 18-degree natural-terrain slope ceiling. Use regional 0.5m, 2m, 5m multiscale slope diagnostics; path slope and character dimensions apply only in optional playable mode.
-
-Author geometry reproducibly in Blender Python and keep .blend, generators, diagnostic renders and individually exportable GLBs. Godot data is Y-up, Blender Z-up; validate axis conversion. Do not claim renders, collision or GPU tests not actually run.
-
-P2 uses accepted P1-concept shape and cameras, then Godot material/lookdev testing. P3 modular assets; P4 environmentally plausible assembly; P5 actual visual and measured performance checks. Require a dedicated playable QA gate only if user selected playable.
-
-Do not spend generation credits without permission. Record tool versions, source/license provenance and exact commands; classify PASS/FAIL/ASSUMED/NOT RUN. For Can It Code source attribution, consult reference/canitcode/AGENT_INDEX.md and source transcript timestamps.
-
-## Additional art/modeling validation contract
-Before P1 geometry, create and approve blueprint/reference_geometry_contract.json from source images and P0 evidence. Use docs/ENVIRONMENT_ART_MODELING_GUIDE.md for L1 macro, L2 structural and delayed L3 dressing gates, stable art_id ownership and idempotent per-mesh modifications. The example contract is unapproved. Validate JSON with blueprint/validate_reference_geometry_contract.py and actual cameras/anchor Empties with blender/scripts/p1_visual_layout_validator.py; these are numeric preflights only. Preserve known camera transforms, parent links, seeds and unrelated art assets while repairing affected geometry. Never claim real art acceptance without genuine aligned hero/left/right Blender renders. Shared meshes/Geometry Nodes are for approved asset-scatter stages; avoid global Realize Instances and report source vs expanded geometry separately.
+Historical artifacts can be inspected as source evidence only if the current user's request explicitly selects them. Do not assume any old setting, output renderer, camera, geometry family, coordinate system or gameplay requirements for a new scene.

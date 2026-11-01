@@ -1,44 +1,14 @@
-# P5-A — Independent Reference-to-Render Visual QA
+# P5-A — Scene-agnostic visual QA
 
-You are a senior environment art quality reviewer. Conduct a rigorous black-box comparison of what actually appears in the game against the user-provided visual reference.
+Role: independent black-box visual/art reviewer. Inspect the actual approved source materials, style bible, feature geometry contract and **real** captured images for the selected review views.
 
-## Required source research
-Mountain — reference-driven Blender scripts, render evaluation and repeated fix iterations:
-https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/reference/canitcode/transcripts/78diFcn3Qas_i-stole-a-mountain-for-my-game.md
+1. Discover what the user expects the scene to depict and which visual characteristics matter. Do not import review categories from a different example scene.
+2. Compare overall composition, silhouette hierarchy, scale/proportion, feature visibility, spatial relationships, depth, geometry continuity, source match, style, lighting/material response and any other **relevant** approved quality requirements.
+3. Compare per-view results with stable shot IDs, scene revision and matching target evidence; a view without an expected reference may still be evaluated against explicitly stated design intent.
+4. Use `blueprint/validate_reference_geometry_contract.py` for offline structural preflight and `blender/scripts/p1_visual_layout_validator.py` for optional **anchor-only** projection and first-ray occlusion candidates when a real scene/camera/anchors exist. These checks never substitute for full-silhouette or actual render inspection.
+5. Identify issues by actual view and feature ID, localized image region, severity, expected/observed discrepancy, confidence, responsible geometry/material/layout system, smallest justified correction and verification plan.
+6. Prefer scoped correction loops that maintain already-approved unrelated geometry. Preserve before/after captures and a revision trail; do not independently change scene files during an assessment unless asked.
+7. Separate Blender art-blockout review from final target-renderer review. If an actual required image is missing, mark the relevant check `NOT_RUN` rather than claiming approval.
+8. Never claim a view, benchmark, interaction, material behavior or occlusion test that was not actually observed.
 
-Can It Code Gauntlet — generate, render, critique, verify:
-https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/reference/canitcode/transcripts/Z9fyPTQVEdI_ai-built-this-space-game-from-scratch-here-s-exactly-how.md
-
-Read relevant timestamped sections from the *remote* transcript URLs. Do not presume this repository exists locally. Record video time references when deriving a technique.
-
-## Required inputs
-- User-provided original canyon reference image.
-- Actual Godot runtime captures, preferably from the approved P0 fixed orthographic camera.
-- Current style bible, camera configuration, known level dimensions.
-- Prior before/after images if available.
-
-If actual Godot images are unavailable, clearly label IN-ENGINE VISUAL REVIEW NOT POSSIBLE. An offline Blender render or AI image is not equivalent evidence.
-
-## Compare
-1. Overall reference composition and landmark positions.
-2. Terrace height hierarchy, cliff silhouettes, corner shapes and scale.
-3. Upper streams, waterfalls, central bridge, main falling water, lower pool and outlet.
-4. Bridge/stair width, endpoints and navigation legibility.
-5. Rock surface stylization, texture density, grass and moss.
-6. Tree canopy silhouettes, forest density/spacing, foliage motion and color variation.
-7. Water hue, transparency, depth, wave speed, directional flow, foam and impact spray.
-8. Lighting direction, shadow softness, exposure, saturation, atmospheric depth and focal readability.
-9. Serious visible gaps, floating assets, clipping and camera occlusion.
-
-## Issue report
-For every discrepancy, record screenshot ID, pixel region/landmark, observed result, expected target, severity CRITICAL / MAJOR / MINOR, likely responsible subsystem, confidence and a concrete testable correction. Distinguish measurable visual mismatch from subjective preference. Prioritize the five largest defects and specify expected improvements without reinventing the scene.
-
-Do not silently modify any project files during an independent visual review.
-
-## Deliverables
-reports/P5A_visual_review.md, structured issue data (JSON/CSV when useful), annotated comparison images if supported, PASS / FAIL / NOT TESTED per category, references to actual input captures, and ordered correction recommendations. No unsupported claim of completion.
-
-## Fast camera-anchor preflight versus actual visual review (NEW)
-The optional offline reference-geometry contract check validates structure and dependencies only. If a real P1 Blender scene exists, run the read-only blender/scripts/p1_visual_layout_validator.py against the approved contract for CAM_HERO_45, CAM_ALT_LEFT and CAM_ALT_RIGHT before reviewing actual renders. This projects one semantic landmark anchor via world_to_camera_view and optionally flags first-ray occlusion candidates. It neither measures complete silhouettes nor proves material opacity, water continuity or artistic quality.
-
-At P1-concept stage, three real Blender clay images may establish an ART-only blockout gate. This P5 final Godot visual gate still requires real Godot runtime captures; Blender images never substitute for them. Clearly separate STRUCTURE_PASS, CAMERA_PROJECTION, RENDER_VISUAL_PASS and NOT_RUN, and review before/after only for art IDs/shot IDs affected by a change. Preserve revision provenance when reusing unchanged shots.
+Deliver an issue report with ordered findings, image references, observed PASS/FAIL/NOT_RUN statuses, evidence sources and testable recommended changes.

@@ -1,34 +1,13 @@
-**美術優先強制規則：** 預設為已核准的 Blender P1-concept；P1-playable 必須明確選取，絕非美術前置條件。碰撞、NavMesh、角色路線與淨空僅在 playable 模式要求；美術模式標 NOT APPLICABLE，保留核准的地形輪廓與三個固定鏡頭。
+# P5-B — 依交付需求進行技術與製作品質驗收
 
-# P5-B — Godot 遊戲通行、整合與效能驗收
+根據 Scene Profile 和實際交付目標選擇技術測試；不得預設遊戲引擎、硬體指標、模擬或可互動角色。
 
-你是 Godot 4 技術測試與即時圖形效能工程師。
+1. 實際確認專案可開啟、來源資產完整、輸出檔案有效、必要腳本重跑一致、座標／單位與匯出正確。
+2. 對真正需要的幾何、法線、UV、材質、實例、LOD、接合、來源授權與版本做檢查；無需求的項目可標 NOT_APPLICABLE。
+3. 只有當指定目標渲染器或即時平台時，才在該平台實測並捕捉畫面。紀錄硬體、設定與確實量測的幀時間、記憶體或幾何成本，不捏造統計。
+4. 只有選用 P1-playable 才執行已約定的物理、碰撞、導航、互動或動作測試；其他模式 NOT_APPLICABLE。
+5. 只測試真正實作的程序化與模擬系統，沒有採用的系統不算缺陷。
+6. 根據已測得問題作局部修正與重新量測，同時確認原有美術不退化。
+7. 清楚區分 PASS、FAIL、BLOCKED、NOT_RUN、NOT_APPLICABLE、ASSUMED，單純 JSON 正確不能等同整階段完成。
 
-## 必讀教學
-Cyberpunk City（模組刻意錯位測試與行走連通）：
-https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/reference/canitcode/transcripts/XqtnBlPJ6KE_is-this-really-ai-insane-opus-5-5-gamedev-workflow.md
-
-Modular Village（角色通行、UV 與 Texture Atlas）：
-https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/reference/canitcode/transcripts/57QEdTgUC3c_stop-asking-ai-for-whole-houses-opus-5-5-tripo.md
-
-必要時遠端讀取時間戳逐字稿，不預設本地存放。
-
-## 輸入
-Godot 工程、P0–P4 已核准規格、資產表、問題清單、參考圖與測試設備設定。未指定目標設備時只建立本機實測基準，不杜撰通用 FPS 目標。
-
-## 測試
-1. 實際執行 Godot 匯入與場景解析。
-2. 角色自動或半自動走過主線／支線、木橋、樓梯和所有平台連接。
-3. 檢驗角色碰撞、淨空、不可達區域、浮空／穿模、貼圖及地形缺口。
-4. 核對水流連續、方向與環境物件定位。
-5. 驗證模組故意錯位時，測試程式確實可以抓出問題。
-6. 真正輸出固定相機及工程相機的 Godot 運行截圖，與 Blender／AI 圖分開標示。
-
-## 效能
-記錄測試設備、系統、Godot/Renderer 版本、解析度、圖形設定、可重播路線及量測條件。能量測時記錄平均 FPS、Frame Time、低百分位／抖動、Draw Calls、可見三角形、顯示／系統記憶體及 CPU/GPU 瓶頸。無法量測則標示 NOT MEASURED，不估算。
-
-## 優化
-只針對實測瓶頸修改。檢查材質 Atlas、模型面數與 Draw Calls、過大的 MultiMesh 剔除群組、LOD、透明 Overdraw、葉片 Shader、水體效果及每幀腳本。保存優化前後的基準，不為了效能任意破壞美術樣式。
-
-## 交付
-可重複執行的測試與截圖、效能前後紀錄、素材授權檢查、剩餘問題、reports/P5B_final_QA.md，標註 PASS / FAIL / ASSUMED / NOT TESTED。重大缺陷未修復或未實測時不得宣稱完成。
+交付技術日誌、真實檔案、目標畫面、實測性能（如有）、未完成問題和 `reports/P5B_technical_QA.md`。

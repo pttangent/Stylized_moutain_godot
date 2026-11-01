@@ -1,15 +1,14 @@
-# P4-B — Assemble the Stylized Canyon Environment (ART FIRST)
+# P4-B — Assemble the approved scene without content assumptions
 
-Inputs: approved P0 art blueprint, P1-concept Blender art graybox and cameras, P2 visual direction, P3 modular kit, P4-A water-flow cache, original reference. **P1-playable is optional**, not a prerequisite.
+Role: Blender/environment-scene assembly engineer, plus runtime integration only if selected in the scene profile.
 
-Build art-first editable cliff/terrain/river/waterfall meshes, use splines for decorative paths and channels, vegetation scattering by slope/elevation/moisture/rock/river proximity, stable random seed and independent landmark trees. Preserve terrain geomorphology, visual hierarchy, asymmetrical riverbanks and all three P1 camera compositions. Keep waterfall faces, receiving pools and bulk heightfield independent.
+1. Read the approved scene profile, P0/P1/P2 geometry/style gates, asset inventory, optional P4-A systems and **actual** review-view specification. Never add objects or scene types because they appear in examples.
+2. Preserve scene composition, feature IDs, coordinate/scale conventions and camera approvals. Assemble assets with authored placement or procedural rules as the actual geometry needs.
+3. When instancing/scattering is warranted, create deterministic source and placement rules using only relevant masks or constraints (e.g. visibility, attachment, hierarchy, region, spacing or material-specific conditions). Do not impose one universal density/terrain/biome logic.
+4. Keep scene source assets editable and instance manifests reproducible. Prefer a limited set of prototypes; avoid global `Realize Instances` unless demonstrated necessary for export or effect.
+5. Use a scoped `change_scope` ledger: affected IDs, generator version, seed, dependencies and views. An edit to one feature must not implicitly rebuild unrelated approved assets.
+6. Validate actual scene relationship, visible grounding, attachment/overlap, boundaries, procedural determinism, materials and any defined conditional system. Interaction/collision tests are required **only** if the optional P1-playable branch was chosen.
+7. Produce real captures at the chosen review views in the selected renderer. If exporting to another engine, verify import, coordinate conversion, material changes and source preservation; do not infer success from file existence.
+8. Report geometry/instance measures and hardware render performance only if observed. Preserve before/after visual evidence for modifications.
 
-Avoid assuming every road, bank or forest floor is navigable. Only if P1-playable was explicitly approved, include gameplay route/clearance/collision/NavMesh validation and preserve previous art while testing paths. Otherwise run geometry, water, asset grounding, deterministic rebuild, shader and camera visual checks.
-
-## Natural-area instance placement and revision gates
-For every biome-region prototype, record source `asset_id`, licensed origin, stable placement seed, slope class, normalized elevation range, local moisture proxy, water distance, rock-face exclusions, density and hero-landmark exemptions. Geometry Nodes and Collection Instances are preferred over individually unique grass/pebble objects. Different distribution rules should make a wet shoreline feel distinct from a vertical rock face and a broad grassland. Avoid random noise masquerading as geomorphology or a perfectly uniform vegetation lattice.
-
-Maintain a reproducible per-region scatter manifest and explicit `change_scope` mapping, so modifying one riverbank/vegetation region does not rebuild other approved zones or move CAM_HERO_45. Do not automatically realize all GN instances; estimate evaluated visible load, and reserve true 3D mesh realization for a demonstrated per-export need. If Godot materials cannot preserve the Blender GN instance system, export a documented compatible representation while preserving seed, IDs and visible arrangement.
-
-
-Capture actual Godot hero + two alternate screenshots and record hardware settings, scene build commands, visually visible defects and available performance metrics. Deliver editable modular scene, seeded procedural scripts, water integration and reports/P4B_world_assembly.md; do not claim unrun traversal tests passed.
+Deliver editable scene, deterministic generation or assembly data, actual preview captures, applicable system integrations and reports/P4B_assembly.md.

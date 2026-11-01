@@ -1,69 +1,49 @@
 {
-  "schema_version": 1,
-  "scene_id": "canyon-waterfall",
-  "revision": "EXAMPLE_NOT_APPROVED",
-  "source_images": [
+  "schema_version": 2,
+  "scene_id": "SCENE_TEMPLATE",
+  "revision": "TEMPLATE_UNAPPROVED",
+  "reference_sources": [
     {
-      "image_id": "reference_canyon",
-      "path": "assets/worlds/canyon-waterfall/canyon-waterfall-reference.jpeg",
-      "source_status": "EXISTING_PRIMARY_REFERENCE",
-      "sha256": null
+      "ref_id": "brief_reference",
+      "kind": "text_brief",
+      "path": null,
+      "status": "TEMPLATE_ONLY"
     }
   ],
-  "cameras": [
+  "review_views": [
     {
-      "shot_id": "CAM_HERO_45",
-      "camera_object": "CAM_HERO_45",
-      "approval": "PROPOSED"
-    },
-    {
-      "shot_id": "CAM_ALT_LEFT",
-      "camera_object": "CAM_ALT_LEFT",
-      "approval": "PROPOSED"
-    },
-    {
-      "shot_id": "CAM_ALT_RIGHT",
-      "camera_object": "CAM_ALT_RIGHT",
-      "approval": "PROPOSED"
+      "view_id": "VIEW_PROPOSED",
+      "camera_object": null,
+      "purpose": "REVIEW_IF_APPROVED",
+      "approval": "UNAPPROVED"
     }
   ],
   "features": [
     {
-      "feature_id": "main_fall_left_rim",
-      "asset_id": "CLIFF_MAIN_LEFT",
-      "anchor_art_id": "ANCHOR_MAIN_FALL_LEFT_RIM",
-      "layer": "L1_MACRO",
-      "evidence": "OBSERVED",
-      "source_image_id": "reference_canyon",
-      "source_pixel_xy": [
-        1272,
-        636
+      "feature_id": "feature_primary",
+      "asset_id": "ASSET_PRIMARY",
+      "anchor_art_id": "ANCHOR_PRIMARY",
+      "stage": "S1_COMPOSITION",
+      "evidence": "UNKNOWN",
+      "source_refs": [
+        "brief_reference"
       ],
-      "scale_basis": "AUTHOR_DESIGN_NOT_SURVEYED",
-      "reference_shape": {
+      "source_pixel_xy": null,
+      "shape_rules": {
         "must_preserve": [
-          "the left waterfall lip is distinct from the receiving basin",
-          "visible silhouette and depth ordering"
+          "Replace with an observed or approved shape/relationship"
         ],
         "may_redesign": [
-          "occluded rock backside",
-          "locally exposed ledges and undercuts"
+          "Specify areas whose geometry is not evidenced"
         ],
         "do_not_copy": [
-          "source image perspective as metric top view",
-          "unverified generated-mesh ground"
+          "Do not infer geometry from absent or ambiguous data"
         ]
       },
       "dependency_ids": [],
-      "camera_checks": [
+      "view_checks": [
         {
-          "shot_id": "CAM_HERO_45",
-          "expected_uv_top_left": null,
-          "tolerance_uv": null,
-          "check_occlusion": true
-        },
-        {
-          "shot_id": "CAM_ALT_LEFT",
+          "view_id": "VIEW_PROPOSED",
           "expected_uv_top_left": null,
           "tolerance_uv": null,
           "check_occlusion": false
@@ -71,48 +51,26 @@
       ]
     },
     {
-      "feature_id": "pool_main",
-      "asset_id": "WATER_POOL_MAIN",
-      "anchor_art_id": "ANCHOR_POOL_MAIN",
-      "layer": "L1_MACRO",
-      "evidence": "OBSERVED",
-      "source_image_id": "reference_canyon",
-      "source_pixel_xy": [
-        1405,
-        840
+      "feature_id": "feature_secondary",
+      "asset_id": "ASSET_SECONDARY",
+      "anchor_art_id": null,
+      "stage": "S2_STRUCTURE",
+      "evidence": "UNKNOWN",
+      "source_refs": [
+        "brief_reference"
       ],
-      "scale_basis": "AUTHOR_DESIGN_NOT_SURVEYED",
-      "reference_shape": {
+      "source_pixel_xy": null,
+      "shape_rules": {
         "must_preserve": [
-          "a visually broad, irregular receiving basin",
-          "outflow toward the foreground"
+          "Replace with actual constraints"
         ],
-        "may_redesign": [
-          "inferred basin depth",
-          "partly hidden bank geometry"
-        ],
-        "do_not_copy": [
-          "narrow straight trench from a provisional heightmap",
-          "uniform rock repetition"
-        ]
+        "may_redesign": [],
+        "do_not_copy": []
       },
       "dependency_ids": [
-        "main_fall_left_rim"
+        "feature_primary"
       ],
-      "camera_checks": [
-        {
-          "shot_id": "CAM_HERO_45",
-          "expected_uv_top_left": null,
-          "tolerance_uv": null,
-          "check_occlusion": true
-        },
-        {
-          "shot_id": "CAM_ALT_RIGHT",
-          "expected_uv_top_left": null,
-          "tolerance_uv": null,
-          "check_occlusion": false
-        }
-      ]
+      "view_checks": []
     }
   ]
 }

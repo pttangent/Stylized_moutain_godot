@@ -1,39 +1,14 @@
-**美術優先強制規則：** 預設為已核准的 Blender P1-concept；P1-playable 必須明確選取，絕非美術前置條件。碰撞、NavMesh、角色路線與淨空僅在 playable 模式要求；美術模式標 NOT APPLICABLE，保留核准的地形輪廓與三個固定鏡頭。
+# P3-B — 可編輯資產製作與局部修改
 
-# P3-B — Blender 程序化模組庫與選擇性 Tripo 建模
+身份：Blender 資產建模工程師。使用已核准的 P3-A 清單與 P2 風格規格，**只製作真正需要的物件**。
 
-你是 Blender 程序化遊戲資產與輸出管線工程師。
+1. 依形體選擇建模技術，使用穩定 asset_id／art_id／art_owner／art_revision，保留原始可編輯模型與版本化匯出。
+2. 先單獨建立代表性資產並置入實際使用情境比對，驗證主要輪廓與連接後再建立變體。
+3. 需要大量重複時，可用 Shared Mesh、Collection Instances 或 Geometry Nodes 等程序化方法，保留種子與位置清單；預設不把所有實例 Realize，也不假設實例化沒有渲染成本。
+4. 分開統計來源網格、求值後實例和實際可見幾何；效能與 LOD 以目標平台和核准鏡頭評估，不能套用固定通用數值。
+5. 依實際輸出要求檢查軸向、尺寸、Pivot、法線、UV、材質、接縫及匯入格式；無需要的規格標 NOT_APPLICABLE。
+6. 既有生成模型僅在來源／授權／尺度與形體檢查後使用；沒有明確許可不得使用付費服務。
+7. 使用 `blender/scripts/art_idempotent_geometry.py` 進行受控局部 Mesh 替換，記錄變更原因與受影響視圖，不重建其他核准內容。
+8. 只有選取 P1-playable 才進行資產碰撞與互動測試。
 
-## 必讀教學
-Modular Village（真實尺寸、網格接合、人體通行、Smart UV、Texture Atlas）：
-https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/reference/canitcode/transcripts/57QEdTgUC3c_stop-asking-ai-for-whole-houses-opus-5-5-tripo.md
-
-Cyberpunk City（Blender 精確幾何＋AI 材質、貼圖邊緣處理、模組拼接破壞測試）：
-https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/reference/canitcode/transcripts/XqtnBlPJ6KE_is-this-really-ai-insane-opus-5-5-gamedev-workflow.md
-
-請閱讀遠端逐字稿與上下文，不預設已 Clone 教學專案。
-
-## 輸入
-P3-A 已核准資產清單與三視圖、P2 樣板和 Style Bible，以及既有 Blend／GLB。先盤點，再製作可重複生成的版本。
-
-## 建模／匯出
-1. Blender Python 產生直線／轉角／崖頂岩壁、河岸、橋板／橋墩、石階、欄杆、樹幹與指定擺件等參數化模組。
-2. 轉出 Godot Y-up 時統一公尺尺度，清楚記錄 Pivot、Socket、朝向和接合面。
-3. 尺寸、倒角、變體、材質應可修改；保留原始腳本與 Blend，每件模組獨立匯出 GLB。
-4. 面數依螢幕佔比、使用頻率設定起始預算，記錄實際輸出三角形數，不把 Blender Face 數混同 Tris。
-5. 建立正確 Normal、UV、共享材質／Texture Atlas 和簡單碰撞網格，不在 Base Color 內固定光照陰影。
-6. 葉片需依 P2 已通過的風格選擇 Alpha Clip、葉片卡片、Atlas 或其他方式，並為 LOD／Instancing 做準備。
-
-## 選擇性 Tripo
-只在小型獨特擺件比程序化模型更有效率時才考慮圖生 3D。先確認 Studio/API 點數類型與當下價格，Studio 點數不等於 CLI 可用點數。**沒有明確批准不能花點數**。先做一個版本測試，不一次產生四款。匯入後檢查朝向、比例、拓撲、UV、碰撞、貼圖清晰度與面數；修復步驟要可重現。
-
-## 故意破壞的測試
-建立 Godot Asset Gallery，單獨與組裝展示。以程式檢查接合點、間隙、橋階淨空、UV 接縫、材質數量及碰撞；刻意把某模組錯位／轉向，證明驗證器能抓到錯誤。多角度檢查並讓 CharacterBody3D 實測通行。
-
-## 交付
-docs/asset_manifest.csv、Blender Python、Blend、獨立 GLB、Atlas、資產預覽、Godot 測試場景、模組驗證與 reports/P3B_asset_kit.md。報告 PASS / FAIL / ASSUMED / NOT RUN 及成本。模組尚未驗收前不做全地圖散布。
-
-## Shared Mesh 與 Geometry Nodes 的實際限制（新增）
-岩石、草、樹及灌木先做少數通過驗收的來源原型，以 Shared Mesh、Collection Instance 或 Distribute Points on Faces -> Instance on Points 重複放置。保留固定 seed、區域、密度、坡度、海拔、距水、濕度與尺寸變化；主地標樹木／岩石保持獨立可編輯。
-
-預設不得對整個場景 Realize Instances／Make Instances Real。僅當實際 Godot 匯出確有需求時才局部展開，並保留生成器和來源版本。分開統計唯一來源 Mesh 三角面、求值後實例數、鏡頭中估算的展開面數；一個來源網格的面數不代表所有重複實例的開銷。只有明確啟用 P1-playable 時才做角色、橋梁通道與碰撞驗收。
+交付來源模型、需要的生成腳本、資產 Manifest、真實樣板渲染、實例量測與 `reports/P3B_asset_kit.md`。

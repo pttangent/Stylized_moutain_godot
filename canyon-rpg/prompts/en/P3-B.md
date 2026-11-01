@@ -1,40 +1,14 @@
-**Binding art-first override:** P1-concept Blender is the default approved blockout. P1-playable is opt-in, never a mandatory prerequisite for visual art. Physical collision, NavMesh, character route and clearances are required only if playable was explicitly selected; in art-only work label those tests NOT APPLICABLE. Preserve accepted terrain silhouettes and the three fixed cameras.
+# P3-B — Build reusable and unique assets with scoped edits
 
-# P3-B — Build a Measured, Reusable Blender Modular Environment Kit
+Role: Blender procedural/handcrafted asset producer. Consume the approved P3-A inventory, P2 lookdev, geometry contract and source file revisions.
 
-You are a procedural Blender asset developer and game-ready 3D pipeline engineer.
+1. Create only the required assets, choosing modeling techniques per shape. Keep stable `asset_id`, `art_id`, `art_owner`, `art_revision`, native editable sources and documented export transforms.
+2. Validate each representative item in isolation and in realistic scene context. Check critical silhouettes and connections before bulk producing variations. Preserve source observations; uncertain geometry remains an authored decision.
+3. For repeated forms prefer shared mesh data, collection instances or procedural instances with deterministic seed/placement manifests when beneficial. Do **not** indiscriminately realize instances, replace every instance with a unique mesh or assume instancing eliminates rendering cost.
+4. Differentiate source-mesh triangles from evaluated/expanded instance geometry and actually measured runtime cost. Budgets and LOD are set by target views/platform, not universally fixed numbers.
+5. Expose useful parameters, pivot and connector rules only where applicable. Handle normals, smoothing, UV/materials, resolution and export/import correctness according to the selected renderer.
+6. Use user-supplied generated meshes as editable starting candidates only after geometry, scale, source/licensing and quality inspection. No external provider/credit consumption without permission.
+7. Prefer `blender/scripts/art_idempotent_geometry.py` for local changes. Keep unrelated approved scene objects and review shots stable; log any geometry contract deviation with before/after evidence.
+8. If P1-playable was explicitly selected, add real collision/interaction requirements to asset tests; otherwise mark those cases `NOT_APPLICABLE`.
 
-## Required source tutorials
-Modular Village — real size, grid snapping, body clearance, Smart UV and texture atlas:
-https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/reference/canitcode/transcripts/57QEdTgUC3c_stop-asking-ai-for-whole-houses-opus-5-5-tripo.md
-
-Cyberpunk City — exact Blender geometry plus generated surface detail, seam-fixing and module-fit failure tests:
-https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/reference/canitcode/transcripts/XqtnBlPJ6KE_is-this-really-ai-insane-opus-5-5-gamedev-workflow.md
-
-Read remote sources with timestamp context; do not assume the source repository is available locally.
-
-## Inputs and source preservation
-Use approved P3-A asset manifest, orthographic images, P2 visual slice, style bible and any existing .blend/.glb files. Inspect existing content and preserve reproducible scripts.
-
-## Geometry and export
-1. Build parametric Blender Python mesh generators for straight/corner/cap cliffs, riverbank edges, bridge decks/supports, stair elements, fences, tree structures and designated reusable props.
-2. Keep Godot Y-up world interpretation and agreed meter scale, correctly handled in Blender export. Document pivot, snap sockets, axis orientation and surface alignment.
-3. Expose dimensions, bevel, variations and material assignments as script parameters. Maintain non-destructive source and separately export each reusable .glb; save .blend.
-4. Start with budgets appropriate to screen size and frequency (simple props hundreds to low thousands of triangles, common modules a few thousand, special objects justified case by case). Measure *actual exported triangles*, not merely Blender faces.
-5. Generate clean normals, reliable UVs, material atlases and appropriate simple collision meshes. Do not bake view-dependent shadows into shared base colors.
-6. Use alpha-clipped foliage cards, atlases and LOD/instancing-ready geometry only if visual-slice tests support that design.
-
-## Selective image-to-3D generation
-For a distinctive small standalone prop, compare the cost and editability of geometry scripting with 3D generation. Verify whether available Tripo credits are Studio or API; Studio credits do not automatically apply to CLI. Check current model capabilities and one-job cost. Never spend credits without explicit approval. Begin with one model, not four variants. Validate imported orientation, dimensions, normals, topology, UVs, collision, texture sharpness and triangle counts; correct defects through reproducible postprocessing.
-
-## Asset gallery and deliberate failure tests
-Create a Godot gallery showing each part alone and in snapped assemblies. Programmatically validate connector positions, module gaps, stair/bridge clearance, texture density, UV seams, material count and collision. Add a deliberately offset or rotated module test to check that the validator catches known mistakes. Inspect from multiple angles and test actual CharacterBody3D clearance.
-
-## Shared-mesh and controlled instance authoring (NEW)
-Reuse an approved, small set of rock/tree/shrub/grass prototypes instead of modeling every occurrence. For Geometry Nodes, prefer `Distribute Points on Faces -> Instance on Points` or a reproducible authored point set, with exposed seed, region ID, density, scale variation, slope/elevation/moisture and water-distance masks. Avoid blanket `Realize Instances` and `Make Instances Real`; only convert a targeted copy for a proven export need. Set material/shared mesh provenance and stable asset IDs; artistic variations do not automatically become unique generated models. Ensure a hero feature may remain separately editable and is not swept into background scatter.
-
-Track **source meshes**, **evaluated instances**, and **estimated expanded visible geometry** separately. A 2,000-triangle asset reused 50 times is not a 2,000-triangle view. Distinguish static poly estimates from actual runtime FPS. Asset gallery validation for this art-first route must check silhouette, pivots, snapping/joins, source IDs and three-view appearance; collision/CharacterBody3D checks apply **only** when P1-playable has explicitly been selected. Preserve the geometry contract's `must_preserve` shape constraints and revision ownership.
-
-
-## Deliverables
-docs/asset_manifest.csv, Blender Python generators, editable .blend files, independent GLBs, texture atlases, preview renders, Godot asset gallery, module validation scripts and reports/P3B_asset_kit.md. Report PASS / FAIL / ASSUMED / NOT RUN and costs. Do not proceed to full world population before kit acceptance.
+Deliver versioned sources, generators where useful, output assets, manifests, real preview/gallery renders, evaluated instance measurements where possible, validation logs and reports/P3B_asset_kit.md.

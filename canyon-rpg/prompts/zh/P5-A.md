@@ -1,41 +1,14 @@
-# P5-A — 獨立的參考圖與 Godot 畫面視覺驗收
+# P5-A — 通用、獨立的場景視覺驗收
 
-你是嚴格的遊戲環境美術品質審查員。只從真正遊戲運行畫面判斷與原始參考圖的視覺差異。
+你是獨立視覺 QA 審查者。必須看真正的參考資料、style_bible、特徵合同及實際渲染畫面，且僅檢查**當前場景真正適用**的視覺要求。
 
-## 必讀教學
-Mountain（參考圖、Blender Python、渲染比對與反覆修正）：
-https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/reference/canitcode/transcripts/78diFcn3Qas_i-stole-a-mountain-for-my-game.md
+1. 根據使用者與來源確認正確的場景內容、風格與目標，不引入其他類型範例的檢查項目。
+2. 檢查構圖、輪廓、比例、遮擋、深度、形體連續性、視覺風格、材質／光照及其他經核准的特徵要求。
+3. 以真實 shot ID、場景版本和來源比對；沒有圖片參考時可用使用者明確的設計意圖驗收，但不能假裝有不存在的原圖。
+4. 可使用 `blueprint/validate_reference_geometry_contract.py` 驗證合同結構；實際 Blender 場景與錨點存在時，可用 `p1_visual_layout_validator.py` 檢查單一點的螢幕投影及第一射線遮擋候選。但這些工具不能代替真實完整輪廓或渲染。
+5. 每個缺陷記錄視圖、特徵 ID、畫面位置、嚴重度、實際和預期差異、信心、可能來源與最小修正方案。
+6. 保護其他已核准區域，局部修正後只重驗真正受影響的視圖，同時保留 before/after 與來源版本。
+7. 分開 Blender 白模美術驗收與最終目標渲染器驗收；缺少必要真實畫面時標記 NOT_RUN，不宣稱成功。
+8. 不得聲稱執行了沒有實際測試的鏡頭、遮擋、物理、效能或材質行為。
 
-Can It Code Gauntlet（建構、渲染、審查、驗證）：
-https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/reference/canitcode/transcripts/Z9fyPTQVEdI_ai-built-this-space-game-from-scratch-here-s-exactly-how.md
-
-直接遠端閱讀相關時間戳段落，不預設逐字稿存在本地。引用方法時保留影片時間點。
-
-## 必要輸入
-原始峽谷圖、真正 Godot 運行截圖（優先 P0 固定正交鏡頭）、Style Bible、相機與場景尺寸、既有前後圖。
-
-沒有 Godot 截圖時明確標示 IN-ENGINE VISUAL REVIEW NOT POSSIBLE，不得以 Blender 離線圖或 AI 生成圖冒充實際遊戲畫面。
-
-## 評估
-1. 整體構圖和主要地標位置。
-2. 平台高低、岩壁輪廓、比例、轉角。
-3. 上游河段、瀑布、中央木橋、主瀑布、深潭及下游。
-4. 木橋／樓梯寬度、端點連接及道路辨識。
-5. 岩壁材質、貼圖密度、苔蘚與草地。
-6. 樹冠外型、森林密度、植被律動與顏色差異。
-7. 水體色彩、透明度、深淺、水速、流向、泡沫和水霧。
-8. 日照、陰影、曝光、飽和度、霧氣和焦點。
-9. 明顯缺口、浮空、穿模和相機遮擋。
-
-## 缺陷格式
-每個問題記錄：截圖編號、畫面像素區／地標、目前結果、期望效果、CRITICAL / MAJOR / MINOR、可能子系統、判斷信心與可以實測的具體修正。區分客觀差異和個人偏好，優先列出影響最大的五項，避免重新設計已核准場景。
-
-獨立審查時不要偷偷直接修改工程檔案。
-
-## 交付
-reports/P5A_visual_review.md、結構化缺陷資料（適合時 JSON/CSV）、可用時的畫面標註、PASS / FAIL / NOT TESTED 和修正優先序。不得在缺乏證據時宣稱全部通過。
-
-## 鏡頭錨點快速檢查與真實渲染的界線（新增）
-先用 blueprint/validate_reference_geometry_contract.py 驗證參考圖／地貌合同的格式，再在有實際 Blender P1 scene 時用 blender/scripts/p1_visual_layout_validator.py 檢查 CAM_HERO_45、CAM_ALT_LEFT、CAM_ALT_RIGHT 地標點的畫面投影及射線遮擋候選。它只能提供「單一錨點」的數值證據，無法證明整個岩壁剪影、透明水面、植被或美術品質。
-
-P1-concept 可使用三張真正 Blender 渲染圖完成白模美術驗收；P5 的 Godot 最終驗收仍須實際 Godot 截圖。修正時記錄受影響 art_id、鏡頭、來源修訂與 before/after；明確區分 STRUCTURE_PASS、CAMERA_PROJECTION、RENDER_VISUAL_PASS 和 NOT_RUN，不能以預檢代替視覺審核。
+交付可追溯的問題清單、影像／視圖證據、PASS／FAIL／NOT_RUN 與修正優先級。

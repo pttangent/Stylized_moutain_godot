@@ -1,12 +1,13 @@
-# P0-A — Optional Small 3D Reference Branch (GENERAL)
+# P0-A — Optional existing 3D reference inspection
 
-This add-on augments P0-A.md only when the user **actually provides** a small generative model, such as a Tripo GLB/OBJ/FBX. It is optional and provider-agnostic, never a mandatory source of metric truth.
+Run only if an existing 3D model or scanned scene is **actually provided and relevant**. This is independent of model vendor, file format and scene type; it is not a generation instruction.
 
-1. Inspect the original image, user-approved annotations and actual supplied asset path/hash/license/source. If absent, mark MODEL_UNAVAILABLE and continue image-only.
-2. Open the mesh in an inspection scene and record mesh structure, disconnected pieces, sky/background shells, normals, transforms, raw up and forward directions, scale, coordinate handedness and visible defects. Keep raw values; apply authored transforms only once.
-3. Produce reproducible top/front/side and elevated oblique diagnostic views with grid and source IDs. Compare silhouette, apparent depth order, major structures and unknown hidden geometry with original reference.
-4. Treat topmost surface, triangulated faces and model "collision" as **candidate geometry**. Canopies, water, branches, vertical cliff faces and scenery cannot be assumed to be ground. Mark all semantic labels unverified until reviewed.
-5. When practical, rasterize **candidate** min/max surface layers, NoData validity/coverage and exact up-facing face-normal filtering; raw-unit measurements and designer-selected meter-scale views must stay separate. Never fill holes silently.
-6. Source-image ↔ model registration may be attempted only with enough geographically distributed **visually confirmed** 2D↔3D correspondences. Report reprojection residuals and failures. Do not claim a successful image fit or depth measurement from unreviewed ray hits.
-7. Build explicit disagreements and confidence records (IMAGE_OBSERVATION / MODEL_CANDIDATE / AUTHOR_DESIGN / UNKNOWN); original image wins for visible art intent. No assumption that generated model dimensions are physical meters.
-8. Deliver dated manifest, reproducible inspection generator, diagnostic 3D views, optional candidate elevation/coverage maps, input hashes and conservative conclusion. Do not overwrite approved blueprint or spend model credits.
+1. Verify file identity, source attribution, license, scene/mesh hierarchy, axes, transforms, bounds and raw unit status. Preserve original bytes and any user-reviewed correspondence.
+2. Inspect geometry for missing pieces, disconnected shells, mesh direction, scale contradictions, unstable surface classifications and false/ambiguous features.
+3. Create only the diagnostic views needed to check source agreement, with explicit camera IDs and observed outcomes. Do not invent orthographic, fixed-angle or image-registration requirements.
+4. Where useful, derive candidate depth/surface masks, min/max samples and unknown coverage, with exact sampling and normal filters. A topmost intersection is never automatically a valid physical surface.
+5. Register a source-to-design transform exactly once. Do not assert physical units from a generated model without evidence or an explicit authored scale decision.
+6. Compare against the highest-confidence original inputs and record `OBSERVED` / `GENERATED_CANDIDATE` / `INFERRED` / `UNKNOWN`, explicitly resolving design overrides.
+7. Produce an inspect-only manifest, source hash, actual diagnostics, discrepancies, unit/axis uncertainty and an optional integration recommendation.
+
+If no relevant model exists, mark this branch `NOT_APPLICABLE` and continue generic P0-A. No calls to external model providers or credit-consuming services.

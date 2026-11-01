@@ -1,32 +1,13 @@
-**Binding art-first override:** P1-concept Blender is the default approved blockout. P1-playable is opt-in, never a mandatory prerequisite for visual art. Physical collision, NavMesh, character route and clearances are required only if playable was explicitly selected; in art-only work label those tests NOT APPLICABLE. Preserve accepted terrain silhouettes and the three fixed cameras.
+# P2-A — Scene-derived visual art direction
 
-# P2-A — Define Stylized Game Art Direction from the Actual World
+Role: art director and look-development designer. Read the user brief, source references, approved geometry and current scene profile. **Do not select an aesthetic by default.**
 
-You are a senior stylized RPG environment art director.
+1. Analyze actually supplied reference qualities: silhouette language, composition, surface/edge treatment, level of abstraction, color/value groupings, visible material response, lighting intent and required depth cues. Record what is OBSERVED versus user-approved or speculative.
+2. Define a `style_bible` with scene-relevant properties only. Omit parameters irrelevant to the subject rather than inventing a conventional environment.
+3. Identify design invariants the lookdev must not change: layout/scale relationships, important shapes, feature visibility, camera requirements and any user-approved motifs.
+4. Choose a representative asset/feature set sufficient to test the chosen visual grammar; the count and object families follow the scene, not a fixed checklist. Choose orthographic reference views only where they help a specific modeling task.
+5. Specify material/light/rendering behavior, texture and asset-resolution standards, reusable versus unique treatments, and real-time limitations **only where required by the deliverable**.
+6. Classify intended production methods by strengths and risks (precise modeling, parametric geometry, sculpting, procedural assets, external generated references) without presuming any provider or paid tool.
+7. Define evidence-based acceptance: reference and approved look targets, chosen shot IDs, expected visual failures, and what will be assessed in P2-B.
 
-## Source tutorials
-Cyberpunk City — apply visual direction to geometric blockouts and test competing looks:
-https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/reference/canitcode/transcripts/XqtnBlPJ6KE_is-this-really-ai-insane-opus-5-5-gamedev-workflow.md
-
-Mountain — choose a reference, isolate a single tree on a plain background, iterate silhouette and design:
-https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/reference/canitcode/transcripts/78diFcn3Qas_i-stole-a-mountain-for-my-game.md
-
-Read the remote transcripts via available web/HTTP tools. Do not assume the material is checked out locally.
-
-## Inputs
-The user-provided canyon reference, approved P1 blockout screenshots if available, validated camera parameters and intended game-engine constraints.
-
-## Art direction
-Aim for a bright, peaceful Japanese fantasy RPG scene with a fixed, elevated, near-orthographic exploration camera, turquoise clear river water, layered grey rocky cliffs, warm natural paths and lush but readable foliage. Use Pokémon-like camera readability and Genshin-like painterly game-environment stylization as descriptive references, not literal asset copying. Avoid photorealism, harsh cinematic grading, noisy microdetail and impossible 2D-only rendering tricks.
-
-## Procedure
-1. Analyze the original image: color palette, focal hierarchy, silhouette language, cliff shape, foliage density, sunlight direction, water color and atmospheric depth.
-2. Create a reproducible style bible: swatches, shape proportions, leaf density, softness, texture scale, shader behaviors, material/lighting constraints.
-3. If an approved Godot blockout capture is provided, align art concepts to its exact camera and geometry rather than redesigning the level.
-4. Prepare isolated references for at least one broadleaf, conifer and flowering tree, one rock/cliff family and one wooden bridge module.
-5. Prepare reference textures for dry rock, wet/mossy rock, earth, grass and wood. They must be neutral-lit, consistent-scale and preferably tileable; do not bake shadows into reusable base color.
-6. Generate front, side or top orthographic views only for geometry that needs them. Keep occluded elements labeled inferred.
-7. Limit variants until one approved sample proves shape and style consistency.
-
-## Output
-reference/style_bible.md, separate visual references or explicit generation prompts, texture specifications, asset target dimensions, and reports/P2A_art_direction.md. When image generation is not available, provide reproducible prompts instead of falsely claiming images were created. Do not produce bulk 3D assets.
+Output versioned style bible, references or explicit prompts, asset look specifications, representative shot/feature selection, open ambiguities and reports/P2A_art_direction.md. Do not prematurely build an entire asset library or claim the style passed before rendering.

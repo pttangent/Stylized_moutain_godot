@@ -1,20 +1,21 @@
-# Canyon RPG — Art-First Environment Pipeline
+# Universal Blender-first scene-art workflow
 
-This project prioritizes **natural, stylized 3D environment art**. Default route:
+**This branch is deliberately scene-agnostic.** It generalizes the P0–P5 art-production prompts and reference-to-geometry tools. Existing project data in this folder was produced for an earlier specific scene; it is retained for provenance and must not become default input to a new request.
 
-P0-A (source image + optional user-supplied Tripo small-model spatial clues) → P0-B (terrain/water/slope/camera art blueprint) → **P1-concept (Blender editable clay blockout + three locked camera renders)** → P2 (visual slice/lookdev) → P3 (modular assets) → P4 (procedural environment assembly) → P5 (visual + engine QA).
+Start with `docs/UNIVERSAL_WORKFLOW.md` and `docs/SCENE_PROFILE_TEMPLATE.md`, then use `prompts/zh/` or `prompts/en/`. Optional scenario references are in `docs/SCENE_TYPE_EXAMPLES.md` (interior, exterior built scene, city, wilderness and other cases); **select them explicitly** rather than allowing an agent to import them silently.
 
-**P1-playable is an optional branch** after P1-concept approval: Godot physical routes, collision, stairs/bridges, navigation and actual player traversal. Do not gate art progression on physical walking tests. Never reshape all cliffs to meet an optional road slope ceiling.
+Production routing: 00 input inspection -> P0 evidence/blueprint -> **P1-concept actual editable Blender blockout** -> P2 style/lookdev -> P3 assets -> P4 conditional systems/scene assembly -> P5 visual and technical QA. P1-playable is an optional runtime adaptation only when requested.
 
-See prompts/en/P0.md, prompts/en/P1.md and bilingual prompts/zh/ counterparts. The generic P0 prompt is image-led and provider-neutral, with Tripo small-model input optional; old provider-specific spatial reconstruction is archived separately as prompts/en/P0-A-marble.md and should only be used when explicitly selected.
+Core prompts do **not** assume the existence of a heightfield, a specific terrain type, vegetation, a building, flow simulation, path navigation, a camera angle, a renderer or a target game engine. They preserve stable art IDs and revision history, evaluate visual results through genuinely captured approved views, and mark unavailable tests honestly.
 
-Existing 2026-10-26 P0 files under blueprint/ and reports/ are **historical authored design candidates**: 17/17 numeric checks only, not playable/art-approved geometry. Preserve previous landmark evidence and version changes. Real source image: assets/worlds/canyon-waterfall/canyon-waterfall-reference.jpeg. Do not mistake a small model or historical candidate mesh for measured terrain.
+Technical entrypoints:
+- `docs/REFERENCE_GEOMETRY_CONTRACT.md` — v2 source-agnostic contract spec
+- `blueprint/reference_geometry_contract.example.json` — **neutral unapproved** schema example
+- `blueprint/validate_reference_geometry_contract.py` — v1 legacy + v2 structural validation
+- `blender/scripts/p1_visual_layout_validator.py` — v1/v2 actual Blender anchor/view diagnostic
+- `blender/scripts/art_idempotent_geometry.py` — scoped mesh replacement
+- `tests/test_reference_geometry_contract.py` — structural regression tests
 
-Useful references: AGENTS.md, skills/godot-canyon-pipeline/SKILL.md and reference/canitcode/AGENT_INDEX.md. The Can It Code transcript corpus is source material; verify important details against originals.
+Historical special-case instructions are under `prompts/legacy/`; do not run them by default. Historical project-specific analysis, geometry, generators and reports under `blueprint/`, `analysis/` and `reports/` have not been reapproved for arbitrary scenes.
 
-## New model-driven art QA references
-- [Environment modeling guide](docs/ENVIRONMENT_ART_MODELING_GUIDE.md): adapted three-level shape gates, source-image geometry constraints, stable art IDs, incremental Blender corrections, GN asset distribution and honest camera QA.
-- [Reference geometry contract example](blueprint/reference_geometry_contract.example.json) and [offline structural validator](blueprint/validate_reference_geometry_contract.py). Example values/camera targets are **not** approved design.
-- [Scoped Blender mesh replacement helper](blender/scripts/art_idempotent_geometry.py) and [landmark camera projection validator](blender/scripts/p1_visual_layout_validator.py) for an actually built Blender scene.
-- [Regression tests](tests/test_reference_geometry_contract.py): run from canyon-rpg with python -m unittest discover -s tests -v.
-No new canyon geometry, approved Blender render or Godot traversal is implied by committing tools/prompts; prior evidence remains unchanged.
+Run tests from this project folder with `python -m unittest discover -s tests -p 'test_reference_geometry_contract.py' -v`. These tests prove structural behavior only, not geometry or art approval.

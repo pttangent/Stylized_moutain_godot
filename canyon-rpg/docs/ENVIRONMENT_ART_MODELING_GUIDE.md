@@ -1,55 +1,39 @@
-# Blender environment-art modeling techniques — scoped adaptation
+# Generic Blender scene-modeling and review discipline
 
-These rules adapt **workflow ideas**, not copied implementation, from the user-supplied `tygg-ai-film-studio v3.2.7` archive: `references/scene-blockout-and-camera-motion.md`, `reference-image-driven-assets.md`, `blender-mcp-execution.md`, `hyper3d-scene-assets.md`, `performance-budget.md`, `asset-library.md` and `scripts/validate_previs_fast.py`. The original material addresses film previs, so character animation, proprietary model tiers and path-collision defaults are deliberately **not** transplanted to this environment-art project.
+This document describes reusable production behavior, **not a scene type, object list, biome, world scale, camera angle or style**. It adapts useful modular/iterative principles from prior visual-production research without reproducing project-specific asset rules. Choose geometry representations and QA based on `scene_profile.json`, source evidence and actual deliverables.
 
-## Default handoff
+## S1 — Composition and primary spatial forms
 
-**P0-A -> P0-B -> P1-concept (Blender) -> P2 lookdev -> P3 kit -> P4 assembly -> P5 QA.** P1-playable remains an optional later overlay. The source image is authoritative for visible silhouettes and landmark ordering. An actually provided small Tripo model is nonmetric low-confidence reference only. Older P0 geometry is a design candidate; preserve annotations and version any proposed changes. No global 18-degree slope rule: only an expressly playable path may adopt path-grade targets.
+Define scene silhouette, scale hierarchy, major masses/voids, visible landmarks, depth and framing. The primary forms differ across scenarios and must be discovered rather than named in a universal prompt. Prioritize the real approved views; source images are optional when the user provides a brief, technical diagram or existing 3D model. Use editable proxies rather than premature detailed construction. **Gate:** real Blender capture(s) from chosen views, compared to explicit source/design intent.
 
-### Level L1 — Macro landform
+## S2 — Structural geometry and connections
 
-Make the valley, asymmetric massing, upper terraces, waterfall tiers/lips, main receiving pool and lower outlet. Use a heightfield only for bulk terrain. Keep steep cliff meshes, waterfall faces, cave/undercut and river water separate. Reject uniform ramps, perfectly parallel riverbanks and narrow artificial trenches. Before advancing, make a real Blender clay render from CAM_HERO_45 and check landmark order, skyline, occlusion and water elevation continuity.
+Refine necessary surfaces, joints, boundaries, overhangs, thickness, intersections, attachments, supports and transitions **only where the scene actually needs them**. Choose representation per feature: hard-surface mesh, sculpt, parametric geometry, volume, field, curve, existing assets or hybrid. No one representation is required everywhere. Preserve design scale/unit intent and known visible geometry while documenting inferred hidden portions. **Gate:** real multiview or selected-view review of relevant structural shape and continuity.
 
-### Level L2 — Structural landform
+## S3 — Detail and dressing
 
-Design strata-aware cliff faces, alcoves, benches, scarps, overhang undersides, shoreline erosion, valley-to-rock contacts and large boulders. Meshes have independently editable `art_id`s and stable seams. Re-render CAM_HERO_45, CAM_ALT_LEFT and CAM_ALT_RIGHT; repair intersecting bank/fall geometry and inconsistent proportions. Artistic roughness must reflect a geological cause, not uncorrelated noise. Do not hide failed L1/L2 shape with vegetation.
+Add repeated props, surface variation, secondary features and decorative density only when requested or needed for visual approval. S3 may be skipped for an art-only graybox. Do not use detail to conceal S1/S2 proportion failures.
 
-### Level L3 — Environment dressing (P3/P4, NOT early P1)
+## Source-to-geometry contract
 
-Place reusable rock/plant/branch families by terrain class, local slope, elevation, moisture and water distance. Prefer shared mesh data, Collection Instances or `Distribute Points on Faces -> Instance on Points` with deterministic seeds. Keep hero landmark trees separately editable. Default **no global Realize Instances**; only make small copies real when genuinely needed. Evaluate foreground silhouette and instance density against three approved cameras. Instances save duplication but do not eliminate expanded draw/geometry work.
+Read `docs/REFERENCE_GEOMETRY_CONTRACT.md` and use v2, which accepts non-image source inputs. Each `feature_id` has source references, reliability classification, `shape_rules.must_preserve`, `may_redesign`, `do_not_copy`, dependencies and applicable review views. Unapproved pixel positions remain null; no single camera angle or fixed shot count is assumed. Attach `art_id` to real scene objects and optional semantic anchor objects where point projection is useful.
 
-## Reference-to-geometry contract
+## Scoped and repeatable modifications
 
-**Canonical example:** `blueprint/reference_geometry_contract.example.json` (template, not approved truth). **Structural validator:** `blueprint/validate_reference_geometry_contract.py`. For each stable `feature_id`, store:
+Keep `art_id`, `art_owner`, `art_revision` stable. Record the intended `change_scope` before each edit, including changed objects, generator version/seed, dependent features, affected review views and source evidence. Use `blender/scripts/art_idempotent_geometry.py` for safe local mesh replacement where appropriate; preserve transforms and parent/collection relations. This helper does not by itself make arbitrary operators idempotent or guarantee transaction rollback.
 
-- Source image ID, observed pixel coordinate, evidence class `OBSERVED / DESIGNED / INFERRED / UNKNOWN`, and authored (not surveyed) scale basis.
-- Target reusable `asset_id` and exact Blender **anchor object's `art_id`**, e.g. `ANCHOR_MAIN_FALL_LEFT_RIM`. Do not silently infer anchors from nearest ray hit or mesh midpoint.
-- `reference_shape.must_preserve` (silhouette, relative scale, lip/pool order), `may_redesign` (unknown backsides, local strata), and `do_not_copy` (image perspective as map, fake model ground, texture noise as geometry).
-- L1/L2/L3 classification, `dependency_ids`, and shot checks tied to existing camera IDs.
-- `expected_uv_top_left` is normalized image-screen coordinates with **top-left origin**, and must remain `null` until a reviewer authorizes a target from a matched render. Record `tolerance_uv` only after a target exists. Example camera names and target shot positions are **proposed**, not approved.
+When a feature changes, rebuild only necessary parts and compare actual before/after captures. Never delete and re-create the full scene simply because an independent feature changed. Scene versioning must preserve reproducible source parameters and approved baseline views.
 
-P0-A authors visual observations and inferred geometry as separate evidence. P0-B materializes contract candidates and validates reference/ID/dependency consistency. P1 creates landmark anchor Empty objects with matching `obj["art_id"]`, positions them at the visually relevant **surface point**, and iterates camera/mass checks. Avoid forcing a single feature's source image pixel into an alleged measured XYZ.
+## Instance and procedural strategy: conditional
 
-## Reentrant scoped Blender edits
+Use shared meshes, collection instances or Geometry Nodes where repetition materially helps the **discovered scene**. Retain deterministic seeds and placement records; avoid blanket realization and do not infer rendering cost from a source mesh alone. Choose placement constraints from actual feature semantics (spacing/attachment/visibility/region/transform conditions), not prewritten assumptions about environment type. Hero/unique geometry may remain authored and individually editable. Validate export support before committing to a procedural strategy.
 
-Each modeled mesh carries `obj["art_id"]`, `obj["art_owner"]`, `obj["art_revision"]`; never rely on `Cliff.001` names or delete everything and regenerate. Use `blender/scripts/art_idempotent_geometry.py` to identify the exact object and swap only its **mesh data**, retaining its world transform, parent, collection links, custom ID and other unrelated objects. The helper checks ownership and optionally the previous revision, refuses duplicate IDs, and retains previous mesh datablocks for recovery. Callers must save a new `.blend` revision and document old/new geometry source. It is not an automatic rollback transaction.
+## Camera and QA discipline
 
-Before editing record `change_scope` (list of art_ids), inputs, seed, object ownership and affected cameras/features. Preserve approved P0 pixels, water network and locked cameras. Changing a landform reruns relevant shape and waterfall-camera checks; editing only a camera reruns its camera checks, not untouched geometry generation. If an art change requires altering approved geometry, log it in `blueprint/p1_art_revision.json`. Do not globally purge, apply costly modifiers, or overwrite unrelated asset sources. Ensure 3D model views are the SAME scene, never separately regenerated per camera.
+Review views are selected by the scene brief (source match, composition, technical inspection, turntable, runtime view or others), with recorded projections, transforms and output sizes. Do not default to 45-degree, orthographic, 16:9, exactly three cameras or a specific renderer. `p1_visual_layout_validator.py` checks only semantic anchor projection and optional first-hit occlusion **candidates**; it never approves a full silhouette, materials or final render. View-count zero during P0 can be legitimate; it does not constitute visual acceptance. Actual scene visuals must be reviewed from real captures on the approved views.
 
-## Validation and honest gates
+## Honest acceptance
 
-1. **Structure only (no Blender):** `python blueprint/validate_reference_geometry_contract.py blueprint/reference_geometry_contract.example.json --report reports/reference_geometry_contract_example_validation.json`.
-2. **Actual Blender anchor screen check (read-only):** `blender -b blender/source/p1_concept.blend --python blender/scripts/p1_visual_layout_validator.py -- --contract blueprint/reference_geometry_contract.json --out reports/P1_layout_validation.json`. Pass `--features <feature_id> ...` and/or `--shots CAM_HERO_45 ...` for scoped edits. The example contract alone does not imply matching Blender objects exist.
-3. The validator projects each anchor with Blender `world_to_camera_view` and optionally reports a first-ray **occlusion candidate**. This is NOT a mesh-silhouette metric, opacity test, render, visual review, or playable collision check. An empty/unknown screen target is **SCREEN_POSITION_UNSPECIFIED**, not POSITION_PASS. Absent cameras or anchors are NOT_RUN, not auto-created.
-4. **Art approval requires real renders:** compare original/reference against hero, left and right clay images with fixed camera parameters, object-level silhouette, water/pool proportions, depth and visible artifacts; keep annotated before/after and explicit PASS/FAIL/ASSUMED/NOT RUN. Do not approve from JSON validator output.
-5. When model/instance density becomes meaningful at P3/P4, measure actual source mesh counts, evaluated instance estimates and target Godot performance separately. A single source mesh's polygon count never measures all repeated visible instances. Don't invent FPS.
+Separate schema correctness, reproducible build, anchor visibility, shape review, target-renderer output, interactivity and performance. Only required/actually executed tests can PASS; other statuses must distinguish NOT_RUN/NOT_APPLICABLE/BLOCKED/ASSUMED. P1-playable is a separate explicit opt-in branch. Source rights and paid generation authorization must be checked before use.
 
-## Anti-patterns
-
-- Merging the whole canyon into one uneditable mesh or flattening cliffs to satisfy an optional walking graph.
-- Treating a small generated mesh's top face or first image ray hit as certified ground.
-- Building finely detailed stone/foliage before the macro terrain and waterfall geometry look correct.
-- Duplicating the entire scene on a one-cliff change; unstable auto-increment object names; unapproved global Realize Instances.
-- Claiming a screenshot was rendered because projection coordinates, file existence or Python syntax passed.
-
-**Source/implementation distinction:** only the workflow concepts above came from the archive; the schema, example, validators and helper scripts in this repository are project-specific adaptations.
+**Optional scene examples live exclusively in `docs/SCENE_TYPE_EXAMPLES.md`**; they supply illustrations and no default requirements.

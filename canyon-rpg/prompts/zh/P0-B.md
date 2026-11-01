@@ -1,20 +1,16 @@
-# P0-B — Blender 美術白模的空間藍圖
+# P0-B — 將通用場景設計實體化為可驗證藍圖
 
-以已核准 P0-A 與原圖為準，建立可重現的結構化藍圖。舊版數值檢查通過不代表場景自然、漂亮或可行走。
+根據 P0-A 真正的參考資料、場景 Profile 與核准的特徵設計，產生後續 Blender 可用的空間／視覺藍圖。不得自行添加場景物件。
 
-1. blueprint/scene_blueprint.json：唯一地標 ID、來源像素、世界尺度和座標、Y-up 協定、修訂與信心標記。
-2. blueprint/layout_topdown.png：有公尺比例尺、地形高差、主／次瀑布、河岸、深潭、岩壁輪廓與可選的美術路徑。
-3. blueprint/heightmap_16bit.png：真正單通道 uint16，高度映射及採樣規格。**只表示大地形**，垂直岩壁、懸挑、瀑布面與橋樑另建 3D 幾何。
-4. landform_zones.json、cliff_edges.json：緩坡／丘坡／陡坡／斷崖／河岸／瀑布唇口／水池等類別；檢查曲折、岩層與侵蝕形態，避免規則重複。
-5. water_graph.json：明確的上游→瀑布→下方水池→出口及各段下降高差。
-6. 依 atan(sqrt((dY/dX)^2+(dY/dZ)^2))（輸出度數），在約 0.5m、2m、5m 平滑尺度計算坡度分佈；有 blueprint/landform_slope_audit.py 時執行並保存影像和 JSON。**不能以 18° 全域限制直接判定地形 FAIL。** 只有明確指定的普通步道可參考坡度上限。
-7. 分離來源相機、45° 主構圖相機及兩側檢查鏡頭，留下鏡頭變換、投影範圍與地標畫面座標。
-8. 新 Tripo 小模型若確實存在，必須保留 raw 座標、尺度與不確定性；找不到就採圖片導向，不得擅自替換來源。歷史資料只能在新修訂中附差異。
-9. navigation_graph.json 可以選擇保留為 ART_ROUTE_INTENT_ONLY；無需 Godot、碰撞、NavMesh 或 CharacterBody3D 便可完成 P0。
+1. 建立版本化 `scene_profile.json`、`blueprint/scene_blueprint.json` 或等效 Manifest；連結來源 ID、特徵 ID、幾何表示、單位、軸向、變換、約束及不確定性。
+2. 依 `docs/REFERENCE_GEOMETRY_CONTRACT.md` 建立 `blueprint/reference_geometry_contract.json` v2。參考來源不一定是圖片；非圖片不要求像素座標，也不必虛構相機。
+3. 只製作需要的空間資料：俯視圖、剖面圖、體積結構圖、關係圖、曲線、遮罩、網格、數值場等依實際需求取捨。沒有任何一種格式是所有場景都必備。
+4. 若使用高度圖或其他採樣場，必須符合該幾何的維度與表示限制，紀錄單位、精度、映射及未知區。不得將無法單值表示的幾何強行壓入單張高度圖。
+5. 針對場景真的包含的功能系統檢查拓撲、連接、比例、風格及物理約束；其他測試標記 NOT_APPLICABLE，不能以不相關測試阻擋美術。
+6. 根據批准的構圖／交付需求建立真正需要的視圖，區分來源影像相機推測與製作相機。相機角度、投影與數量不能硬編碼。
+7. 已提供的生成模型只當可檢查候選資料，保留原始座標、來源及可能錯誤，不預設服務商、精度或通行面。
+8. 保留來源與核准版，變更另建版本、差異紀錄及可重跑生成腳本。
 
-交付可重跑生成器、藍圖、視角與剖面圖、坡度稽核及 reports/P0B_art_validation.md。記錄 PASS／FAIL／ASSUMED／NOT RUN。完成後預設進 P1-concept。
+建立合同後，可執行 `python blueprint/validate_reference_geometry_contract.py blueprint/reference_geometry_contract.json --report reports/P0B_geometry_contract_validation.json`。它只驗證格式、ID 與依賴，不代表美術、幾何或可玩性通過。
 
-## 幾何合同的機器可驗證交接（新增）
-將已核准 P0-A 地貌合同寫入 blueprint/reference_geometry_contract.json；example.json 僅為格式範例，不能當已核准的場景設計。檢查來源圖、地標、asset_id、anchor_art_id、L1/L2/L3 分層、dependency_ids 與固定鏡頭審核位置。
-
-必須實際執行 python blueprint/validate_reference_geometry_contract.py blueprint/reference_geometry_contract.json --report reports/P0B_geometry_contract_validation.json，保留錯誤及警告。STRUCTURE_PASS 僅驗證 JSON、ID、依賴圖、位置資料格式，絕不代表 Blender 地貌形體、相機遮擋或可行走驗收。未核准的鏡頭 expected_uv_top_left 必須保持 null；實際投影交給 P1-concept。
+交付藍圖、真正需要的視圖／資料、鏡頭規格、來源連結與真實驗證報告。完成後預設進 P1-concept。
