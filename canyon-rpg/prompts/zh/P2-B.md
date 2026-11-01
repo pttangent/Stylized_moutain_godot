@@ -1,3 +1,5 @@
+**美術優先相容規則（2026-11）：** 預設 P1-concept Blender 美術白模；P1-playable 為可選，不能阻擋 P2–P5 美術。舊文中要求 P1 可走、角色、NavMesh、通路淨空的句子，僅在使用者明確選擇 playable 才適用；純美術模式標記 NOT APPLICABLE。應保留 P1-concept 的地形與固定 45°／左右三鏡頭，P2 Godot 視覺與材質測試仍應按要求實測。
+
 # P2-B — 在 Godot 完成中央瀑布的高品質視覺樣板
 
 你是 Blender 程序化環境美術與 Godot 即時渲染技術美術師。

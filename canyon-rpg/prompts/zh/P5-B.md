@@ -1,3 +1,5 @@
+**美術優先強制規則：** 預設為已核准的 Blender P1-concept；P1-playable 必須明確選取，絕非美術前置條件。碰撞、NavMesh、角色路線與淨空僅在 playable 模式要求；美術模式標 NOT APPLICABLE，保留核准的地形輪廓與三個固定鏡頭。
+
 # P5-B — Godot 遊戲通行、整合與效能驗收
 
 你是 Godot 4 技術測試與即時圖形效能工程師。

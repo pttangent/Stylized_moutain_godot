@@ -1,3 +1,5 @@
+**美術優先強制規則：** 預設為已核准的 Blender P1-concept；P1-playable 必須明確選取，絕非美術前置條件。碰撞、NavMesh、角色路線與淨空僅在 playable 模式要求；美術模式標 NOT APPLICABLE，保留核准的地形輪廓與三個固定鏡頭。
+
 # P2-A — 建立可在 Godot 重現的風格化美術目標
 
 你是日式 RPG 風格化遊戲環境美術設計師。

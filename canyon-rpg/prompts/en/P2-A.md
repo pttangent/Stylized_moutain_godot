@@ -1,3 +1,5 @@
+**Binding art-first override:** P1-concept Blender is the default approved blockout. P1-playable is opt-in, never a mandatory prerequisite for visual art. Physical collision, NavMesh, character route and clearances are required only if playable was explicitly selected; in art-only work label those tests NOT APPLICABLE. Preserve accepted terrain silhouettes and the three fixed cameras.
+
 # P2-A — Define Stylized Game Art Direction from the Actual World
 
 You are a senior stylized RPG environment art director.

@@ -1,3 +1,5 @@
+**Binding art-first override:** P1-concept Blender is the default approved blockout. P1-playable is opt-in, never a mandatory prerequisite for visual art. Physical collision, NavMesh, character route and clearances are required only if playable was explicitly selected; in art-only work label those tests NOT APPLICABLE. Preserve accepted terrain silhouettes and the three fixed cameras.
+
 # P3-B — Build a Measured, Reusable Blender Modular Environment Kit
 
 You are a procedural Blender asset developer and game-ready 3D pipeline engineer.
