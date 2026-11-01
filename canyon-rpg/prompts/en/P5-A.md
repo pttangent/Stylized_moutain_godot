@@ -12,3 +12,7 @@ Role: independent black-box visual/art reviewer. Inspect the actual approved sou
 8. Never claim a view, benchmark, interaction, material behavior or occlusion test that was not actually observed.
 
 Deliver an issue report with ordered findings, image references, observed PASS/FAIL/NOT_RUN statuses, evidence sources and testable recommended changes.
+
+## Fixed 45° engineering QA continuity
+
+Always inspect **real before/after captures from the fixed 45° engineering `CAM_QA_45`** in addition to any scene-approved presentation shots. If the QA view is missing or its transform changed without a documented rebaseline, flag `NOT_RUN` or `BASELINE_CHANGED`. The QA view is for structural visibility and regression, not by itself proof of aesthetic fidelity.

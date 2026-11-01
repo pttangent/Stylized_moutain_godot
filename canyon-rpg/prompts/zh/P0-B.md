@@ -14,3 +14,7 @@
 建立合同後，可執行 `python blueprint/validate_reference_geometry_contract.py blueprint/reference_geometry_contract.json --report reports/P0B_geometry_contract_validation.json`。它只驗證格式、ID 與依賴，不代表美術、幾何或可玩性通過。
 
 交付藍圖、真正需要的視圖／資料、鏡頭規格、來源連結與真實驗證報告。完成後預設進 P1-concept。
+
+## 通用固定 45° 工程檢視鏡頭
+
+將獨立的 **`CAM_QA_45` 固定 45° 工程檢視鏡頭**列入後續 P1 的標準 QA 資料。相機位置、縮放與真正螢幕座標應由實際 Blender S1 幾何產生並鎖定；在 P0 階段標記尚未執行。正式作品鏡頭仍由場景需求決定。

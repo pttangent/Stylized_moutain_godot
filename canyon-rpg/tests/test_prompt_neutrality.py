@@ -42,6 +42,27 @@ class PromptNeutralityTests(unittest.TestCase):
                         f"{path.relative_to(ROOT)} leaked pattern {pattern}",
                     )
 
+    def test_fixed_45_engineering_camera_cannot_be_dropped(self):
+        for language in ("en", "zh"):
+            for name in ("00.md", "P0.md", "P0-A.md", "P0-B.md",
+                         "P1.md", "P1-concept.md", "P2-B.md", "P3-B.md",
+                         "P4-B.md", "P5-A.md", "P5-B.md"):
+                content = (PROMPTS / language / name).read_text(encoding="utf-8")
+                self.assertIn("CAM_QA_45", content, (language, name))
+        doc = (ROOT / "docs/QA_CAMERA_45_STANDARD.md").read_text(encoding="utf-8")
+        self.assertIn("45°", doc)
+        self.assertIn("presentation camera", doc.lower())
+        self.assertIn("lock", doc.lower())
+
+    def test_qa_helper_parses_without_blender(self):
+        import ast
+        source = (ROOT / "blender/scripts/ensure_qa_45_camera.py").read_text(encoding="utf-8")
+        ast.parse(source)
+        self.assertIn('CAMERA_NAME = "CAM_QA_45"', source)
+        self.assertIn('math.radians(45.0)', source)
+        self.assertIn('cam["qa_locked"] = True', source)
+        self.assertIn("--force-reframe", source)
+
     def test_reference_examples_are_separate_and_opt_in(self):
         text = (ROOT / "docs/SCENE_TYPE_EXAMPLES.md").read_text(encoding="utf-8").lower()
         for word in ("interior", "exterior", "city", "wilderness"):

@@ -12,3 +12,7 @@ Role: Blender artist and renderer/technical-lookdev developer. Work from an **ap
 8. Report observed execution environment, commands, real outputs, limits and PASS/FAIL/ASSUMED/NOT_RUN. No claimed render or benchmark without a real run.
 
 Deliver a reproducible lookdev slice, editable source, required materials/effects, actual comparison renders, change log, and reports/P2B_visual_slice.md. Do not require playability unless explicitly selected.
+
+## Fixed 45° engineering QA continuity
+
+When testing appearance changes, preserve the fixed 45° `CAM_QA_45` inspection baseline from P1 alongside the target presentation views. Capture a real QA render whenever geometry, scale or placement changes; use approved artistic shots for final look approval. The fixed engineering view does not determine scene style.

@@ -1,6 +1,6 @@
 # Generic Blender scene-modeling and review discipline
 
-This document describes reusable production behavior, **not a scene type, object list, biome, world scale, camera angle or style**. It adapts useful modular/iterative principles from prior visual-production research without reproducing project-specific asset rules. Choose geometry representations and QA based on `scene_profile.json`, source evidence and actual deliverables.
+This document describes reusable production behavior, **not a scene type, object list, world scale, **presentation** camera angle or style**. It adapts useful modular/iterative principles from prior visual-production research without reproducing project-specific asset rules. Choose geometry representations and QA based on `scene_profile.json`, source evidence and actual deliverables.
 
 ## S1 — Composition and primary spatial forms
 
@@ -16,7 +16,7 @@ Add repeated props, surface variation, secondary features and decorative density
 
 ## Source-to-geometry contract
 
-Read `docs/REFERENCE_GEOMETRY_CONTRACT.md` and use v2, which accepts non-image source inputs. Each `feature_id` has source references, reliability classification, `shape_rules.must_preserve`, `may_redesign`, `do_not_copy`, dependencies and applicable review views. Unapproved pixel positions remain null; no single camera angle or fixed shot count is assumed. Attach `art_id` to real scene objects and optional semantic anchor objects where point projection is useful.
+Read `docs/REFERENCE_GEOMETRY_CONTRACT.md` and use v2, which accepts non-image source inputs. Each `feature_id` has source references, reliability classification, `shape_rules.must_preserve`, `may_redesign`, `do_not_copy`, dependencies and applicable review views. Unapproved pixel positions remain null; no single **presentation** camera angle or fixed shot count is assumed; CAM_QA_45 is a separate common engineering view. Attach `art_id` to real scene objects and optional semantic anchor objects where point projection is useful.
 
 ## Scoped and repeatable modifications
 
@@ -30,10 +30,15 @@ Use shared meshes, collection instances or Geometry Nodes where repetition mater
 
 ## Camera and QA discipline
 
-Review views are selected by the scene brief (source match, composition, technical inspection, turntable, runtime view or others), with recorded projections, transforms and output sizes. Do not default to 45-degree, orthographic, 16:9, exactly three cameras or a specific renderer. `p1_visual_layout_validator.py` checks only semantic anchor projection and optional first-hit occlusion **candidates**; it never approves a full silhouette, materials or final render. View-count zero during P0 can be legitimate; it does not constitute visual acceptance. Actual scene visuals must be reviewed from real captures on the approved views.
+Review views are selected by the scene brief (source match, composition, technical inspection, turntable, runtime view or others), with recorded projections, transforms and output sizes. Do not default to 45° or orthographic **for final composition**, and do not enforce any scene-specific number of presentation cameras or target renderer. **Do** create the fixed 45° orthographic CAM_QA_45 engineering view (16:9 diagnostic baseline) once actual P1 geometry exists. `p1_visual_layout_validator.py` checks only semantic anchor projection and optional first-hit occlusion **candidates**; it never approves a full silhouette, materials or final render. View-count zero during P0 can be legitimate; it does not constitute visual acceptance. Actual scene visuals must be reviewed from real captures on the approved views.
 
 ## Honest acceptance
 
 Separate schema correctness, reproducible build, anchor visibility, shape review, target-renderer output, interactivity and performance. Only required/actually executed tests can PASS; other statuses must distinguish NOT_RUN/NOT_APPLICABLE/BLOCKED/ASSUMED. P1-playable is a separate explicit opt-in branch. Source rights and paid generation authorization must be checked before use.
 
 **Optional scene examples live exclusively in `docs/SCENE_TYPE_EXAMPLES.md`**; they supply illustrations and no default requirements.
+
+## Fixed 45° diagnostic baseline (not a presentation camera)
+
+After S1 primary geometry, build `CAM_QA_45` via `blender/scripts/ensure_qa_45_camera.py`, render a real screenshot and lock camera transform and ortho scale. Reuse it for S2 revisions and object visibility/depth/overlap inspection across all scene types. Only explicitly reframe as a new baseline; add further views for hidden surfaces. See `docs/QA_CAMERA_45_STANDARD.md`.
+

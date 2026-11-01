@@ -11,3 +11,7 @@
 7. 清楚區分 PASS、FAIL、BLOCKED、NOT_RUN、NOT_APPLICABLE、ASSUMED，單純 JSON 正確不能等同整階段完成。
 
 交付技術日誌、真實檔案、目標畫面、實測性能（如有）、未完成問題和 `reports/P5B_technical_QA.md`。
+
+## 固定 45° 工程鏡頭的持續驗證
+
+檢查 `CAM_QA_45` 固定 45° 工程鏡頭是否保留原始 Transform、正交尺寸與真實比對圖，並和實際作品鏡頭、引擎、碰撞及效能驗收分開報告。

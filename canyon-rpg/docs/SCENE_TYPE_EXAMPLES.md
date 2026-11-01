@@ -1,6 +1,6 @@
 # Optional scene-type examples (NOT DEFAULTS)
 
-These are **reference profiles**, not the canonical production prompt. Nothing in this file authorizes an agent to assume this scene type, these objects, a fixed camera angle, a particular engine, or a specific art style. Select a profile only if the user brief or an approved `scene_profile.json` identifies it. Otherwise analyze the scene from its actual sources.
+These are **reference profiles**, not the canonical production prompt. Nothing in this file authorizes an agent to assume this scene type, these objects, a fixed **presentation** camera angle, a particular engine, or a specific art style. Select a profile only if the user brief or an approved `scene_profile.json` identifies it. Otherwise analyze the scene from its actual sources.
 
 ## Scene-profile selection
 1. Determine the intended subject, style, level of realism, scale, camera and deliverable from the user's inputs.
@@ -28,7 +28,7 @@ These are **reference profiles**, not the canonical production prompt. Nothing i
 
 ## Scene configurations that must NOT be hard-coded into core prompts
 - Environment type, named landmarks or asset families; use detected/approved `feature_id` values.
-- Camera pitch, orthographic/perspective projection, exact number of cameras, aspect ratio or horizon policy.
+- **Presentation** camera pitch/projection, artistic shot count, framing/aspect or horizon policy. The fixed engineering CAM_QA_45 view is standardized across every example.
 - World bounds, physical scale, coordinate axes, handedness and unit conventions without explicit target context.
 - Gameplay navigation, player size, slope limits, collision or a particular engine if the goal is art only.
 - One style (painterly/realistic/low-poly/etc.), daytime lighting, texture set, weather or vegetation.
@@ -36,3 +36,6 @@ These are **reference profiles**, not the canonical production prompt. Nothing i
 
 ## Reusable profile structure
 An approved scene profile should record: `project_id`, `scene_type` (user-derived), `goal`, `inputs` with provenance, `style`, `space_and_scale`, `camera_shots`, `geometry_priority`, `conditional_systems`, `deliverables`, `qa_gates`, and `unresolved_assumptions`. Use `docs/SCENE_PROFILE_TEMPLATE.md` as a blank checklist; do not pre-populate from the examples unless the user chooses them.
+
+**Universal visibility rule for all examples:** once a 3D Blender blockout exists, create and lock the 45° `CAM_QA_45` engineering camera for consistent before/after inspection; use supplementary views for occlusion. This technical camera does not choose an example's final composition.
+

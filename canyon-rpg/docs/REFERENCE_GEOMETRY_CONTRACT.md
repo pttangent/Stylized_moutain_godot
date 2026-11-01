@@ -21,3 +21,8 @@ Only fields with observed or approved data should be populated with concrete val
 `python blueprint/validate_reference_geometry_contract.py blueprint/reference_geometry_contract.json --report reports/geometry_contract_validation.json` validates structural consistency. It cannot confirm imagery, physical scale, silhouette, occupancy, runtime behavior, or approvals. With a real Blender scene, `blender/scripts/p1_visual_layout_validator.py` may perform read-only projection of landmark anchors only if matching cameras and anchor objects exist. It is legitimate to have no camera views during early P0; it is **not** legitimate to claim visual acceptance without real captures.
 
 For every edit record `change_scope` with affected `feature_id`/`art_id`, source revision, dependent scene parts, chosen review views and actual before/after evidence. Preserve unrelated geometry/transform/camera data. See `docs/UNIVERSAL_WORKFLOW.md`.
+
+## Engineering QA versus authored review views
+
+All actual Blender 3D scenes also carry a 45° elevation engineering `CAM_QA_45` diagnostic. It is **not** a source-derived or final artistic camera. v2 `review_views` can remain empty at P0 since QA camera parameters cannot be measured without geometry. If a QA view is later recorded there, classify its purpose as `ENGINEERING_QA` and leave source-relative screen targets unspecified unless independently reviewed. No source image registration is inferred from QA_45. See `docs/QA_CAMERA_45_STANDARD.md`.
+

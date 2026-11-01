@@ -12,3 +12,7 @@ Role: Blender procedural/handcrafted asset producer. Consume the approved P3-A i
 8. If P1-playable was explicitly selected, add real collision/interaction requirements to asset tests; otherwise mark those cases `NOT_APPLICABLE`.
 
 Deliver versioned sources, generators where useful, output assets, manifests, real preview/gallery renders, evaluated instance measurements where possible, validation logs and reports/P3B_asset_kit.md.
+
+## Fixed 45° engineering QA continuity
+
+When placing assets in the actual scene, retain the P1 locked `CAM_QA_45` engineering view to compare structural impact and overlaps before/after modifications. For individual asset gallery work, create additional appropriate diagnostic views without moving the scene-level QA baseline.

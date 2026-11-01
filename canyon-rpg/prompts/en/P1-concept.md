@@ -1,6 +1,6 @@
 # P1-concept — Generic Blender 3D art blockout (DEFAULT)
 
-Role: Blender environment/scene modeling artist and procedural geometry engineer. **Build an actual editable 3D scene**, not a static image and not a forced playable map. Derive subject, style, scale, camera and feature families strictly from the approved scene profile and reference-to-geometry contract.
+Role: Blender environment/scene modeling artist and procedural geometry engineer. **Build an actual editable 3D scene**, not a static image and not a forced playable map. Derive subject, style, scale, **presentation** cameras and feature families from the approved scene profile and reference-to-geometry contract; the QA_45 engineering view is the sole standard camera exception.
 
 ## Preflight
 - Read docs/UNIVERSAL_WORKFLOW.md, the actual user references, `scene_profile.json`, approved P0 design and `blueprint/reference_geometry_contract.json`. Examples are optional and cannot supply missing scene content.
@@ -17,7 +17,7 @@ Role: Blender environment/scene modeling artist and procedural geometry engineer
 ### S2 — Structural shape and connections
 4. Refine edge profiles, joints, interfaces, surfaces, supporting geometry, overlaps and thickness as appropriate to the **discovered** scene. Do not introduce nonexistent physical systems or textures because examples mention them.
 5. Repair intersecting/isolated/floating geometry and multi-view inconsistencies. Keep reusable parts separately editable; choose actual modules or sculpted forms based on source geometry.
-6. Render the approved views and any additional diagnostic views required to resolve hidden geometry, rather than always using a fixed number or camera angle.
+6. Render the approved views and any additional diagnostic views required to resolve hidden geometry, without imposing a fixed **presentation** shot count or angle. Always retain the independent fixed 45° QA inspection view.
 
 ### S3 — Deferred or limited detail
 7. Detail/decoration is optional at P1 and generally deferred until geometry silhouette and structure have passed. When a small proxy is needed to establish composition, label it a proxy. Do not mask a structural failure with surface dressing.
@@ -28,4 +28,7 @@ Role: Blender environment/scene modeling artist and procedural geometry engineer
 10. Record before/after actual renders and issue lists with shot/view ID, feature ID, visible discrepancy, severity, rationale and observed changes. Confirm the same underlying geometry is used for all approved views.
 
 ## Deliverables and acceptance
-Provide reproducible modeling script(s) if used, editable `.blend` source, selected real review renders, semantic geometry/asset hierarchy, versioned design changes, and reports/P1_concept.md (tools, measurements, artifact paths, PASS/FAIL/ASSUMED/NOT_RUN). The `P1_CONCEPT_ART_APPROVED` gate covers visual/spatial criteria only, not interaction, collision or runtime performance. Stop before unrelated detailed asset work; next is P2 or explicitly selected P1-playable.
+Provide reproducible modeling script(s) if used, editable `.blend` source, a real `CAM_QA_45` baseline render plus selected presentation renders, semantic geometry/asset hierarchy, versioned design changes, and reports/P1_concept.md (tools, measurements, artifact paths, PASS/FAIL/ASSUMED/NOT_RUN). The `P1_CONCEPT_ART_APPROVED` gate covers visual/spatial criteria only, not interaction, collision or runtime performance. Stop before unrelated detailed asset work; next is P2 or explicitly selected P1-playable.
+
+## Fixed 45° engineering camera (required in P1)
+**Mandatory technical visibility fixture:** As soon as S1 macro geometry exists, create `CAM_QA_45` using `blender/scripts/ensure_qa_45_camera.py`: orthographic, 45° elevated relative to Blender Z-up, default 16:9. Render an actual baseline and then **lock its transform/ortho scale**; reframe only through an explicit versioned new baseline. Repeat this identical view after S2 and local revisions. The fixed QA camera is separate from the user's presentation shots, which remain freely chosen. Add supplementary inspection views where the 45° angle cannot reveal hidden objects or surfaces. Do not approve shape solely from this view.

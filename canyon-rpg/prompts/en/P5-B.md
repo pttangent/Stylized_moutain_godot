@@ -11,3 +11,7 @@ Role: technical art QA engineer for the **actual** target deliverables. Select t
 7. Separate `PASS`, `FAIL`, `BLOCKED`, `NOT_RUN`, `NOT_APPLICABLE` and `ASSUMED`. Do not pass an entire phase merely because file-level structure tests pass.
 
 Deliver real technical logs, output artifacts, target-view captures, performance baselines if measured, remaining issues and reports/P5B_technical_QA.md.
+
+## Fixed 45° engineering QA continuity
+
+Verify that the scene preserves its locked fixed 45° `CAM_QA_45` engineering camera, its stored transform/orthographic scale and comparable real snapshots. Report missing or changed baseline independently of real target-renderer and optional interaction tests; do not conflate the QA camera with a runtime camera.

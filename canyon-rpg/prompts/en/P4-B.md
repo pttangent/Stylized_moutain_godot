@@ -12,3 +12,7 @@ Role: Blender/environment-scene assembly engineer, plus runtime integration only
 8. Report geometry/instance measures and hardware render performance only if observed. Preserve before/after visual evidence for modifications.
 
 Deliver editable scene, deterministic generation or assembly data, actual preview captures, applicable system integrations and reports/P4B_assembly.md.
+
+## Fixed 45° engineering QA continuity
+
+After assembly or any relevant spatial/placement edit, capture the actual locked 45° `CAM_QA_45` image as a consistent cross-version structural audit. Do not automatically reframe it to conceal changes; supplement with other views where occlusion hides evidence. The user's presentation cameras remain separate.

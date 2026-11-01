@@ -12,3 +12,7 @@ Use **only** when the user explicitly requests an interactive, traversable or ot
 8. If interactive requirements conflict with approved art, report the trade-off and seek a design decision rather than silently overwriting appearance.
 
 Deliver versioned runtime adaptation, any test scene/scripts, logs, relevant captures, provenance and reports/P1_playable.md. The P1-playable gate is **never a prerequisite** to non-interactive P2–P5 artwork.
+
+## Fixed 45° engineering QA continuity
+
+Preserve the **existing locked `CAM_QA_45`** as an engineering comparison view while adapting the scene; do not change it to match an in-game camera. Capture the QA 45° view again to detect geometry regressions, and separately test the actual runtime view(s).
