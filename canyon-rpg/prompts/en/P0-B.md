@@ -13,5 +13,11 @@ Role: Blender-compatible procedural landscape-layout engineer. Use approved P0-A
 8. If an actual new small **Tripo** mesh is supplied, use it as inspectable low-confidence evidence after axes and model provenance checks; **never** automatically reuse old models or overwrite reviewed data. If not supplied, image-only blueprint remains valid.
 9. Optional navigation_graph.json can be kept as ART_ROUTE_INTENT_ONLY. No collision, path connectivity, navmesh, physical stair design or CharacterBody3D acceptance in art mode.
 
+## Machine-readable image-to-mesh contract
+Materialize the approved P0-A feature records into **`blueprint/reference_geometry_contract.json`**, based on but not simply copied from `blueprint/reference_geometry_contract.example.json`. Preserve source pixels/IDs, link independent rock/water/landform assets and camera anchors, assign L1/L2/L3 build responsibilities and review statuses. The example file has proposed/unknown camera positions and is NOT a production-approved blueprint. Source images, generated small models and authored surfaces must remain distinguishable.
+
+Run `python blueprint/validate_reference_geometry_contract.py blueprint/reference_geometry_contract.json --report reports/P0B_geometry_contract_validation.json` and retain actual STDOUT, errors and warning state. Its `STRUCTURE_PASS` only verifies contract schema/references/acyclic dependencies; any `SCREEN_POSITION_UNSPECIFIED` warnings, unknown 3D positions or missing renders remain open. This offline validator does not check geology, geometry, silhouette, model accuracy or walkability. The later P1 Blender script is responsible for camera projections.
+
+
 ## Checks and exit
 Verify referenced IDs, units, real raster bit depth, water direction, separate cliffs, original-image silhouettes, terrain sections, authoring cameras, multiscale slopes, source conflicts and report evidence. Report ART_TOPOLOGY, ART_GEOMORPHOLOGY_REVIEW, CAMERA_UNVERIFIED, OPTIONAL_ROUTE_NOT_TESTED separately. Produce reproducible scripts, preview graphics and reports/P0B_art_validation.md with real PASS/FAIL/ASSUMED/NOT RUN. Do not claim measured terrain or playable world. Exit to P1-concept, **not** forced P1-playable.

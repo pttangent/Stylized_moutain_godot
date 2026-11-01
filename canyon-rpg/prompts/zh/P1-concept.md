@@ -30,3 +30,12 @@
 交付 blender/scripts/build_p1_concept.py、blender/source/p1_concept.blend、blender/renders/p1_concept/ 的主鏡頭／左右鏡頭及三視圖、blueprint/p1_art_revision.json、reports/P1_concept.md（PASS／FAIL／ASSUMED／NOT RUN）。
 
 **P1_CONCEPT_ART_APPROVED** 僅表示地貌、構圖和形體已通過美術驗收，不表示可行走。不開始碰撞、Godot NavMesh、正式材質、植被或付費生成；P2 可以直接接續。
+
+## L1／L2／L3 分層建模及局部修正（新增）
+L1 對應 C1：先完成宏觀山體、峽谷、瀑布階地、主水池及真正的 45° 白模渲染。L2 對應 C2：再建立獨立岩層、懸挑、崖腳、河岸侵蝕與地形接縫，重渲主鏡頭、左右鏡頭。L1／L2 的錯誤不能靠樹木草叢遮擋。L3 植被與小石頭延後 P3／P4，不是 P1-concept 必做項目。
+
+讀取真正的 blueprint/reference_geometry_contract.json；缺少時提出版本化草案並標示 P0 交接未完成，不能把 example 當成已核准文件。地貌 Mesh 標記 obj["art_id"]、obj["art_owner"]、obj["art_revision"]，地標以獨立 Empty 的 art_id 對應 anchor_art_id，放在真實要核對的表面位置，而非隨便取物件中心。
+
+**禁止局部修正時重建整個場景。** 修改前記錄 change_scope、受影響 art_id、版本、seed、地標／鏡頭依賴。使用 blender/scripts/art_idempotent_geometry.py 僅替換目標 Mesh data，保留 Transform、Parent、Collection 與其他已核准物件，保留舊 Mesh 作為可回復版本，不做全場 purge 或不受控 .001 重複物件。將改動記錄到 blueprint/p1_art_revision.json 並保存 before/after；未改鏡頭可沿用有來源的舊證據，不能偽稱新測量。
+
+建立相機和 Anchor 後執行 blender -b blender/source/p1_concept.blend --python blender/scripts/p1_visual_layout_validator.py -- --contract blueprint/reference_geometry_contract.json --out reports/P1_layout_validation.json；可用 --features、--shots 聚焦變更範圍。它只檢查 world_to_camera_view 投影與初步 raycast 遮擋候選，不是正式渲染、美術輪廓驗收或角色碰撞。SCREEN_POSITION_UNSPECIFIED／NOT_RUN／OCCLUSION_CANDIDATE 都不算 PASS。最終仍須主／左右三鏡頭真實 Blender 白模對照圖。

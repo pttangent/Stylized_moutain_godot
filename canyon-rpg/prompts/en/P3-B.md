@@ -30,5 +30,11 @@ For a distinctive small standalone prop, compare the cost and editability of geo
 ## Asset gallery and deliberate failure tests
 Create a Godot gallery showing each part alone and in snapped assemblies. Programmatically validate connector positions, module gaps, stair/bridge clearance, texture density, UV seams, material count and collision. Add a deliberately offset or rotated module test to check that the validator catches known mistakes. Inspect from multiple angles and test actual CharacterBody3D clearance.
 
+## Shared-mesh and controlled instance authoring (NEW)
+Reuse an approved, small set of rock/tree/shrub/grass prototypes instead of modeling every occurrence. For Geometry Nodes, prefer `Distribute Points on Faces -> Instance on Points` or a reproducible authored point set, with exposed seed, region ID, density, scale variation, slope/elevation/moisture and water-distance masks. Avoid blanket `Realize Instances` and `Make Instances Real`; only convert a targeted copy for a proven export need. Set material/shared mesh provenance and stable asset IDs; artistic variations do not automatically become unique generated models. Ensure a hero feature may remain separately editable and is not swept into background scatter.
+
+Track **source meshes**, **evaluated instances**, and **estimated expanded visible geometry** separately. A 2,000-triangle asset reused 50 times is not a 2,000-triangle view. Distinguish static poly estimates from actual runtime FPS. Asset gallery validation for this art-first route must check silhouette, pivots, snapping/joins, source IDs and three-view appearance; collision/CharacterBody3D checks apply **only** when P1-playable has explicitly been selected. Preserve the geometry contract's `must_preserve` shape constraints and revision ownership.
+
+
 ## Deliverables
 docs/asset_manifest.csv, Blender Python generators, editable .blend files, independent GLBs, texture atlases, preview renders, Godot asset gallery, module validation scripts and reports/P3B_asset_kit.md. Report PASS / FAIL / ASSUMED / NOT RUN and costs. Do not proceed to full world population before kit acceptance.

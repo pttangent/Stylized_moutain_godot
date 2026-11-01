@@ -37,3 +37,8 @@ Do not silently modify any project files during an independent visual review.
 
 ## Deliverables
 reports/P5A_visual_review.md, structured issue data (JSON/CSV when useful), annotated comparison images if supported, PASS / FAIL / NOT TESTED per category, references to actual input captures, and ordered correction recommendations. No unsupported claim of completion.
+
+## Fast camera-anchor preflight versus actual visual review (NEW)
+The optional offline reference-geometry contract check validates structure and dependencies only. If a real P1 Blender scene exists, run the read-only blender/scripts/p1_visual_layout_validator.py against the approved contract for CAM_HERO_45, CAM_ALT_LEFT and CAM_ALT_RIGHT before reviewing actual renders. This projects one semantic landmark anchor via world_to_camera_view and optionally flags first-ray occlusion candidates. It neither measures complete silhouettes nor proves material opacity, water continuity or artistic quality.
+
+At P1-concept stage, three real Blender clay images may establish an ART-only blockout gate. This P5 final Godot visual gate still requires real Godot runtime captures; Blender images never substitute for them. Clearly separate STRUCTURE_PASS, CAMERA_PROJECTION, RENDER_VISUAL_PASS and NOT_RUN, and review before/after only for art IDs/shot IDs affected by a change. Preserve revision provenance when reusing unchanged shots.

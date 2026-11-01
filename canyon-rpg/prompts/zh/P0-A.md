@@ -14,3 +14,8 @@
 10. 不得覆寫已核對的地標與歷史報告；修訂必須進入新日期的分析路徑。
 
 交付版本化分析、原圖地標覆蓋圖、真正俯視圖、階地剖面、地貌分區、瀑布／水流圖、鏡頭規格和 JSON 草案。P0-A 停在分析，不開始細部建模、物理或導航。
+
+## 參考圖到幾何的逐物件合同（新增）
+依 docs/ENVIRONMENT_ART_MODELING_GUIDE.md 與 blueprint/reference_geometry_contract.example.json 為每個重要地貌建立 Reference-to-Geometry Contract，包含穩定 feature_id、source_image_id、原圖像素、OBSERVED／DESIGNED／INFERRED／UNKNOWN、L1 宏觀／L2 結構／L3 裝飾責任、作者設計尺度、asset_id 和 Blender anchor_art_id。每個物件須明列 must_preserve、may_redesign、do_not_copy：哪些輪廓及瀑布水池關係必須保留、哪些遮擋背面可推測、哪些生成模型表面及透視扭曲不能照搬。
+
+建立無循環 dependency_ids，並固定 CAM_HERO_45／CAM_ALT_LEFT／CAM_ALT_RIGHT 三鏡頭 ID。沒有核准的畫面定位時 expected_uv_top_left 一律為 null，不得虛構精確螢幕座標。Tripo 小模型僅作低信心候選證據，不能取代原圖觀測。

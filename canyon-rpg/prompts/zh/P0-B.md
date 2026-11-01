@@ -13,3 +13,8 @@
 9. navigation_graph.json 可以選擇保留為 ART_ROUTE_INTENT_ONLY；無需 Godot、碰撞、NavMesh 或 CharacterBody3D 便可完成 P0。
 
 交付可重跑生成器、藍圖、視角與剖面圖、坡度稽核及 reports/P0B_art_validation.md。記錄 PASS／FAIL／ASSUMED／NOT RUN。完成後預設進 P1-concept。
+
+## 幾何合同的機器可驗證交接（新增）
+將已核准 P0-A 地貌合同寫入 blueprint/reference_geometry_contract.json；example.json 僅為格式範例，不能當已核准的場景設計。檢查來源圖、地標、asset_id、anchor_art_id、L1/L2/L3 分層、dependency_ids 與固定鏡頭審核位置。
+
+必須實際執行 python blueprint/validate_reference_geometry_contract.py blueprint/reference_geometry_contract.json --report reports/P0B_geometry_contract_validation.json，保留錯誤及警告。STRUCTURE_PASS 僅驗證 JSON、ID、依賴圖、位置資料格式，絕不代表 Blender 地貌形體、相機遮擋或可行走驗收。未核准的鏡頭 expected_uv_top_left 必須保持 null；實際投影交給 P1-concept。

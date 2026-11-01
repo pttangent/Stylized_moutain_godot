@@ -27,3 +27,6 @@ https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/referen
 
 ## 交付與驗收
 可運行 Godot 視覺樣板、Blender 原始腳本／Blend／GLB、貼圖、Shader、三棵樹比較、A/B/C 比較（能測時）、真正 Godot 截圖，以及 reports/P2B_vertical_slice.md。以 Godot 即時效果為準，單靠 Blender 離線渲染不算通過。此階段不大量建模。
+
+## 固定美術幾何及局部材質修改（新增）
+保留 P0 reference_geometry_contract 與已通過驗收的 P1-concept art_id。更換岩壁材質、製作植被或水 Shader 不可默默重新建模整張地圖、移動地標錨點或更換 CAM_HERO_45／左右兩鏡頭。L1 宏觀地貌與 L2 結構形體須保持可直接核對；通過後才增加 L3 小型自然資產及重複實例。若必須修改可見幾何，記錄 change_scope、依賴鏡頭與 before/after 真實渲染。沒有 P1-playable 也可以繼續 P2 美術。

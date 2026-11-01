@@ -34,3 +34,8 @@ https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/referen
 
 ## 交付
 reports/P5A_visual_review.md、結構化缺陷資料（適合時 JSON/CSV）、可用時的畫面標註、PASS / FAIL / NOT TESTED 和修正優先序。不得在缺乏證據時宣稱全部通過。
+
+## 鏡頭錨點快速檢查與真實渲染的界線（新增）
+先用 blueprint/validate_reference_geometry_contract.py 驗證參考圖／地貌合同的格式，再在有實際 Blender P1 scene 時用 blender/scripts/p1_visual_layout_validator.py 檢查 CAM_HERO_45、CAM_ALT_LEFT、CAM_ALT_RIGHT 地標點的畫面投影及射線遮擋候選。它只能提供「單一錨點」的數值證據，無法證明整個岩壁剪影、透明水面、植被或美術品質。
+
+P1-concept 可使用三張真正 Blender 渲染圖完成白模美術驗收；P5 的 Godot 最終驗收仍須實際 Godot 截圖。修正時記錄受影響 art_id、鏡頭、來源修訂與 before/after；明確區分 STRUCTURE_PASS、CAMERA_PROJECTION、RENDER_VISUAL_PASS 和 NOT_RUN，不能以預檢代替視覺審核。

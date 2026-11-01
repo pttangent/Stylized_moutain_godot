@@ -20,5 +20,11 @@ Role: stylized 3D environment art director and terrain designer. Reconstruct an 
 9. Propose a **hero fixed elevated 45-degree near-orthographic 16:9 shot**, two side/angle QA cameras, and separate **source-matching review camera**. Record exact targets, clipping, intended landmark normalized screen positions and unknown calibration. The old full-map camera is not necessarily a hero shot.
 10. If an optional generated mesh disagrees with source image, keep the visual source authoritative and document the override. Topmost GLB hit can be canopy, water, cliff or background rather than ground.
 
+## Required reference-to-geometry translation (NEW)
+Before emitting the P0-A design hypothesis, prepare **per-landmark Reference-to-Geometry Contracts** based on `docs/ENVIRONMENT_ART_MODELING_GUIDE.md` and `blueprint/reference_geometry_contract.example.json`. Each stable feature must list: primary source `image_id` and observed pixel(s), evidence class, L1 macro/L2 structural/L3 dressing ownership, source scale anchor or `AUTHOR_DESIGN_NOT_SURVEYED`, intended `asset_id` and Blender `anchor_art_id`, and three explicit rules: `must_preserve`, `may_redesign`, `do_not_copy`. An occluded backside or an unverified model ray is NOT observed geometry. The river/pool and visible waterfall lips receive first priority; scenic optional paths do not create a playable constraint.
+
+Build a no-cycle `dependency_ids` relationship between features (e.g. waterfall lip before receiving pool adjustment). Identify CAM_HERO_45, CAM_ALT_LEFT and CAM_ALT_RIGHT as shot IDs; record intended image-screen target positions only if actually established and reviewed. Otherwise use `expected_uv_top_left: null` and explain the open check. The user-supplied small Tripo model, if any, contributes only `MODEL_CANDIDATE` evidence and may never override source-image observations. Do not run Blender merely to fill template fields.
+
+
 ## Deliverables
 A versioned analysis/p0_art_<date>/P0A_art_analysis.md, image_landmarks.json, annotated source overlay, true top-down sketch, elevation/terrace cross-sections, landform slope-zone plan, water graph draft, stable IDs + confidence, shot plan and proposed scene_blueprint_draft.json. Label missing deliverables truthfully. **Do not begin Blender mesh, Godot playability or asset-detail production.**

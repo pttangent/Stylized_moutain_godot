@@ -32,3 +32,8 @@ P3-A 已核准資產清單與三視圖、P2 樣板和 Style Bible，以及既有
 
 ## 交付
 docs/asset_manifest.csv、Blender Python、Blend、獨立 GLB、Atlas、資產預覽、Godot 測試場景、模組驗證與 reports/P3B_asset_kit.md。報告 PASS / FAIL / ASSUMED / NOT RUN 及成本。模組尚未驗收前不做全地圖散布。
+
+## Shared Mesh 與 Geometry Nodes 的實際限制（新增）
+岩石、草、樹及灌木先做少數通過驗收的來源原型，以 Shared Mesh、Collection Instance 或 Distribute Points on Faces -> Instance on Points 重複放置。保留固定 seed、區域、密度、坡度、海拔、距水、濕度與尺寸變化；主地標樹木／岩石保持獨立可編輯。
+
+預設不得對整個場景 Realize Instances／Make Instances Real。僅當實際 Godot 匯出確有需求時才局部展開，並保留生成器和來源版本。分開統計唯一來源 Mesh 三角面、求值後實例數、鏡頭中估算的展開面數；一個來源網格的面數不代表所有重複實例的開銷。只有明確啟用 P1-playable 時才做角色、橋梁通道與碰撞驗收。

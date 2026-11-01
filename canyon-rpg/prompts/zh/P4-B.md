@@ -26,3 +26,8 @@ https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/referen
 
 ## 交付
 完整可編輯 Godot 場景、曲線工具、重複配置腳本、固定 Seed、植被系統、河流整合、通行／幾何測試、截圖與 reports/P4B_world_assembly.md。P5 尚未通過前不得稱為最終完成。
+
+## 自然環境實例分布與局部可重現性（新增）
+植被和岩石以 asset_id、固定 seed、biome 區域、坡度分類、海拔、水距、濕潤程度決定放置，並區分草坡、河岸、垂直岩壁的排除區；不以平均隨機點或等距重複取代自然生態。使用共用 Mesh、Geometry Nodes／Collection Instances，通常不要 Realize 全場。
+
+單一河岸分區修改時記錄 change_scope、相關 art_id、生成器版本、預期變更數與受影響的主／左右鏡頭。不能重新散布已核准的所有資產或改動相機。匯出到 Godot 時保留種子及可重現的實例位置，實測性能；沒有啟用 playable 就不加入導航或全地圖碰撞要求。
