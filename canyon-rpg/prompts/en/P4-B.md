@@ -1,26 +1,9 @@
-# P4-B — Assemble the Full Stylized Canyon with Procedural Paths and Vegetation
+# P4-B — Assemble the Stylized Canyon Environment (ART FIRST)
 
-You are a Godot 4 procedural natural-environment developer.
+Inputs: approved P0 art blueprint, P1-concept Blender art graybox and cameras, P2 visual direction, P3 modular kit, P4-A water-flow cache, original reference. **P1-playable is optional**, not a prerequisite.
 
-## Required reference
-Mountain — spline-driven terrain-following roads, modular segments, path exclusion rules, river integration, vegetation and incremental small scenes:
-https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/reference/canitcode/transcripts/78diFcn3Qas_i-stole-a-mountain-for-my-game.md
+Build art-first editable cliff/terrain/river/waterfall meshes, use splines for decorative paths and channels, vegetation scattering by slope/elevation/moisture/rock/river proximity, stable random seed and independent landmark trees. Preserve terrain geomorphology, visual hierarchy, asymmetrical riverbanks and all three P1 camera compositions. Keep waterfall faces, receiving pools and bulk heightfield independent.
 
-Read remote timestamped source material. Do not presume an existing local source checkout.
+Avoid assuming every road, bank or forest floor is navigable. Only if P1-playable was explicitly approved, include gameplay route/clearance/collision/NavMesh validation and preserve previous art while testing paths. Otherwise run geometry, water, asset grounding, deterministic rebuild, shader and camera visual checks.
 
-## Inputs
-Approved P0 top-down/world coordinates, validated P1 blockout, approved P2 rendering style, P3 modular asset kit, P4-A flow cache and the user's target reference image. Inspect the existing scene before replacing any blockout geometry.
-
-## Tasks
-1. Replace open blockout ground with editable production terrain while preserving known terrace heights and route connections. Use separate modular cliff meshes for sheer or overhanging faces and blend seams with riverbanks/terrain.
-2. Build path, bridge, stair, shoreline and fence layout using Godot Curve3D or equivalent splines. Deform/repeat short reusable road sections along curves; retain the ability to widen/move paths without manually sculpting the entire terrain.
-3. Scatter vegetation deterministically using elevation, slope, moisture/distance-to-water, forest zones, cliff edges, walking exclusion masks and a stable random seed. Preserve important landmark trees as independently editable scene objects.
-4. Use instancing, shared atlases, foliage cards, LOD and well-sized spatial chunks for culling; inspect alpha overdraw and materials rather than blindly increasing tree density.
-5. Integrate river rendering from the cached flow fields and attach independently modeled waterfalls/foam to their correct elevations.
-6. Assemble upper canyon, central waterfall, lower pool, downstream and surrounding forest. Add controlled, subtle, non-synchronized foliage motion and limited decorative props.
-7. Expose biome density, placement seed, wind intensity, path width, water motion, rock variation and visual settings as safe scene parameters.
-8. Run automatic connectivity, terrain/path collision, asset grounding, bridge/stair clearance, water continuity and deterministic-rebuild checks. Verify the locked reference camera still matches the intended composition.
-9. Capture actual Godot screenshots from fixed and free cameras. Record graphics settings and performance baseline; do not invent benchmark data.
-
-## Deliverables
-Full editable Godot scene, modular placement scripts, reproducible world seed, path tools, instantiated vegetation, integrated cached water system, traversal/geometry tests, screenshots and reports/P4B_world_assembly.md. Do not declare final completion before P5 QA.
+Capture actual Godot hero + two alternate screenshots and record hardware settings, scene build commands, visually visible defects and available performance metrics. Deliver editable modular scene, seeded procedural scripts, water integration and reports/P4B_world_assembly.md; do not claim unrun traversal tests passed.

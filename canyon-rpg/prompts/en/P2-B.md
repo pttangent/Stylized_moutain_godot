@@ -1,27 +1,9 @@
-# P2-B — Make a High-Quality Central-Waterfall Vertical Slice
+# P2-B — Godot Visual Lookdev Slice From Approved Blender Art Blockout
 
-You are a procedural Blender environment builder and Godot real-time technical artist.
+Role: Blender stylized environment artist and Godot technical artist. Input: **approved P1-concept Blender geometry and locked camera screenshots**. P1-playable is **NOT required**. Read project P2-A art direction and original image.
 
-## Read source tutorials
-Cyberpunk City — compare model construction options, select precise Blender geometry plus generated textures:
-https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/reference/canitcode/transcripts/XqtnBlPJ6KE_is-this-really-ai-insane-opus-5-5-gamedev-workflow.md
+Scope: main waterfall and pool, near cliff walls and bridge proxy, exactly three prototype tree types, small sample grass/rocks. Keep the hero 45-degree and two review cameras; compare authentic Blender clay shapes and actual Godot results. Do not redraw or silently simplify topography to match a road or navigation graph.
 
-Mountain — reference-driven tree modeling with Blender Python, incremental scene tests and a render critique loop:
-https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/reference/canitcode/transcripts/78diFcn3Qas_i-stole-a-mountain-for-my-game.md
+Use reproducible Blender scripts, .blend and separate GLBs. Develop rock, soil, moss, grass and wood shader tests with neutral-lit texture sources; add a distinct falling-water mesh, downstream flow, foam and restrained spray. Keep banks, pool and stratified cliffs coherent, and inspect one representative central slice before mass production.
 
-Retrieve these from the URLs if necessary; do not assume a local repository.
-
-## Scope
-Only the central large waterfall, wooden bridge above it, adjacent cliff facades, river/pool segment, exactly three prototype trees and a small quantity of grass/rocks. Do not dress the full map.
-
-## Implementation
-1. Keep approved P1 terrain, traversability and camera. Test on a self-contained central scene.
-2. Compare (A) existing/approved generated 3D prop where available, (B) Blender geometry with procedural material, (C) exact Blender geometry plus generated textures. Same in-engine camera and light; measure shape, editability, material quality, geometry and cost. Do not spend credits without approval.
-3. Use versioned Blender Python for precise bridge/rock geometry. Generate or preprocess seamless neutral-lit rock, moss, soil, grass and wood textures. Create sensible normal and roughness and mask-based wet/dirt variation, without fixed shadows in base color.
-4. Prototype exactly three distinct trees: trunk/branch geometry, canopy silhouette, baked leaf cards or low-poly leaves, texture atlas, plausible wind animation. Inspect single trees and a tiny cluster.
-5. Make a low-cost Godot water shader for directional stream motion, a separately authored falling-water mesh/animation, impact foam and limited spray. Add readable natural sunlight, soft shadowing and restrained atmosphere.
-6. Build → run Godot → capture fixed-camera screenshot → compare to source and style bible → list visible failures with locations and proposed fixes → revise only failing components. Preserve before/after evidence.
-7. Check exported assets from multiple angles for unseen holes, intersecting geometry, UV seams, transparency sorting and collision issues.
-
-## Deliverables and acceptance
-Working Godot vertical-slice scene, Blender generators/.blend/.glb, material textures, shaders, three-tree comparisons, method A/B/C comparison where feasible, actual Godot screenshots, and reports/P2B_vertical_slice.md. Only real in-engine render quality counts; Blender offline images alone are insufficient. No bulk asset production until the visual direction passes.
+Test materials/lighting/shadows/transparency with **actual Godot renderer captures**, without CharacterBody3D/NavMesh requirements. Record source frames, render settings, before/after corrections and genuine PASS/FAIL/NOT RUN. Check geometry continuity, clipping, material UVs and silhouette from all three P1 camera views. Do not run paid generation without approval. Deliver shaders, Blender sources, prototype assets, real Godot screenshots and reports/P2B_vertical_slice.md.

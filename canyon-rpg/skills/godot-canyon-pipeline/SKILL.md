@@ -1,23 +1,18 @@
 ---
 name: godot-canyon-pipeline
-description: Build and QA stylized modular nature canyon scenes in Godot 4 with Blender Python source scripts, P0 topology blueprint, P1 traversable graybox, P2 vertical slice, P3 modular assets, P4 procedural placement and P5 rendered visual QA. Use when implementing, reviewing or handing off this canyon RPG.
+description: Build and QA art-first stylized natural canyon environments with Blender editable P1-concept blockout, optional Tripo small-model references, optional P1-playable Godot adaptation, and P2-P5 lookdev/assets/assembly/QA. Use for implementing, reviewing and handing off this canyon RPG project.
 ---
-# Godot Canyon Pipeline
 
-Read project AGENTS.md, prompts/en/P*.md and relevant previous gate report. Use one fresh scoped task per session. Test after each task; rerun the failed task, not the entire game.
+# Art-first Blender and Godot Canyon Pipeline
 
-- The main scene is in godot/. Use Godot 4, Y-up and 1 unit = 1 meter.
-- Prefer versioned Blender Python scripts: blender --background --python blender/scripts/<name>.py. Keep .blend and .glb; Blender MCP is optional, not required.
-- Use separate modular cliffs for steep faces, not a heightmap alone.
-- Create curves/splines for road assembly, keep terrain editable, and validate navigation.
-- Compute riverbed depth/flow offline and feed Godot shaders; waterfalls are separately authored geometry/effects.
-- Optimize forest with leaf cards/atlases and instance clustering; keep paths clear.
-- Lock reference camera for comparison; visual critic must inspect actual Godot captures. Do not claim in-engine render or benchmark unless performed.
-- Tripo costs money; get exact approval before running credit-consuming jobs.
-- Respect asset license provenance and stable module ID/dimensions/pivots/collision.
-- Stop at phase gate for review.
+Read canyon-rpg/AGENTS.md and the selected phase prompt; never assume P1 means playable. Default to prompts/en/P1-concept.md (or zh). P1-playable.md is **opt-in** and not required for P2/P3/P4/P5 art work.
 
-The original uploaded godot-clay-render-options ZIP was incomplete and contained zero-byte .qkdownloading entries, so those shaders/templates are not installed.
-## Source-backed workflow retrieval
+P0 uses original image + authored terrain/water/landform design. If an actual new Tripo small model is supplied, inspect it as nonmetric low-confidence reference; do not silently import earlier generated models. Provider-specific legacy P0 is isolated in prompts/en/P0-A-marble.md. Keep originals, source landmarks, camera calibration and revisions separate.
 
-Consult `reference/canitcode/AGENT_INDEX.md` **before** applying channel techniques. It maps P0–P5 to the timestamped transcript files; use the local `reference/canitcode/scripts/search_kb.py` for exact keyword retrieval and `visual_index/` for secondary visual descriptions. Do not treat transcription or visual-index summaries as verified source footage; include YouTube timecode and label inference. Source rights information: `reference/canitcode/PROVENANCE.md`.
+Art first: macro landform -> waterfall/river/pool geometry -> cliff/shore transitions -> fixed 45-degree hero composition and two alternate-camera clay renders -> visual acceptance. The heightmap is bulk terrain only; cliffs, overhangs, falls and bridges are separate editable meshes. No global 18-degree natural-terrain slope ceiling. Use regional 0.5m, 2m, 5m multiscale slope diagnostics; path slope and character dimensions apply only in optional playable mode.
+
+Author geometry reproducibly in Blender Python and keep .blend, generators, diagnostic renders and individually exportable GLBs. Godot data is Y-up, Blender Z-up; validate axis conversion. Do not claim renders, collision or GPU tests not actually run.
+
+P2 uses accepted P1-concept shape and cameras, then Godot material/lookdev testing. P3 modular assets; P4 environmentally plausible assembly; P5 actual visual and measured performance checks. Require a dedicated playable QA gate only if user selected playable.
+
+Do not spend generation credits without permission. Record tool versions, source/license provenance and exact commands; classify PASS/FAIL/ASSUMED/NOT RUN. For Can It Code source attribution, consult reference/canitcode/AGENT_INDEX.md and source transcript timestamps.

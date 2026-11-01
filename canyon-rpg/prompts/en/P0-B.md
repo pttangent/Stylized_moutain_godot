@@ -1,30 +1,17 @@
-# P0-B — Materialize and Validate Engine-Ready Scene Blueprint Files
+# P0-B — Generate and Validate Art-First Spatial Blueprint
 
-You are a procedural level-design tooling engineer.
+Role: Blender-compatible procedural landscape-layout engineer. Use approved P0-A analysis and original images. Prior numerical checks are historical structure validation, NOT proof of art quality or physical traversability.
 
-## Required source
-Cyberpunk City — top-down plans and metric geometry:
-https://github.com/pttangent/Stylized_moutain_godot/blob/main/canyon-rpg/reference/canitcode/transcripts/XqtnBlPJ6KE_is-this-really-ai-insane-opus-5-5-gamedev-workflow.md
+## Required outputs and operations
+1. Create versioned scene_blueprint.json: ID, original image coordinates, authored X/Z/Y positions, world bounds/scale assumption, confidence and evidence type; never silently change prior reviewed anchors.
+2. Make **true top-down** layout_topdown.png with legend, axes, scale, waterfall lips, ponds, cliff lines and optional visual paths.
+3. Create a real single-channel **uint16** heightmap_16bit.png with elevation min/max, transform, sampling and resolution. This is **authored bulk terrain only**: separate vertical cliff faces, overhangs, bridge and falling water into independent authored 3D shape contracts.
+4. Create landform_zones.json, cliff_edges.json and bank/waterfall elevation sections. Design regions distinguish gentle land, rolling slope, steep slope, cliff/overhang, bank, riverbed, pool and optional path. Include meaningful irregularity and transition cues.
+5. Create directed water_graph.json. Check descending water surface and waterfall elevation jumps, each lip's receiving basin, plausible downstream outlet and pool geometry, without claiming fluid physics.
+6. Compute terrain slope theta = atan(sqrt((dY/dX)^2 + (dY/dZ)^2)) in degrees, at approximately 0.5 / 2 / 5 meter smoothing scales. Run blueprint/landform_slope_audit.py if available and save JSON + angle previews. Diagnose implausibly uniform inclines and excessive geometric regularity. A **global 18-degree limit is prohibited**. The 18-degree figure, if used, is advisory for explicitly marked future *ordinary walking paths* only.
+7. Record hero 45-degree orthographic 16:9 camera, source-comparison camera and two alternate shots, camera position/target/ortho size/landmark normalized projection. Keep existing camera.json backward-compatible; source-pixel reconstruction and game camera must not be conflated.
+8. If an actual new small **Tripo** mesh is supplied, use it as inspectable low-confidence evidence after axes and model provenance checks; **never** automatically reuse old models or overwrite reviewed data. If not supplied, image-only blueprint remains valid.
+9. Optional navigation_graph.json can be kept as ART_ROUTE_INTENT_ONLY. No collision, path connectivity, navmesh, physical stair design or CharacterBody3D acceptance in art mode.
 
-Read the remote transcript if needed. Do not assume any Git repository or transcript is locally available.
-
-## Inputs
-The user-provided reference image, the approved P0-A spatial analysis (file or text), and the active project workspace. Inspect the actual inputs; if approved P0-A data is missing, report the missing dependency rather than inventing it.
-
-## Implementation
-Use Python, NumPy, Pillow, SVG and JSON or equivalent reliable local tools to create:
-1. blueprint/scene_blueprint.json: stable element IDs, world bounds, coordinate transforms, units, terrace elevations and uncertainty.
-2. blueprint/layout_topdown.png: true top-down map with meters, scale bar, grid axes, platform footprints, cliff boundaries, rivers, bridges, stairs and labels.
-3. blueprint/heightmap_16bit.png: *actual* grayscale 16-bit height data with documented min/max Y mapping; not an 8-bit RGB mockup.
-4. blueprint/cliff_edges.json: separate steep/vertical/overhanging wall outlines and elevation data.
-5. blueprint/water_graph.json: directed water network with node coordinates, downstream flow, waterfalls, height drops and confluences.
-6. blueprint/navigation_graph.json: walkable platform IDs, edge traversal modes, bridge/stair endpoints, route connectivity, forbidden edges.
-7. blueprint/camera.json: Godot-compatible camera transform, orthographic size, clipping ranges and framing targets.
-
-Keep all outputs mutually consistent. Do not silently reinterpret approved geometry.
-
-## Automated validation
-Implement deterministic Python tests to verify file existence, JSON validity, shared coordinate conventions, unique IDs, all referenced graph nodes, actual 16-bit raster mode, height normalization, downhill waterfall transitions, valid bridge connections, route reachability, allowed world bounds, camera parameters and coverage of approved landmarks. Produce visual previews and overlay comparisons where possible.
-
-## Acceptance and reporting
-Deliver every actual file, the generator and test scripts, preview images and reports/P0B_validation.md. Classify PASS / FAIL / ASSUMED / NOT RUN; give real commands and errors. Do not proceed to 3D blockout until the blueprint is approved.
+## Checks and exit
+Verify referenced IDs, units, real raster bit depth, water direction, separate cliffs, original-image silhouettes, terrain sections, authoring cameras, multiscale slopes, source conflicts and report evidence. Report ART_TOPOLOGY, ART_GEOMORPHOLOGY_REVIEW, CAMERA_UNVERIFIED, OPTIONAL_ROUTE_NOT_TESTED separately. Produce reproducible scripts, preview graphics and reports/P0B_art_validation.md with real PASS/FAIL/ASSUMED/NOT RUN. Do not claim measured terrain or playable world. Exit to P1-concept, **not** forced P1-playable.

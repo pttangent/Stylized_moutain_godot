@@ -1,20 +1,18 @@
-# Shared Agent Contract
+# Shared Agent Contract — Art-First Landscape Pipeline
 
-Read the project skill and current phase prompt. Work one verified task at a time; never advance the phase without user approval.
+**Default goal: visual environment art.** Read the currently selected prompt and the last actual gate report. Do not advance phases without approval. The default P1 is Blender P1-concept; **P1-playable is optional and explicit**, never a prerequisite for P2 art lookdev.
 
-Workflow derived from Can It Code:
-1. Top-down level layout and metric topology.
-2. Playable Godot blockout, tested with character.
-3. Visual slice and in-engine render gauntlet.
-4. Modular Blender Python assets; orthographic source views only for distinctive parts.
-5. Curve-based paths, vegetation and offline water flow cache.
-6. Fixed-camera visual comparison and performance QA.
+1. P0-A/B: source-image-first art-layout, terrain/water/landform slope design, provenance and camera shot plan. Optional small Tripo 3D model is unverified reference only. Legacy specialist model work stays isolated in prompts/en/P0-A-marble.md.
+2. P1-concept: reproducible, editable Blender landscape geometry, three fixed-camera clay renders, landform and visual QA. No collision or navigation gate.
+3. P1-playable (opt-in): preserve approved art, add route-specific collision/navigation, verify actual Godot traversal and visual regressions.
+4. P2: style bible, lookdev and limited central-waterfall visual slice, preserving P1-concept framing. Godot runtime material checks matter at P2, even without playable navigation.
+5. P3/P4: modular production, natural placement, river and waterfall systems; optional paths/collision only for selected gameplay mode.
+6. P5: fixed-shot art QA and real engine profiling; traversal checks conditional on selected playable mode.
 
-Tool assignment: Gemini Argon for scene understanding and critic; Claude Code for Godot engineering; Codex for Blender Python and QA; optional Tripo for small props with explicit credit authorization. Each agent must verify local tool availability.
+Coordinate truth: authored design data is Godot Y-up X/Z horizontal, 1 unit=1 authored meter. Blender native coordinates are Z-up; convert consistently and validate glTF roundtrip. Original images are the visible-landmark source; optional generated meshes (Tripo etc.) are NOT metric terrain, surveyed geometry or walkable ground. Preserve reviewed source IDs and original evidence. Version proposed design changes, never silently rewrite history.
 
-Godot 4, Y-up, 1 unit = 1 meter. Keep .blend and Blender Python scripts under blender/, GLB under assets/, Godot .gd/.tscn/.gdshader under godot/. Commit scripts and test outputs. Reference image occlusions are ASSUMPTIONS rather than accurate geometry. Record exact test commands, actual screenshots, collision/navigation coverage, errors, hardware metrics and source/licensing. Do not claim tests were run without results.
+Natural landscapes do not have a global path-slope ceiling. Audit multiscale terrain slopes (e.g. 0.5/2/5m) for art, erosion plausibility and unwanted uniform ramps. Apply optional ~18-degree ordinary walking-path guidance **only** to explicitly selected traversal geometry. Cliffs, undercuts and waterfall drop faces are independent meshes.
 
-The local full distribution contains phases prompts/en/P0.md to P5.md, prompts/zh/P0.md to P5.md, plus skills/godot-canyon-pipeline/SKILL.md.
-## Required source lookup: Can It Code
+Work with existing toolchains. Prefer script-controlled Blender, editable .blend and per-component GLB for later Godot. Run actual tool commands and retain real images/logs; mark unrun tests NOT RUN. Avoid paid generation without explicit approval.
 
-Before implementing a P0–P5 technique attributed to Can It Code, read `reference/canitcode/AGENT_INDEX.md`. Search the source corpus with `python reference/canitcode/scripts/search_kb.py "water" -n 15` and inspect the original timestamped transcript under `reference/canitcode/transcripts/`. Priority: Cyberpunk City (`XqtnBlPJ6KE`) for P0/P1, Mountain (`78diFcn3Qas`) for P1/P4, Modular Village (`57QEdTgUC3c`) for P2/P3. Record original YouTube URL + timestamps and distinguish direct source vs engineering adaptation. The supplied transcripts may contain automatic transcription errors; see `reference/canitcode/PROVENANCE.md`.
+For techniques attributed to Can It Code, read reference/canitcode/AGENT_INDEX.md and the actual source transcript first. Cite original video/timestamps and distinguish adopted methods from custom design choices. Use the project skill and phase prompt before implementation.

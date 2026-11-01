@@ -1,12 +1,13 @@
-# Canyon RPG — Can It Code workflow
+# Canyon RPG — Art-First Environment Pipeline
 
-This repository's complete downloadable starter, including the reference image, Godot 4 scaffold, dual-language prompts and reusable Godot skill, is available as canyon-rpg.zip in the ChatGPT deliverable. Import the starter files to this directory to continue development.
+This project prioritizes **natural, stylized 3D environment art**. Default route:
 
-Production gates: P0 scene blueprint, P1 playable 3D blockout, P2 visual vertical slice, P3 modular kit, P4 procedural assembly, P5 lookdev and independent QA.
+P0-A (source image + optional user-supplied Tripo small-model spatial clues) → P0-B (terrain/water/slope/camera art blueprint) → **P1-concept (Blender editable clay blockout + three locked camera renders)** → P2 (visual slice/lookdev) → P3 (modular assets) → P4 (procedural environment assembly) → P5 (visual + engine QA).
 
-Do not confuse a scaffold with completed phases. No P0 map, heightmap, water graph, or playable canyon have been validated yet.
+**P1-playable is an optional branch** after P1-concept approval: Godot physical routes, collision, stairs/bridges, navigation and actual player traversal. Do not gate art progression on physical walking tests. Never reshape all cliffs to meet an optional road slope ceiling.
 
-See AGENTS.md for the shared contract and prompts/en/P0.md to begin. The initial reference is reference/canyon_reference.png. The supplied godot-clay-render-options.zip contained zero-byte temporary .qkdownloading placeholders, so its assets were not installed.
-## Can It Code transcript lookup
+See prompts/en/P0.md, prompts/en/P1.md and bilingual prompts/zh/ counterparts. The generic P0 prompt is image-led and provider-neutral, with Tripo small-model input optional; old provider-specific spatial reconstruction is archived separately as prompts/en/P0-A-marble.md and should only be used when explicitly selected.
 
-Read [reference/canitcode/AGENT_INDEX.md](reference/canitcode/AGENT_INDEX.md) for workflow-specific video IDs and timestamps. Run `python reference/canitcode/scripts/search_kb.py "spline" -n 15` from `canyon-rpg/` to search the original user-provided timestamped transcripts. The 33-transcript corpus, 20-frame visual timeline and source/right notes are in `reference/canitcode/`. Treat transcripts as ASR/source notes, not official documentation.
+Existing 2026-10-26 P0 files under blueprint/ and reports/ are **historical authored design candidates**: 17/17 numeric checks only, not playable/art-approved geometry. Preserve previous landmark evidence and version changes. Real source image: assets/worlds/canyon-waterfall/canyon-waterfall-reference.jpeg. Do not mistake a small model or historical candidate mesh for measured terrain.
+
+Useful references: AGENTS.md, skills/godot-canyon-pipeline/SKILL.md and reference/canitcode/AGENT_INDEX.md. The Can It Code transcript corpus is source material; verify important details against originals.
