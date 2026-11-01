@@ -28,10 +28,20 @@ class ContractV2Tests(unittest.TestCase):
         self.assertEqual(result["runtime_visual_validation"], "NOT_RUN")
 
     def test_no_views_allowed_during_p0(self):
-        result = self.result(lambda d: (d["review_views"].clear(),
-                                        d["features"][0]["view_checks"].clear()))
+        result = validate(self.template)
         self.assertFalse(result["errors"])
         self.assertEqual(result["camera_count"], 0)
+
+    def with_view(self, data, **fields):
+        data["review_views"].append({
+            "view_id": "VIEW_TEST", "camera_object": None,
+            "purpose": "TEST_ONLY", "approval": "UNAPPROVED"})
+        check = {
+            "view_id": "VIEW_TEST", "expected_uv_top_left": None,
+            "tolerance_uv": None, "check_occlusion": False
+        }
+        check.update(fields)
+        data["features"][0]["view_checks"].append(check)
 
     def test_duplicate_feature_id_fails(self):
         def mutate(d):
@@ -49,27 +59,26 @@ class ContractV2Tests(unittest.TestCase):
         )["status"], "FAIL")
 
     def test_missing_view_fails(self):
-        self.assertEqual(self.result(
-            lambda d: d["features"][0]["view_checks"][0].update(view_id="NOT_A_VIEW")
-        )["status"], "FAIL")
+        def mutate(data):
+            data["features"][0]["view_checks"].append({
+                "view_id": "NOT_A_VIEW", "expected_uv_top_left": None,
+                "tolerance_uv": None})
+        self.assertEqual(self.result(mutate)["status"], "FAIL")
 
     def test_invalid_screen_position_fails(self):
-        self.assertEqual(self.result(
-            lambda d: d["features"][0]["view_checks"][0].update(
-                expected_uv_top_left=[1.3, 0.5], tolerance_uv=0.03)
-        )["status"], "FAIL")
+        def mutate(data):
+            self.with_view(data, expected_uv_top_left=[1.3, 0.5], tolerance_uv=0.03)
+        self.assertEqual(self.result(mutate)["status"], "FAIL")
 
     def test_unknown_target_must_not_have_tolerance(self):
-        self.assertEqual(self.result(
-            lambda d: d["features"][0]["view_checks"][0].update(
-                expected_uv_top_left=None, tolerance_uv=0.02)
-        )["status"], "FAIL")
+        def mutate(data):
+            self.with_view(data, expected_uv_top_left=None, tolerance_uv=0.02)
+        self.assertEqual(self.result(mutate)["status"], "FAIL")
 
     def test_approved_target_validates_structure_only(self):
-        result = self.result(
-            lambda d: d["features"][0]["view_checks"][0].update(
-                expected_uv_top_left=[0.4, 0.5], tolerance_uv=0.02)
-        )
+        def mutate(data):
+            self.with_view(data, expected_uv_top_left=[0.4, 0.5], tolerance_uv=0.02)
+        result = self.result(mutate)
         self.assertFalse(result["errors"])
         self.assertEqual(result["runtime_visual_validation"], "NOT_RUN")
 

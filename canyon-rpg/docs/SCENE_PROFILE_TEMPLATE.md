@@ -23,7 +23,7 @@ This is a **blank, scene-agnostic authoring template**, not a scene example and 
     "authoring_tool": "Blender",
     "renderer": "UNSPECIFIED",
     "runtime_engine": null,
-    "interactive": false,
+    "interactive": null,
     "delivery_formats": []
   },
   "review_views": [],

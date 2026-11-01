@@ -10,14 +10,7 @@
       "status": "TEMPLATE_ONLY"
     }
   ],
-  "review_views": [
-    {
-      "view_id": "VIEW_PROPOSED",
-      "camera_object": null,
-      "purpose": "REVIEW_IF_APPROVED",
-      "approval": "UNAPPROVED"
-    }
-  ],
+  "review_views": [],
   "features": [
     {
       "feature_id": "feature_primary",
@@ -41,14 +34,7 @@
         ]
       },
       "dependency_ids": [],
-      "view_checks": [
-        {
-          "view_id": "VIEW_PROPOSED",
-          "expected_uv_top_left": null,
-          "tolerance_uv": null,
-          "check_occlusion": false
-        }
-      ]
+      "view_checks": []
     },
     {
       "feature_id": "feature_secondary",
